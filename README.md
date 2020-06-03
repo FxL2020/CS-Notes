@@ -9,6 +9,6 @@
 - [Linux](https://github.com/FxL2020/CS-Notes/labels/Linux)
 #### 网络
 - [计算机网络]()
-- [HTTP]()
+- [HTTP](https://github.com/FxL2020/CS-Notes/labels/HTTP)
 - [Socket]()
 #### 设计模式
