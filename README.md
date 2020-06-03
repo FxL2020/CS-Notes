@@ -12,6 +12,7 @@
 - [HTTP](https://github.com/FxL2020/CS-Notes/labels/HTTP)
 - [Socket]()
 #### 数据库
+- [SQL]()
 - [MySQL]()
 - [Redis]()
 #### 设计模式
