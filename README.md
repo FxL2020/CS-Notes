@@ -23,7 +23,7 @@
 - [JAVA8新特性]()
 - [基础]()
 #### 工具
-- [Git]()
+- [Git](https://github.com/FxL2020/CS-Notes/labels/git)
 - [Docker]()
 #### 分布式
 - [消息中间件](https://github.com/FxL2020/CS-Notes/labels/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97)
