@@ -8,7 +8,7 @@
 - [计算机操作系统]()
 - [Linux](https://github.com/FxL2020/CS-Notes/labels/Linux)
 #### 网络
-- [计算机网络]()
+- [计算机网络](https://github.com/FxL2020/CS-Notes/labels/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C)
 - [HTTP](https://github.com/FxL2020/CS-Notes/labels/HTTP)
 - [Socket]()
 #### 数据库
