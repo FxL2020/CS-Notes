@@ -18,7 +18,7 @@
 #### JAVA
 - [容器]()
 - [并发]()
-- [JVM]()
+- [JVM](https://github.com/FxL2020/CS-Notes/labels/JVM)
 - [IO]()
 - [JAVA8新特性]()
 - [基础](https://github.com/FxL2020/CS-Notes/labels/%E5%9F%BA%E7%A1%80)
