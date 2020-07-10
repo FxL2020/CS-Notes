@@ -25,6 +25,7 @@
 #### 工具
 - [Git](https://github.com/FxL2020/CS-Notes/labels/git)
 - [Docker]()
+- [故障处理]()
 #### 分布式
 - [消息中间件](https://github.com/FxL2020/CS-Notes/labels/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97)
 - [Dubbo]()
