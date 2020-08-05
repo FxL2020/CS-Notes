@@ -6,7 +6,7 @@
 - [十大基本排序](https://github.com/Csx2020/CS-Notes/issues/24)
 #### web前端
 - [javascript]()
-- [vue]()
+- [vue](https://github.com/FxL2020/CS-Notes/labels/vue)
 #### 操作系统
 - [计算机操作系统]()
 - [Linux](https://github.com/FxL2020/CS-Notes/labels/Linux)
