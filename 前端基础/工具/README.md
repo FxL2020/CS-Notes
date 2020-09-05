@@ -38,3 +38,39 @@ Vue在发起跨域请求时，后端已经开启CORS，前端需要也携带cook
             'Content-Type': 'application/x-www-form-urlencoded'
         }
 ```
+```html
+axios.post(this.host + '/users/', {
+                        username: this.username,
+                        password: this.password,
+                        password2: this.password2,
+                        mobile: this.mobile,
+                        sms_code: this.sms_code,
+                        allow: this.allow.toString()
+                    }, {
+                        responseType: 'json',
+                        withCredentials: true
+                    })
+                    .then(response => {
+                         // 记录用户的登录状态
+                        sessionStorage.clear();
+                        localStorage.clear();
+
+                        localStorage.token = response.data.token;
+                        localStorage.username = response.data.username;
+                        localStorage.user_id = response.data.id;
+
+                        location.href = '/index.html';
+                    })
+                    .catch(error=> {
+                        if (error.response.status == 400) {
+                            if ('non_field_errors' in error.response.data) {
+                                this.error_sms_code_message = error.response.data.non_field_errors[0];
+                            } else {
+                                this.error_sms_code_message = '数据有误';
+                            }
+                            this.error_sms_code = true;
+                        } else {
+                            console.log(error.response.data);
+                        }
+                    })
+```
