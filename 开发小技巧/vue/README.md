@@ -18,11 +18,6 @@ module.exports = {
   },
 }
 ```
-然后配置webpack.config.js路径
-```html
-settings-->Languages&Frameworks-->JavaScript-->项目名-->node_modules-->@vue-->@cli-service-->webpack.config.js
-```
-或者
 先确定项目中是否有path模块，
 ```html
 node_modules-->path
@@ -31,3 +26,9 @@ node_modules-->path
 ```html
 npm install path --save
 ```
+或者
+然后配置webpack.config.js路径
+```html
+settings-->Languages&Frameworks-->JavaScript-->项目名-->node_modules-->@vue-->@cli-service-->webpack.config.js
+```
+
