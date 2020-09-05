@@ -15,7 +15,7 @@ this.priceAdjustmentDialog="";
   try {
           WhParameter.verifyNotEmpty(this.priceAdjustmentDialog, "调价依据");
         } catch (e) {
-          this.$toast(e.message);
+          this.$toast(e.message);//弹出调价依据不能为空的提示
           return;
         }
         this.isPriceDialogShow=false;
