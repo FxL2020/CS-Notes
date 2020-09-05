@@ -27,7 +27,7 @@ node_modules-->path
 npm install path --save
 ```
 或者
-然后配置webpack.config.js路径
+配置webpack.config.js路径
 ```html
 settings-->Languages&Frameworks-->JavaScript-->项目名-->node_modules-->@vue-->@cli-service-->webpack.config.js
 ```
