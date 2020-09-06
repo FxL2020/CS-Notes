@@ -8,4 +8,5 @@ Vue在初始化数据时，会使用Object.defineProperty重新定义data中的�
 Vue3.x改用Proxy替代Object.defineProperty。因为Proxy可以直接监听对象和数组的变化，并且有多达13种拦截方法。并且作为新标准将受到浏览器厂商重点持续的性能优化。
 ### vue双向绑定原理
 - 数据劫持（vue.js）
+vue.js采用数据劫持结合发布者-订阅者模式，通过Object.defineProperty()来劫持各个属性的setter,getter,在数据变动时发布消息给订阅者，触发相应的监听回调。
 
