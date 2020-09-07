@@ -13,3 +13,5 @@ vue.js采用数据劫持结合发布者-订阅者模式，通过Object.definePro
 通过obeject . defineProperty(来监听属性变动那么将需要observe的数据对象进行递归遍历，包括子属性对象的属性，都加上setter和getter这样的话，给这个对象的某个值赋值，就会触发setter, 那么就能监听到了数据变化，然后通过维护一个数组收集订阅者，数据变动触发notify，在调用订阅者的update方法
 2、实现个指令解析器Compile,对每个元素节点的指令进行扫描和解析，根据指令模板替换数据，以及绑定相应的更新函数
 3、实现一个Watcher,作为连接Observer和Compile的桥梁， 能够订阅并收到每个属性变动的通知，执行指令绑定的相应回调函数，从而更新视图
+
+https://segmentfault.com/a/1190000006599500
