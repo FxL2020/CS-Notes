@@ -61,3 +61,13 @@ performance monitor 来监控内存占用率和事件监听器的数量<br>
       </span>
  </div>
 ```
+SPA（单页面应用）和MPA（多页面应用）<br>
+多页应用模式(Multi-page Application)页面跳转整页刷新 单页应用模式(Simple-page Application) 页面跳转局部刷新
+https://www.jianshu.com/p/a02eb15d2d70
+- SPA 页面采用keep-alive缓存组件
+- 在更多的情况下，使用v-if替代v-show
+- key保证唯一<br>
+VUE中演示v-for为什么要加key<br>
+https://www.jianshu.com/p/4bd5e745ce95
+
+
