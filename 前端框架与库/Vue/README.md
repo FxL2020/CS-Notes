@@ -30,4 +30,5 @@ https://segmentfault.com/a/1190000006599500
 <input v-bind:value="sth" v-on:input="sth = $event.target.value"/>
 <input :value="sth" @input="sth = $event.target.value"/>
 ```
- 
+ 一方面modal层通过defineProperty来劫持每个属性，一旦监听到变化通过相关的页面元素更新。另一方面通过编译模板文件，为控件的v-model绑定input事件，从而页面输入能实时更新相关data属性值。<br>
+https://www.jianshu.com/p/0d089f770ab2
