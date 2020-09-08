@@ -23,7 +23,11 @@ https://segmentfault.com/a/1190000006599500
 ### 组件中的data为什么是一个函数
 一个组件被复用多次的话，也就会创建多个实例。本质上，这些实例用的都是同一个构造函数，组建中的data写成一个函数，数据以函数返回值的形式定义，这样每次复用组件的时候，都会返回一份新的data，相当于每个组件实例都有自己私有的数据空间，它们只负责各自维护的数据，不会造成混乱。而单纯的写成对象形式，就是所有的组件实例共用了一个data，这样改一个全都改了。
 ### v-model的原理
- v-model本质就是一个语法糖，可以看成是value + input方法的语法糖。 可以通过model属性的prop和event属性来进行自定义。原生的v-model，会根据标签的不同生成不同的事件和属性。
+ v-model本质就是一个语法糖，可以看成是value + input方法的语法糖。 可以通过model属性的prop和event属性来进行自定义。原生的v-model，会根据标签的不同生成不同的事件和属性。<br>
+第一行是第二行的语法糖，第三行第二行简写
+ ```html
+<input v-model="sth"/>
+<input v-bind:value="sth" v-on:input="sth = $event.target.value"/>
+<input :value="sth" @input="sth = $event.target.value"/>
+```
  
- <input v-model="sth" />
-<input v-bind:value="sth" v-on:input="sth = $event.target.value" />
