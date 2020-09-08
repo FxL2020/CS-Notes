@@ -32,3 +32,32 @@ https://segmentfault.com/a/1190000006599500
 ```
  一方面modal层通过defineProperty来劫持每个属性，一旦监听到变化通过相关的页面元素更新。另一方面通过编译模板文件，为控件的v-model绑定input事件，从而页面输入能实时更新相关data属性值。<br>
 https://www.jianshu.com/p/0d089f770ab2
+### Vue的性能优化
+#### 编码阶段
+- 尽量减少data中的数据，data中的数据都会增加getter和setter，会收集对应的watcher
+- v-if和v-for不能连用，当 Vue 处理指令时，v-for 比 v-if 具有更高的优先级，哪怕我们只渲染出一小部分用户的元素，也得在每次重渲染的时候遍历整个列表
+- 如果需要使用v-for给每项元素绑定事件时使用事件代理，有如下两个作用<br>
+1 将事件处理程序代理到父节点，减少内存占用率<br>
+2 动态生成子节点时能自动绑定事件处理程序到父节点<br>
+performance monitor 来监控内存占用率和事件监听器的数量<br>
+不使用事件代理，每个 span 节点绑定一个 click 事件，并指向同一个事件处理程序
+```html
+ <div>
+      <span 
+        v-for="(item,index) of 100000" 
+        :key="index" 
+        @click="handleClick">
+        {{item}}
+      </span>
+ </div>
+```
+使用事件代理
+```html
+<div  @click="handleClick">
+      <span 
+        v-for="(item,index) of 100000"  
+        :key="index">
+        {{item}}
+      </span>
+ </div>
+```
