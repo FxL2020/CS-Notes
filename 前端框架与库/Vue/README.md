@@ -69,5 +69,8 @@ https://www.jianshu.com/p/a02eb15d2d70
 - key保证唯一<br>
 VUE中演示v-for为什么要加key<br>
 https://www.jianshu.com/p/4bd5e745ce95
+- 使用路由懒加载、异步组件
+- 防抖、节流
+https://segmentfault.com/a/1190000018428170
 
 
