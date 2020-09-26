@@ -282,7 +282,7 @@ dom树<br>
 3 通过h5新增的方法获取<br>
 
 4 特殊元素获取<br>
-...<script><br>
+```html
 var timer=document.getElementById('id');//得到一个对象<br>
 comsole.dir(timer)//打印返回的对象<br>
-...</script><br>
+```
