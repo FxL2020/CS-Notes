@@ -80,14 +80,15 @@ false+1=1<br>
 转为字符串：<br>
 1 toString()//null unfinded没有toString()方法<br>
 2 String() a=String(a) null unfinded也可以<br>
-3 和字符串拼接<br>
+3 和字符串拼接 +<br>
 转为数字<br>
 Number()<br>
 空字符串->0
 非数字->NAN
 
 转为数值型<br>
-1 parseInt(‘23’)<br>
+1 parseInt(‘23’)//把字符串转为数字<br>
+parseInt(a,10)转为10进制
 2 parseFloat(‘23.34’)<br>
 
 把其他类型转为boolean类型<br>
