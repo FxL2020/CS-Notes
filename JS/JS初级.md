@@ -1,4 +1,5 @@
-javascript 脚本语言 编程语言<br>
+javascript 诞生1995 前期主要用于处理网页中前端验证
+脚本语言 编程语言 解释性语言 动态语言<br>
 运行在客户端的脚本语言，（script是脚本的意思）<br>
 脚本语言：不需要编译，js解释器js引擎逐行解释执行<br>
 也可以基于node.js技术进行服务器端编程<br>
@@ -22,6 +23,9 @@ js的组成部分<br>
 
 js位置<br>
 行内，内嵌，外部<br>
+```html
+<script type="text/script" src="位置"
+```
 单行注释 // 快捷键 ctrl+ /<br>
 多行 /* */ shift+ alt+a<br>
 
@@ -29,6 +33,11 @@ js位置<br>
 alert(msg)<br>
 console.log(smg) 浏览器控制台输出打印信息<br>
 prompt(info） 浏览器弹出输入框，用户可以输入<br>
+一个网页就是一个文档document//可以向body中输入一个内容
+```html
+document.write("内容");
+```
+
 
 变量<br>
 内存中存放数据的空间<br>
@@ -39,6 +48,10 @@ var myname=prompt('');取过来的值是字符串<br>
 变量未声明，未赋值使用会报错<br>
 未定义，直接赋值可以使用不推荐<br>
 严格区分大小写<br>
+每一条语句都已分号结尾;<br>
+js会忽略多个空格和换行<br
+字面量：不可改变的值，可以直接使用，一般使用变量保存字面量<br>
+标识符一般采用驼峰命名
 js是一种弱类型或动态语言，不用提前申明变量类型，程序运行根据等号右边的值会自动确定<br>
 数据类型<br>
 简单类型：Number,String,Boolean,null,undefined 默认值 0 “” false null undefined<br>
@@ -65,9 +78,13 @@ false+1=1<br>
 
 数据类型转换<br>
 转为字符串：<br>
-1 toString()<br>
-2 String()<br>
+1 toString()//null unfinded没有toString()方法<br>
+2 String() a=String(a) null unfinded也可以<br>
 3 和字符串拼接<br>
+转为数字<br>
+Number()<br>
+空字符串->0
+非数字->NAN
 
 转为数值型<br>
 1 parseInt(‘23’)<br>
