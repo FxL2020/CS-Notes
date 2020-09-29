@@ -50,3 +50,26 @@ console.log(对象 instanceof People)
 ```
 #### 原型对象prototype
 我们所创建的每一个函数，解析器就会向函数中添加一个属性,这个属性对应一个对象 原型对象prototype<br>
+如果函数作为普通函数调用，prototype没有任何作用，当函数以构造函数形式调用时，它所创建的对象中都有一个隐含的属性，指向该构造函数的原型对象，可以使用_proto_来访问该属性<br>
+原型对象相当于一个公共区域，所有同一个类的实例都可以访问这个原型对象，可以将对象中共有的内容，设置在原型对象中<br>
+当我们访问某个属性或方法时，他首先再对象中寻找，如果有返回，没有则回去原型对象中去寻找
+```html
+function MyClass(){}
+MyClass.prototype.a=123
+MyClass.prototype.say=function(){}
+var mc=new MyClass()
+var m1=new MyClass()
+console.log(mc.a)
+console.log(mc.say)
+console.log(MyClass.prototype==mc_prototype==m1_prototype)
+
+```
+可以使用in来检查对象中是否有某个属性，如果对象中没有但原型有也会返回true
+可以使用对象的hasOwnProperty()来检查对象自身中是否有该属性有返回true
+```html
+console.log("name" in mc)
+console.log(mc.hasOwnProperty("name))
+```
+
+
+
