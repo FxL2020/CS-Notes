@@ -46,4 +46,7 @@ this.name=name
 ```html
 console.log(对象 instanceof 构造函数)//是返回true,否则返回false
 console.log(对象 instanceof People)
+//通过一个构造函数创建的对象是一类对象
 ```
+#### 原型对象prototype
+我们所创建的每一个函数，解析器就会向函数中添加一个属性,这个属性对应一个对象 原型对象prototype<br>
