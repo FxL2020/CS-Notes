@@ -66,10 +66,30 @@ console.log(MyClass.prototype==mc_prototype==m1_prototype)
 ```
 可以使用in来检查对象中是否有某个属性，如果对象中没有但原型有也会返回true
 可以使用对象的hasOwnProperty()来检查对象自身中是否有该属性有返回true
+原型对象也是对象，它也有原型，原型中没有也会去原型的原型中去寻找，直到Object对象的原型，Object对象的原型没有原型，如果Objedt没有找到则返回undefined
 ```html
 console.log("name" in mc)
 console.log(mc.hasOwnProperty("name))
+console.log(mc._proto_._proto.hasOwnProperty("name"))
+console.log(mc.sex)
 ```
+#### toString()
+当我们直接再页面中打印一个对象时，页面上输出的对象的toString()方法的返回值
+```html
+var per=new People()
+console.log(per._proto_.proto.hasOwnProperty("toString"))//true,说明这个对象的原型的原型有toString
+per.toString=function()
+{People[name="+this.name+" ,age="+this.age+"]}
+People.prototype.toString=function()
+{People[name="+this.name+" ,age="+this.age+"]}//修改per原型的toString，所以对象toString全都改
+```
+#### 垃圾回收
+垃圾过多会导致程序运行速度变慢，所以需要垃圾回收机制处理程序运行过程中产生的垃圾<br>
+当一个对象没有任何的变量或一个属性对它进行引用，此时我们永远无法操作该对象此时对象就是垃圾，占用内存空间<br>
+js有自动的垃圾回收机制，会自动地将这些垃圾从内存中销毁<br>
+我们需要做的就是把不在使用的对象设置为null即可<br>
+obj=null<br>
+
 
 
 
