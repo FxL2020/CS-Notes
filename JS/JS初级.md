@@ -175,16 +175,14 @@ console.log(str);<br>
 continue:立即跳出本次循环，继续下一次循环//计算1-100除了7的倍数的和<br>
 break:用户跳出整个循环<br>
 
-js数组：一组数据的集合<br>
+#### js数组：一组数据的集合<br>
 创建数组<br>
 1 new var arr=new Array();<br>
 2 利用数组字面量创建数组 var arr= [];<br>
 可以存放不同数据类型的元素<br>
 遍历<br>
 for(var i=0;i<arr.length;i++)<br>
-
 数组转化为分割字符串<br>
-
 增加数组长度<br>
 var arr=[1,2,3]<br>
 arr.length=5;<br>
@@ -193,6 +191,43 @@ arr.length=5;<br>
 undefined——表示变量声明过但并未赋过值。<br>
 null——表示一个变量将来可能指向一个对象。<br>
 一般用于主动释放指向对象的引用<br>
+数组长度：对于非连续数组，使用length会获取到数组的最大索引+1<br>
+
+数组的四个方法<br>
+1.push():该方法可以向数组的末尾添加一个或多个元素，并返回数组的新的长度
+```html
+var arr=[1,2,3];
+var len=arr.push(2,3,4,5);len=7
+console.log(arr)
+```
+2.pop():该方法可以删除数组最后一个元素，并将被删除的元素作为返回值
+3.unshift():该方法可以向数组开头添加一个或多个元素，并返回新的数组长度,其余的元素索引依次调整
+```html
+var arr=[1,2,3];
+var len=arr.unshift("小米","xiaoming");len=5
+console.log(arr)
+```
+4.shift():可以删除数组的第一个元素，并将删除的元素作为返回值返回
+```html
+var arr=[1,2,3];
+var len=arr.shift();
+console.log(arr)
+```
+
+遍历数组
+var arr=[per1,per2,per3];
+```html
+function get(){
+var newArr=[];
+for(var i=0;i<arr.length;i++){
+var p=arr[i];
+if(p.age>=18){
+  newArr.push(p);}
+}                               
+}//把age大于18的对象放入新的数组
+```
+forEach()//只支持ie8以上的浏览器
+
 
 js函数<br>
 封装了一段可被重复调用执行的代码块，通过此代码块可以实现大量代码的重复使用<br>
