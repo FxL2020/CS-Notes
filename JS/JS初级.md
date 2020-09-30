@@ -406,13 +406,33 @@ console.log(obj[i]):得到属性值<br>
 Math,Date,String,Array<br>
 
 Date对象
-var date=new Date();//封装当前时间
-Math和其他对象不一样，他不是一个构造函数，她属于一个工具类不用创建对象
-
-
+```html
+var date=new Date();//封装当前时间<br>
+Math和其他对象不一样，他不是一个构造函数，她属于一个工具类不用创建对象，它里面封装了数学运算相关的属性和方法<br>
+Math.PI:表示圆周率
+Math.abs():计算一个数的绝对值
+Math.ceil():向上取整
+Math.floor():可以对一个数向下取整
+Math.round():对一个数进行四舍五入
+Math.random():可以用来生成一个0-1之间的随机数
+Math.max(10,34,67,34):可以获取多个数最大值
+Math.min(10,34,67,34):可以获取多个数最小值
+Math.pow(x,y):返回x的y次方
+Math.sqrt(x):用于对一个数进行开方运算
+```
 webapi 是浏览器提供的一套操作浏览器功能和页面元素的api(BOM和BOM）<br>
 api是为程序员提供的一个接口，帮助我们实现某个功能<br>
 
+#### 包装类
+js中有三个包装类：可以将基本数据类型的数据转化为对象
+```html
+String()
+Number()
+Boolean()
+var num=new Number(3);
+console.log(typeof num)//Object
+num.name="12"//向num添加一个属性
+```html
 dom document object model可处理可扩展标记语言html/xml的标准编程接口<br>
 通过dom接口可以改变网页的内容，结构和样式<br><br>
 dom树<br>
