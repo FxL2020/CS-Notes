@@ -283,6 +283,25 @@ return b-a;//降序排序
 })
 
 ```
+call()和apply():这两个方法都是函数对象的方法，需要函数对象来调用，当函数调用call()和apply()，都会调函数执行<br>
+fun.call()<br>
+都可以将一个对象指定为第一个参数，此时这个对象会成为函数执行时的this<br>
+call()可以将实参在对象之后依次传递<br>
+apply()可以将实参封装到一个数组里统一传递
+```html
+fun.call(obj,1,2,3);
+fun.apply(obj,[1,2,3]);
+```
+this的情况：1.以函数形式调用时，this永远都是window
+2.以方法的形式调用时，this是调用方法的对象
+3.以构造函数形式调用时，this就是新创建的那个对象
+4.使用call()和apply()调用时，this就是指定的那个对象
+
+
+
+
+
+
 
 
 js函数<br>
@@ -313,21 +332,28 @@ return 终止函数（renturn之后的代码不会执行了）<br>
 return只能返回一个值，最后一个：num1，num2会返回num2/也可以返回一个数组<br>
 函数没有return，返回undefined<br>
 
+在调用函数时，浏览器每次都会都会传递两个隐含的参数<br>
+1.函数的上下文对象this<br>
+2.封装实参的对象arguments<br>
+arguments是一个类数组对象，他也可以通过索引来操作数据，也可以获取长度<br>
+即使不定义形参，我们也可以通过arguments来使用实参
+arguments[0]:表示第一个实参
+arguments[1]:表示第二个实参
+
 不确定有多少参数传递的时候，可以使用arguments来获取，js中,arguments就是函数的一个内置对象，存储了传递的所有实参。<br>
 使用：在方法中console.log(arguments/arguments.length)<br>
-
 利用函数求任意个数的最大值<br>
-function getMax(){<br>
-var max=arguments[0];<br>
-for(var i=1;i<arguments.length;i++){<br>
-if(max<arguments[i])<br>
-max=arguments[i]<br>
-}<br>
-return max;<br>
-}<br>
-
+```html
+function getMax(){
+var max=arguments[0];
+for(var i=1;i<arguments.length;i++){
+if(max<arguments[i])
+max=arguments[i]
+}
+return max;
+}
+```
 函数可以调用另外一个函数<br>
-
 函数两种命名方式<br>
 1 命名函数 function fu(){}<br>
 2 表达式函数 var num=function(){}:匿名表达式也可以传参 num(1)<br>
@@ -342,12 +368,15 @@ js引擎运行js分为两步，预解析和代码执行<br>
 函数提升：<br>
 
 js创建对象<br>
-1 字面量创建对象{} var obj={<br>
-name: ‘张三’,<br>
-sayHi: function(){},<br>
-};<br>
+1 字面量创建对象{} 
+```html
+var obj={
+name: ‘张三’,
+sayHi: function(){},
+};
 2 new object<br>
 var obj=new Object()<br>
+```
 3 构造方法<br>
 function 构造方法名(){<br>
 this.属性=值，<br>
@@ -372,9 +401,14 @@ console.log(i);:得到属性名<br>
 console.log(obj[i]):得到属性值<br>
 }<br>
 
-js对象分为三种，自定义对象，内置对象，浏览器对象<br>
+#### js对象分为三种，自定义对象，内置对象，浏览器对象<br>
 内置对象:js自带的对象<br>
 Math,Date,String,Array<br>
+
+Date对象
+var date=new Date();//封装当前时间
+Math和其他对象不一样，他不是一个构造函数，她属于一个工具类不用创建对象
+
 
 webapi 是浏览器提供的一套操作浏览器功能和页面元素的api(BOM和BOM）<br>
 api是为程序员提供的一个接口，帮助我们实现某个功能<br>
