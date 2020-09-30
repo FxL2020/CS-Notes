@@ -268,6 +268,7 @@ console.log(result);
 join():该方法可以把数组转为字符串，不会对原数组造成影响返回字符串
 join(“@”)//连接符，默认,连接符
 
+
 reverse():反转数组<br>
 arr.reverse()//直接修改原数组<br>
 
