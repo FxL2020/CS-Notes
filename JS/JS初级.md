@@ -432,7 +432,7 @@ Boolean()
 var num=new Number(3);
 console.log(typeof num)//Object
 num.name="12"//向num添加一个属性
-```html
+```
 dom document object model可处理可扩展标记语言html/xml的标准编程接口<br>
 通过dom接口可以改变网页的内容，结构和样式<br><br>
 dom树<br>
