@@ -282,8 +282,33 @@ arr.sort(function(a,b){
 return a-b;//升序排序
 return b-a;//降序排序
 })
-
+#### 字符串方法
+在底层字符串是以字符数组的形式保存的<br>
+split()//可以将一个字符串转化为一个数组，需要一个字符串（split("")为空则每个字符）作为数组<br>
+toUpperCase()//将一个字符串转为大写并返回<br>
+toLowerCase()//将一个字符串转为小写并返回<br>
+```html
+var str="hello world"
+length:属性//获取字符串长度
+charAt:返回字符串指定位置字符
+str[i]:返回字符串指定位置字符
+result =String.fromCharCode(20025)//根据字节编码获取字节
+charCodeAt():获取指定位置字符的字符编码（Unicode编码）
+str.charCodeAt(0)
+concat():可以连接两个或多个字符串，并返回新的字符串
+result=str.concat("","");
+indexOf()//检索一个字符串是否含有指定内容
+str.indexOf("h")//如果有则返回第一次出现的索引，如果没有找到返回-1
+slice():截取字符串从开始索引位置到结束索引位置，不会改变原有字符串而是封装到一个新的字符串中返回
+substring()
+str="122,234,34,3"
+result = str.split(",")
 ```
+#### 正则表达式
+定义一些字符串规则<br>
+计算机可以根据正则表达式，来检查一个字符串是否符合规则
+
+
 call()和apply():这两个方法都是函数对象的方法，需要函数对象来调用，当函数调用call()和apply()，都会调函数执行<br>
 fun.call()<br>
 都可以将一个对象指定为第一个参数，此时这个对象会成为函数执行时的this<br>
