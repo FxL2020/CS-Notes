@@ -380,7 +380,7 @@ exp =new RegExp("\\.")
 ```
 ```html
 /^1[3-9][0-9]{9}$/   //手机号规则
-/^\w{3,}(\.\w+)*@[A-z0-9]+\.[A-z0-9]{2,5}$/
+/^\w{3,}(\.\w+)*@[A-z0-9]+\.[A-z0-9]{2,5}$/   //邮箱规则
 \w :任意字母数字下划线
 A-z0-9 ：任意数字字母
 ```
@@ -544,19 +544,56 @@ var num=new Number(3);
 console.log(typeof num)//Object
 num.name="12"//向num添加一个属性
 ```
+
+#### DOM
 dom document object model可处理可扩展标记语言html/xml的标准编程接口<br>
-通过dom接口可以改变网页的内容，结构和样式<br><br>
+通过dom接口可以改变网页(一个html)的内容，结构和样式<br><br>
+对象表示：将网页中的每一个部分都转化为一个对象<br>
+model:对象之间的关系<br>
+节点：将网页中的每一个部分都转化为一个对象
+文档节点：网页
+元素节点：标签
+属性节点：属性名
+文本节点：text<br>
+
+文档节点：document 浏览器提供，是window属性，可以在页面中直接使用，文档节点代表整个网页
+
 dom树<br>
 页面中的所以标签都是元素，dom中用element表示<br>
 网页中的所以内容都可以看做节点，node<br>
 
 获取网页元素<br>
-1 通过id获取<br>
-2 通过标签名获取<br>
+1 通过id获取一个元素节点对象<br>
+2 通过标签名获取一组<br>
+getElementsByTagName()
+通过name属性获取一组元素节点对象
+getElementsByName()
 3 通过h5新增的方法获取<br>
-
 4 特殊元素获取<br>
 ```html
-var timer=document.getElementById('id');//得到一个对象<br>
+<button id="id">按钮<button>
+var but=document.getElementById('id');//得到一个对象<br>
+修改按钮文字：but.innerHTML="按钮是我"；
+console.log(but.innerHTML) //打印标签内容
 comsole.dir(timer)//打印返回的对象<br>
+innerHTML：获取元素内部html代码，对于自闭标签没有意义
+如果需要读取元素节点属性：
+直接使用元素.属性名
 ```
+事件：用户和浏览器之间的交互<br>
+点击，鼠标移动，关闭窗口<br>
+在事件属性中放入js代码
+点击onclick=""<br>
+鼠标移动：onmousemove
+绑定单击事件
+```html
+but.onclick=function(){}
+```
+##### 文档的加载
+浏览器在加载一个网页时，是按照自上而下的顺序加载的，读取到一行就运行一行<br>
+将js代码放在页面下面就是为了页面加载完毕后在执行js代码<br>
+onload事件：整个页面加载完之后执行<br>
+window.onload=function(){所有js代码}  然后js代码可以放在网页上面<br>
+
+
+
