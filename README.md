@@ -30,7 +30,7 @@
 - [Git](https://github.com/FxL2020/CS-Notes/labels/git)
 - [Docker]()
 - [性能优化与故障处理](https://github.com/FxL2020/CS-Notes/labels/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B8%8E%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86)
-#### 分布式
+<!-- #### 分布式
 - [消息中间件](https://github.com/FxL2020/CS-Notes/labels/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97)
 - [Dubbo]()
 - [ZooKeeper]()
@@ -45,4 +45,4 @@
 - [Spring](https://github.com/FxL2020/CS-Notes/labels/Spring)
 - [MyBatis]()
 - [SpringMVC]()
-#### 设计模式
+#### 设计模式 -->
