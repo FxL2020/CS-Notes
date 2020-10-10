@@ -606,3 +606,5 @@ window.onload=function(){所有js代码}  然后js代码可以放在网页上面
 
 
 
+
+
