@@ -588,6 +588,16 @@ innerHTML：获取元素内部html代码，对于自闭标签没有意义
 ```html
 but.onclick=function(){}
 ```
+单选框：通过id获取一个元素节点对象<br>
+多选框：通过name属性获取一组元素节点对象<br>
+```html
+//全选
+items=getElementsByName()
+for(){
+items[i].checked=true;
+}
+
+```
 ##### 文档的加载
 浏览器在加载一个网页时，是按照自上而下的顺序加载的，读取到一行就运行一行<br>
 将js代码放在页面下面就是为了页面加载完毕后在执行js代码<br>
