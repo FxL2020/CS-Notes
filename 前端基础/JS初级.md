@@ -550,13 +550,12 @@ dom document object model可处理可扩展标记语言html/xml的标准编程�
 通过dom接口可以改变网页(一个html)的内容，结构和样式<br><br>
 对象表示：将网页中的每一个部分都转化为一个对象<br>
 model:对象之间的关系<br>
-节点：将网页中的每一个部分都转化为一个对象
-文档节点：网页
-元素节点：标签
-属性节点：属性名
+节点：将网页中的每一个部分都转化为一个对象<br>
+文档节点：网页<br>
+元素节点：标签<br>
+属性节点：属性名<br>
 文本节点：text<br>
-
-文档节点：document 浏览器提供，是window属性，可以在页面中直接使用，文档节点代表整个网页
+文档节点：document 浏览器提供，是window属性，可以在页面中直接使用，文档节点代表整个网页<br>
 
 dom树<br>
 页面中的所以标签都是元素，dom中用element表示<br>
@@ -565,9 +564,9 @@ dom树<br>
 获取网页元素<br>
 1 通过id获取一个元素节点对象<br>
 2 通过标签名获取一组<br>
-getElementsByTagName()
-通过name属性获取一组元素节点对象
-getElementsByName()
+getElementsByTagName()<br>
+通过name属性获取一组元素节点对象<br>
+getElementsByName()<br>
 3 通过h5新增的方法获取<br>
 4 特殊元素获取<br>
 ```html
@@ -584,8 +583,8 @@ innerHTML：获取元素内部html代码，对于自闭标签没有意义
 点击，鼠标移动，关闭窗口<br>
 在事件属性中放入js代码
 点击onclick=""<br>
-鼠标移动：onmousemove
-绑定单击事件
+鼠标移动：onmousemove<br>
+绑定单击事件<br>
 ```html
 but.onclick=function(){}
 ```
