@@ -56,7 +56,7 @@ js会忽略多个空格和换行<br
 js是一种弱类型或动态语言，不用提前申明变量类型，程序运行根据等号右边的值会自动确定<br>
 数据类型<br>
 简单类型：Number,String,Boolean,null,undefined 默认值 0 “” false null undefined<br>
-复杂数据类型：object<br>
+复杂数据类型：object,array,Function<br>
 进制<br>
 八进制：数字前面加0表示八进制 010 表示十进制8<br>
 十六进制：数字前面加0x表示十六进制，oxa 表示十进制10<br>
