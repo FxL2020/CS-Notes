@@ -389,11 +389,6 @@ i:忽略大小写<br>
 g:全局匹配模式<br>
 var exp=new RegExp("a","i")<br>
 
-
-
-
-
-
 call()和apply():这两个方法都是函数对象的方法，需要函数对象来调用，当函数调用call()和apply()，都会调函数执行<br>
 fun.call()<br>
 都可以将一个对象指定为第一个参数，此时这个对象会成为函数执行时的this<br>
@@ -407,13 +402,6 @@ this的情况：1.以函数形式调用时，this永远都是window
 2.以方法的形式调用时，this是调用方法的对象
 3.以构造函数形式调用时，this就是新创建的那个对象
 4.使用call()和apply()调用时，this就是指定的那个对象
-
-
-
-
-
-
-
 
 js函数<br>
 封装了一段可被重复调用执行的代码块，通过此代码块可以实现大量代码的重复使用<br>
@@ -596,13 +584,25 @@ items=getElementsByName()
 for(){
 items[i].checked=true;
 }
-
 ```
+document中有一个属性body，它保存body的引用
+```html
+var body=document.body
+```
+document.documentElement保存着html根标签
+```html
+var html=document.documentElement;
+```
+document.all：代表页面中所有元素
+
 ##### 文档的加载
 浏览器在加载一个网页时，是按照自上而下的顺序加载的，读取到一行就运行一行<br>
 将js代码放在页面下面就是为了页面加载完毕后在执行js代码<br>
 onload事件：整个页面加载完之后执行<br>
 window.onload=function(){所有js代码}  然后js代码可以放在网页上面<br>
+
+#### 事件对象
+
 
 
 
