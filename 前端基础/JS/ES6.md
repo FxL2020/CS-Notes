@@ -60,3 +60,34 @@ p.a; // 'a' = 2
 
 ### map
 https://www.jianshu.com/p/53032fc0909a
+```js
+定义在JavaScript的Array中，它返回一个新的数组，数组中的元素为原始数组调用函数处理后的值。
+array.map(function(currentValue, index, arr), thisIndex)
+function(currentValue, index, arr)：必须。为一个函数，数组中的每个元素都会执行这个函数。其中函数参数：
+currentValue：必须。当前元素的的值。
+index：可选。当前元素的索引。
+arr：可选。当前元素属于的数组对象。
+遍历对象数组
+data.departments.map(v=>{
+                  return {
+                      key: v.id,
+                      value: v.departmentName
+                  }
+          });
+```
+
+### filter
+
+filter 的作用也是生成一个新数组，在遍历数组的时候将返回值为 true 的元素放入新数组，我们可以利用这个函数删除一些不需要的元素
+
+filter 的回调函数接受三个参数，分别是当前索引元素，索引，原数组
+
+### Es6 中箭头函数与普通函数的区别？
+
+- 普通 function 的声明在变量提升中是最高的，箭头函数没有函数提升
+- 箭头函数没有属于自己的`this`，`arguments`
+- 箭头函数不能作为构造函数，不能被 new，没有 property
+- 不可以使用 yield 命令，因此箭头函数不能用作 Generator 函数
+- 不可以使用 new 命令，因为：
+  - 没有自己的 this，无法调用 call，apply
+  - 没有 prototype 属性 ，而 new 命令在执行时需要将构造函数的 prototype 赋值给新的对象的 `__proto__`
