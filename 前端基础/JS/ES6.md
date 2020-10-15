@@ -82,7 +82,7 @@ filter 的作用也是生成一个新数组，在遍历数组的时候将返回�
 
 filter 的回调函数接受三个参数，分别是当前索引元素，索引，原数组
 
-### Es6 中箭头函数与普通函数的区别？
+### Es6 新增箭头函数与普通函数的区别？
 
 - 普通 function 的声明在变量提升中是最高的，箭头函数没有函数提升
 - 箭头函数没有属于自己的`this`，`arguments`
@@ -91,3 +91,62 @@ filter 的回调函数接受三个参数，分别是当前索引元素，索引�
 - 不可以使用 new 命令，因为：
   - 没有自己的 this，无法调用 call，apply
   - 没有 prototype 属性 ，而 new 命令在执行时需要将构造函数的 prototype 赋值给新的对象的 `__proto__`
+  ```js
+  ES6箭头函数语法定义函数，将原函数的“function”关键字和函数名都删掉，并使用“=>”连接参数列表和函数体。
+  当函数参数只有一个，括号可以省略；但是没有参数时，括号不可以省略。
+  var fn1 = (a, b) => {
+    return a + b
+}
+(a, b) => {
+    return a + b
+}
+  ```
+  ### Promise
+
+`Promise` 翻译过来就是承诺的意思，这个承诺会在未来有一个确切的答复，并且该承诺有三种状态，这个承诺一旦从等待状态变成为其他状态就永远不能更改状态了。
+
+- 等待中（pending）
+- 完成了（resolved）
+- 拒绝了（rejected）
+
+当我们在构造 Promise 的时候，构造函数内部的代码是立即执行的。
+
+```js
+new Promise((resolve, reject) => {
+  console.log('new Promise');
+  resolve('success');
+});
+console.log('finifsh');
+
+// 先打印new Promise， 再打印 finifsh
+```
+
+Promise 实现了链式调用，也就是说每次调用 then 之后返回的都是一个 Promise，并且是一个全新的 Promise，原因也是因为状态不可变。如果你在 then 中 使用了 return，那么 return 的值会被 Promise.resolve() 包装。
+
+```js
+Promise.resolve(1)
+  .then((res) => {
+    console.log(res); // => 1
+    return 2; // 包装成 Promise.resolve(2)
+  })
+  .then((res) => {
+    console.log(res); // => 2
+  });
+```
+
+当然了，Promise 也很好地解决了回调地狱的问题
+
+```js
+ajax(url)
+  .then((res) => {
+    console.log(res);
+    return ajax(url1);
+  })
+  .then((res) => {
+    console.log(res);
+    return ajax(url2);
+  })
+  .then((res) => console.log(res));
+```
+
+其实它也是存在一些缺点的，比如无法取消 Promise，错误需要通过回调函数捕获。
