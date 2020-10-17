@@ -122,6 +122,11 @@ console.log('finifsh');
 
 // 先打印new Promise， 再打印 finifsh
 ```
+Promise实例生成以后，可以用then方法分别指定resolved状态和rejected状态的回调函数。第二个函数是可选的，不一定要提供
+```js
+ promise.then.((function(value){},function (error) {
+    }));
+```
 
 Promise 实现了链式调用，也就是说每次调用 then 之后返回的都是一个 Promise，并且是一个全新的 Promise，原因也是因为状态不可变。如果你在 then 中 使用了 return，那么 return 的值会被 Promise.resolve() 包装。
 
