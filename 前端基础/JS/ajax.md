@@ -11,6 +11,7 @@ XMLHttpRequest对象简介<br>
 XMLHttpRequest：是一个构造构造函数，是windows下的一个全局对象，可以new XMLHttpRequest来使用<br>
 
 
+```js
 let myConsole //变量：{仿控制台组件实例对象}
 $(function()) {
      myConsole = fnConsole({id : "#id_console"})//初始化控制台，并且赋值给myConsole
@@ -35,3 +36,5 @@ myConsole.print(request.responseText);
 }
 }
 }
+
+```
