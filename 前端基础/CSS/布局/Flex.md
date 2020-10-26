@@ -44,10 +44,17 @@ flex-start：默认，上对齐<br>
 flex-end：下对齐<br>
 center：居中对齐<br>
 srtetch: 拉伸但是子盒子不要给高度
-
-
-
-
-
-
+<br>
+align-content: 设置侧轴上的子元素的排列方式(多行)<br>
+子项目出现换行
+flex-start：<br>
+flex-end：<br>
+center：居中对齐<br>
+space-around：平分剩余空间<br>
+space-between：先两边贴边，然后平分剩余空间<br>
+<br>
+flex-flow: 复合属性，相当于同时设置了flex-direction和flex-wrap<br>
+flex-flow: column wrap;//设置y为主轴，换行
+#### 子项常见属性
+属性<br>
 
