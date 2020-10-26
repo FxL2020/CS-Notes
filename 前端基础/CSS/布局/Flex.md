@@ -18,12 +18,14 @@ flex-flow: 复合属性，相当于同时设置了flex-direction和flex-wrap<br>
 元素跟着主轴来排列
 <br>
 flex-direction: 设置主轴的方向<br>
+属性<br>
 row: 默认从左到右<br>
 roe-reverse: 从右到左<br>
 column: 从上到下<br>
 column-reverse: 从下到上<br>
 <br>
 justify-content: 设置主轴上的子元素排列方式<br>
+属性<br>
 flex-start：默认从左到右排序，左对齐<br>
 flex-end：右对齐<br>
 center：居中对齐<br>
@@ -31,10 +33,13 @@ space-around：平分剩余空间<br>
 space-between：先两边贴边，然后平分剩余空间<br>
 <br>
 flex-wrap: 设置子元素是否换行<br>
+属性<br>
 flex布局中默认是不换行的，如果放不开会缩小子元素的宽度<br>
 默认:nowrap 不换行<br>
 wrap 换行<br>
+<br>
 align-items: 设置侧轴上的子元素的排列方式(单行)<br>
+属性<br>
 flex-start：默认，上对齐<br>
 flex-end：下对齐<br>
 center：居中对齐<br>
