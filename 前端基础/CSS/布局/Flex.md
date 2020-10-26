@@ -43,7 +43,7 @@ align-items: 设置侧轴上的子元素的排列方式(单行)<br>
 flex-start：默认，上对齐<br>
 flex-end：下对齐<br>
 center：居中对齐<br>
-srtetch: 拉伸但是子盒子不要给高度
+srtetch: 拉伸但是子盒子不要给高度<br>
 <br>
 align-content: 设置侧轴上的子元素的排列方式(多行)<br>
 子项目出现换行
