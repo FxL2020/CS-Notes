@@ -21,6 +21,72 @@ JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。
   - 声明后不能再修改
   - 如果声明的是复合类型数据，可以修改其属性
   
+ ### 作用域
+ 全局作用域   局部作用域
+ ES6新增块级作用域
+ 
+ ### Es6 新增箭头函数与普通函数的区别？
+语法糖 简化了函数的定义<br>
+- 普通 function 的声明在变量提升中是最高的，箭头函数没有函数提升
+- 箭头函数没有属于自己的`this`，`arguments`
+- 箭头函数不能作为构造函数，不能被 new，没有 property
+- 不可以使用 yield 命令，因此箭头函数不能用作 Generator 函数
+- 不可以使用 new 命令，因为：
+  - 没有自己的 this，无法调用 call，apply
+  - 没有 prototype 属性 ，而 new 命令在执行时需要将构造函数的 prototype 赋值给新的对象的 `__proto__`
+
+  ES6箭头函数语法定义函数，将原函数的“function”关键字和函数名都删掉，并使用“=>”连接参数列表和函数体。
+  当函数参数只有一个，括号可以省略；但是没有参数时，括号不可以省略。 
+```js
+var a=arr.filter(item=>item>5)
+var a=arr.filter(function(item){
+return item>5;
+})
+let f=(n1,n2)=>({a:n1,b:n2})
+var fn1 = (a, b) => {
+    return a + b
+}
+(a, b) => {
+    return a + b
+}
+ ```
+ 
+ ### Set
+ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。Set本身是一个构造函数，用来生成 Set 数据结构。
+```js
+const items = new Set([1, 2, 3, 4, 5, 5, 5, 5]);
+items.size // 5
+items.add(1).add(2).add(2) //链式添加
+```
+也提供了一种数组去重方法<br>
+...扩展运算符 转为用逗号分隔的参数序列
+```js
+// 去除数组的重复成员
+[...new Set(array)]
+```
+字符串去重
+```js
+[...new Set('ababbc')].join('')
+// "abc"
+```
+### Map
+ES6 提供了 Map 数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。也就是说，Object 结构提供了“字符串—值”的对应，Map 结构提供了“值—值”的对应，是一种更完善的 Hash 结构实现。如果你需要“键值对”的数据结构，Map 比 Object 更合适。
+```js
+const m = new Map();
+const o = {p: 'Hello World'};
+
+m.set(o, 'content')
+m.get(o) // "content"
+
+m.has(o) // true
+m.delete(o) // true
+m.has(o) // false
+
+ES6提供了for of遍历map
+for(let [k,value] of m2)
+{
+}
+```
   ### Proxy
 
 Proxy 是 ES6 中新增的功能，它可以用来自定义对象中的操作。 Vue3.0 中将会通过 Proxy 来替换原本的 Object.defineProperty 来实现数据响应式。
@@ -88,26 +154,7 @@ filter 的作用也是生成一个新数组，在遍历数组的时候将返回�
 
 filter 的回调函数接受三个参数，分别是当前索引元素，索引，原数组
 
-### Es6 新增箭头函数与普通函数的区别？
 
-- 普通 function 的声明在变量提升中是最高的，箭头函数没有函数提升
-- 箭头函数没有属于自己的`this`，`arguments`
-- 箭头函数不能作为构造函数，不能被 new，没有 property
-- 不可以使用 yield 命令，因此箭头函数不能用作 Generator 函数
-- 不可以使用 new 命令，因为：
-  - 没有自己的 this，无法调用 call，apply
-  - 没有 prototype 属性 ，而 new 命令在执行时需要将构造函数的 prototype 赋值给新的对象的 `__proto__`
-
-  ES6箭头函数语法定义函数，将原函数的“function”关键字和函数名都删掉，并使用“=>”连接参数列表和函数体。
-  当函数参数只有一个，括号可以省略；但是没有参数时，括号不可以省略。 
-```js
-var fn1 = (a, b) => {
-    return a + b
-}
-(a, b) => {
-    return a + b
-}
- ```
   
   ### Promise
 
@@ -197,35 +244,7 @@ c // "l"
 d // "l"
 e // "o"
 ```
-### Set
-ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。Set本身是一个构造函数，用来生成 Set 数据结构。
-```js
-const items = new Set([1, 2, 3, 4, 5, 5, 5, 5]);
-items.size // 5
-```
-也提供了一种数组去重方法
-```js
-// 去除数组的重复成员
-[...new Set(array)]
-```
-字符串去重
-```js
-[...new Set('ababbc')].join('')
-// "abc"
-```
-### Map
-ES6 提供了 Map 数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。也就是说，Object 结构提供了“字符串—值”的对应，Map 结构提供了“值—值”的对应，是一种更完善的 Hash 结构实现。如果你需要“键值对”的数据结构，Map 比 Object 更合适。
-```js
-const m = new Map();
-const o = {p: 'Hello World'};
 
-m.set(o, 'content')
-m.get(o) // "content"
-
-m.has(o) // true
-m.delete(o) // true
-m.has(o) // false
-```
 
 
 
