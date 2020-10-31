@@ -1,14 +1,20 @@
 
 # ES6
 
+### ES6和JS关系
+ECMAScript 6规范<br>
+js对这个规范的实现<br>
+TS是js的超集<br>
+babel转码器：把ES6转为浏览器识别的ES5
+
 ### var、let 及 const 区别？
+定义变量
 变量提升：
 JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。
-JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。
 - 全局申明的 var 变量会挂载在 window 上，而 let 和 const 不会
-- var 声明变量存在变量提升，let 和 const 不会
+- <b>var 声明变量存在变量提升，let 和 const 不会</b>
 - let、const 的作用范围是块级作用域，而 var 的作用范围是函数作用域
-- 同一作用域下 let 和 const 不能声明同名变量，而 var 可以
+- <b>同一作用域下 let 和 const 不能声明同名变量，而 var 可以</b>
 - 同一作用域下在 let 和 const 声明前使用会存在暂时性死区
 - const
   - 一旦声明必须赋值,不能使用 null 占位
