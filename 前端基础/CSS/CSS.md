@@ -125,7 +125,7 @@ important > 内嵌样式 > ID > 类 > 标签 | 伪类 | 属性选择 > 伪对象
 </div>
 </body>
  ```
- ...一行补充
+ ...以后补充
  参考：https://www.cnblogs.com/jogen/p/5213566.html
  
  ### 5.元素种类的划分
@@ -202,6 +202,18 @@ margin合并问题<br>
  display: inline 将目的元素转为行内元素，设置宽高是没有效果的，<br>
  display: inline-block 设置成行内块元素,既有行元素特性又有块元素特性<br>
  
+ ### 11.CSS定位属性
+ 参考：https://www.cnblogs.com/qianguyihao/p/8296748.html
+ 
+ ### 12.IFC与BFC
+- BFC属性(Block Formatting Content块级格式化上下文简称BFC)
+
+参考： https://blog.csdn.net/mevicky/article/details/47008939
+
+ ### 13.圣杯布局和双飞翼布局的实现
+ 
+ ### 14.Flex布局
+ ### 15.px、em、rem的区别
  
  
  
