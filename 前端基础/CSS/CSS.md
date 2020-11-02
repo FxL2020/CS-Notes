@@ -136,11 +136,48 @@ important > 内嵌样式 > ID > 类 > 标签 | 伪类 | 属性选择 > 伪对象
 <a>、<span>、<br>、<i>、<em>、<strong>、<label>、<q>、<var>、<cite>、<code>
  - 常用的内联块状元素有:
 <img>、<input>
+ <br>
  参考： https://blog.csdn.net/underoses/article/details/88770840
  
  ### 6.盒子模型及其理解
+ html文档中的每个元素都被描绘成矩形盒子，这些矩形盒子通过一个模型来描述其占用空间，这个模型称为盒模型。盒模型通过四个边界来描述：margin（外边距），border（边框），padding（内边距），content（内容区域）<br>
+ 参考：https://www.cnblogs.com/sichaoyun/p/6761341.html
  
- 
+ ### 7.定位方式及其区别（文档流）
+ - 文档流（普通流【normal flow】）
+ 符合HTML中标签本身含义，遵循自上而下，从左至右的布局。
+ - 文本流
+ 文档对一系列字符的读取和输出的顺序，和文档流一样自上而下，从左至右排列。
+ -定位方式
+ 1.文档流：又包含三种类型：①块级元素，②行内元素，③相对定位（position：relative）
+ 2.浮动（float）
+  有一个元素A（图片中黑色背景元素），利用float脱离文档流的时候，其他的盒子元素会无视元素A所占空间，但是其他元素中的文字却不
+会无视元素A，依然会为A让出位置，环绕在其周围。这时候就说元素A脱离了文档流，但是没有脱离文本流。
+ 3.绝对定位absolute,fixed
+浮动（float）布局会使元素脱离文档流，不脱离文本流。元素无视它的存在，而元素其中的文本会围绕在它周围，但是它不会脱离DOM树，用浏览器的审查元素可以看到脱离文档流的它。
+绝对定位position: absolute;和position: fixed;布局会使元素既脱离文档流，又脱离文本流。（元素和文本都定位不到它的存在）。<br>
+参考: https://blog.csdn.net/thisequalthis/article/details/96020597
+
+### 8.margin塌陷及合并问题
+margin塌陷问题<br>
+在文档流中，父元素的高度默认是被子元素撑开的
+也就是说 子元素有多高，父元素就有多高
+但是当子元素设置浮动之后，子元素会完全脱离文档流
+此时将会导致子元素无法撑开父元素的高度，导致父元素高度塌陷
+- 触发（开启）BFC属性(Block Formatting Content块级格式化上下文简称BFC)
+满足下面任一条件即可<br>
+浮动元素   float属性值为除了none以外的值<br>
+绝对定位元素 position 为 absolute、fixed<br>
+display 为inline-blocks,table-cells,table-captions<br>
+overflow 为 hidden,auto,scroll<br>
+bfc的三个特性：<br>
+a.阻止外边距折叠<br>
+b.可以包含浮动的元素<br>
+c.可以阻止元素被浮动元素覆盖 <br>
+- 给父级元素添加一个边框，就可以解决；如果不希望看到边框，可以将边框的颜色设成背景色即可。
+margin合并问题<br>
+处于上下位置关系的两个div容器，在通过margin-top、margin-bottom改变间距时，如果两个属性的值相同时，则两容器间的距离就是这个值；如果两个属性的值不同，则取较大值作为两容器间的距离；<br>
+也存在着解决方法，那就是在两容器外都套上相同容器（class/id相同的），并在容器中设定overflow：hidden
  
  
  
