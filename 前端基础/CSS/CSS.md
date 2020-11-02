@@ -61,3 +61,13 @@ E~F 匹配任何在E元素之后的同级F元素
 :hover 匹配鼠标悬停其上的元素
 :disabled 匹配表单中禁用的元素
 :checked 匹配表单中被选中的radio或checkbox元素
+- 伪元素选择器
+::first-leter 匹配元素内容的第一个字母
+:before, ::before 为当前元素创建一个子元素作为伪元素。常通过 content 属性来为一个元素添加修饰性的内容。 此元素默认为行内元素
+#### CSS样式权重优先级与计算
+important > 内嵌样式 > ID > 类 > 标签 | 伪类 | 属性选择 > 伪对象 > 继承 > 通配符
+第一等：代表内联样式，如: style=””，权值为1000。
+第二等：代表ID选择器，如：#content，权值为100。
+第三等：代表类，伪类和属性选择器，如.content，权值为10。
+第四等：代表类型选择器和伪元素选择器，如div p，权值为1。
+参考 https://www.cnblogs.com/damingge/p/6498813.html
