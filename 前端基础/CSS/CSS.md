@@ -71,3 +71,47 @@ important > 内嵌样式 > ID > 类 > 标签 | 伪类 | 属性选择 > 伪对象
 第三等：代表类，伪类和属性选择器，如.content，权值为10。
 第四等：代表类型选择器和伪元素选择器，如div p，权值为1。
 参考 https://www.cnblogs.com/damingge/p/6498813.html
+### 2.<a></a>标签全部作用
+- 超链接
+<a>标签的target属性大致有这几种：_self _blank _parent _top
+<a href="https://www.baidu.com/" target="_blank">超链接</a>在一个新的窗口打开连接相应的网页。
+- 锚点
+<div id="runtop"></div>
+通过<a href="#runtop">返回顶部</a>能够实现一个常见的返回顶部的功能。
+- 打电话或者发邮件
+<a href="tel:123456">打电话给号码为123456的人</a>
+<a href="mailto:123456@789.com">发邮件给给号码为123456@789.com的人</a>
+- 协议限定符
+ <a href="javascript:alert("强制运行的javascript代码")">这样就能够在<a>标签被点击的时候强制运行href属性里面的代码</a>
+### 3.用CSS画三角形
+- 利用元素的border是由三角形组合而成
+ ```html
+   div {
+       width: 0px;
+       height: 0px;
+       border: 40px solid;//高40px
+       border-color: transparent transparent red transparent;
+   }
+  ```
+ 参考 https://www.jianshu.com/p/9a463d50e441
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
