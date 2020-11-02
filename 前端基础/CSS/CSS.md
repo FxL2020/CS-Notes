@@ -84,7 +84,7 @@ important > 内嵌样式 > ID > 类 > 标签 | 伪类 | 属性选择 > 伪对象
 - 协议限定符
  <a href="javascript:alert("强制运行的javascript代码")">这样就能够在<a>标签被点击的时候强制运行href属性里面的代码</a>
   
- ### 1.用CSS画三角形
+ ### 3.用CSS画三角形
 - 利用元素的border是由三角形组合而成
  ```html
    div {
@@ -96,13 +96,49 @@ important > 内嵌样式 > ID > 类 > 标签 | 伪类 | 属性选择 > 伪对象
   ```
  参考 https://www.jianshu.com/p/9a463d50e441
  
+ ### 4.未知宽高元素水平垂直居中（方案及比较）
+ - 思路：显示设置父元素为：table，子元素为：cell-table，这样就可以使用vertical-align: center，实现水平居中
+优点：父元素（parent）可以动态的改变高度（table元素的特性）
+缺点：IE8以下不支持
+ ```html
+<head>
+    <meta charset="UTF-8">
+    <title>未知宽高元素水平垂直居中</title>
+    <style>
+        .parent1{
+        display: table;
+        height:300px;
+        width: 300px;
+        background-color: #FD0C70;
+    }
+    .parent1 .child{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        color: #fff;
+        font-size: 16px;
+    }</style>
+</head>
+<body>
+<div class="parent1">
+    <div class="child">hello world-1</div>
+</div>
+</body>
+ ```
+ ...一行补充
+ 参考：https://www.cnblogs.com/jogen/p/5213566.html
  
+ ### 5.元素种类的划分
+ CSS中，html中的标签元素大体被分为三种不同的类型：
+ - 常用的块状元素有：
+<div>、<p>、<h1>...<h6>、<ol>、<ul>、<dl>、<table>、<address>、<blockquote> 、<form>
+ - 常用的内联元素(行内元素)有：
+<a>、<span>、<br>、<i>、<em>、<strong>、<label>、<q>、<var>、<cite>、<code>
+ - 常用的内联块状元素有:
+<img>、<input>
+ 参考： https://blog.csdn.net/underoses/article/details/88770840
  
- 
- 
- 
- 
- 
+ ### 6.盒子模型及其理解
  
  
  
