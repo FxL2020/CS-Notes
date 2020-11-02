@@ -131,9 +131,13 @@ important > 内嵌样式 > ID > 类 > 标签 | 伪类 | 属性选择 > 伪对象
  ### 5.元素种类的划分
  CSS中，html中的标签元素大体被分为三种不同的类型：
  - 常用的块状元素有：
+  ```html
 <div>、<p>、<h1>...<h6>、<ol>、<ul>、<dl>、<table>、<address>、<blockquote> 、<form>
+  ```
  - 常用的内联元素(行内元素)有：
+  ```html
 <a>、<span>、<br>、<i>、<em>、<strong>、<label>、<q>、<var>、<cite>、<code>
+  ```
  - 常用的内联块状元素有:
 <img>、<input>
  <br>
@@ -166,10 +170,12 @@ margin塌陷问题<br>
 此时将会导致子元素无法撑开父元素的高度，导致父元素高度塌陷
 - 触发（开启）BFC属性(Block Formatting Content块级格式化上下文简称BFC)
 满足下面任一条件即可<br>
+ ```html
 浮动元素   float属性值为除了none以外的值<br>
 绝对定位元素 position 为 absolute、fixed<br>
 display 为inline-blocks,table-cells,table-captions<br>
 overflow 为 hidden,auto,scroll<br>
+ ```
 bfc的三个特性：<br>
 a.阻止外边距折叠<br>
 b.可以包含浮动的元素<br>
