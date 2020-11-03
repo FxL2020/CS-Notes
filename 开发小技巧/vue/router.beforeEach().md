@@ -17,9 +17,9 @@ router.beforeEach((to, from, next) => {
   }
   /*localStorage清空配置*/
   for(let name in routerToClear){
-    if(routerToClear.hasOwnProperty(name) && routerToClear[name] === to.name){
+    if(routerToClear.hasOwnProperty(name) && routerToClear[name] === to.name){//到达这些页面
       for(let key in StorageConst.LOCAL_PAGE_LIST){
-        localStorage.setItem(StorageConst.LOCAL_PAGE_LIST[key], "");
+        localStorage.setItem(StorageConst.LOCAL_PAGE_LIST[key], "");//清除列表里面所有页面缓存
       }
       break;
     }
