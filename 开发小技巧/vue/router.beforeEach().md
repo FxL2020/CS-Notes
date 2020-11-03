@@ -41,4 +41,4 @@ const routerToClear = {
   "stock": "stock"
 }
 export default routerToClear
-```html
+```
