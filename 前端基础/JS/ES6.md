@@ -94,7 +94,7 @@ for(let [k,value] of m2)
 
 `Promise` 翻译过来就是承诺的意思，这个承诺会在未来有一个确切的答复，并且该承诺有三种状态，这个承诺一旦从等待状态变成为其他状态就永远不能更改状态了。
 
-- 等待中（pending）
+- 进行中（pending）
 - 完成了（resolved）
 - 拒绝了（rejected）
 
