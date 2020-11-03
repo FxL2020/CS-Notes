@@ -9,7 +9,7 @@ beforeEach的钩子函数，它是一个全局的before 钩子函数， （befor
 
 - 3.next: (Function函数)   一定要调用该方法来 resolve 这个钩子。  调用方法：next(参数或者空)   ***必须调用
 
-
+```html
 router.beforeEach((to, from, next) => {
   /*路由发生改变修改页面的title */
   if(to.meta.title) {
@@ -27,3 +27,18 @@ router.beforeEach((to, from, next) => {
   next();
 })
 
+/**
+ * value: to.name
+ */
+const routerToClear = {
+  "home": "home",
+  "allotManage": "allot-manage",
+  "assortManage": "assort-manage",
+  "deptManage": "dept-manage",
+  "productionManage": "production-manage",
+  "purchaseManage": "purchase-manage",
+  "DeliveryManage": "DeliveryManage",
+  "stock": "stock"
+}
+export default routerToClear
+```html
