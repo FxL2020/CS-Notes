@@ -77,10 +77,10 @@ important > 内嵌样式 > ID > 类 > 标签 | 伪类 | 属性选择 > 伪对象
 <a href="https://www.baidu.com/" target="_blank">超链接</a>在一个新的窗口打开连接相应的网页。
 - 锚点
 <div id="runtop"></div>
-通过<a href="#runtop">返回顶部</a>能够实现一个常见的返回顶部的功能。
+通过<a href="#runtop">返回顶部</a>能够实现一个常见的返回顶部的功能。<br>
 - 打电话或者发邮件
 <a href="tel:123456">打电话给号码为123456的人</a>
-<a href="mailto:123456@789.com">发邮件给给号码为123456@789.com的人</a>
+<a href="mailto:123456@789.com">发邮件给给号码为123456@789.com的人</a><br>
 - 协议限定符
  <a href="javascript:alert("强制运行的javascript代码")">这样就能够在<a>标签被点击的时候强制运行href属性里面的代码</a>
   
