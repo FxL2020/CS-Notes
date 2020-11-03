@@ -9,4 +9,21 @@ beforeEach的钩子函数，它是一个全局的before 钩子函数， （befor
 
 - 3.next: (Function函数)   一定要调用该方法来 resolve 这个钩子。  调用方法：next(参数或者空)   ***必须调用
 
- 
+
+router.beforeEach((to, from, next) => {
+  /*路由发生改变修改页面的title */
+  if(to.meta.title) {
+    document.title = to.meta.title
+  }
+  /*localStorage清空配置*/
+  for(let name in routerToClear){
+    if(routerToClear.hasOwnProperty(name) && routerToClear[name] === to.name){
+      for(let key in StorageConst.LOCAL_PAGE_LIST){
+        localStorage.setItem(StorageConst.LOCAL_PAGE_LIST[key], "");
+      }
+      break;
+    }
+  }
+  next();
+})
+
