@@ -33,12 +33,6 @@ router.beforeEach((to, from, next) => {
 const routerToClear = {
   "home": "home",
   "allotManage": "allot-manage",
-  "assortManage": "assort-manage",
-  "deptManage": "dept-manage",
-  "productionManage": "production-manage",
-  "purchaseManage": "purchase-manage",
-  "DeliveryManage": "DeliveryManage",
-  "stock": "stock"
 }
 export default routerToClear
 ```
