@@ -21,4 +21,3 @@ Windows+X 打开系统命令行（管理员身份）或powershell<br>
 运行 ipconfig /flushdns 手动刷新系统DNS缓存。<br>
 - win10下以管理员身份打开hosts文件
 1 文件-> 2 打开windows PowerShel(R) 3 以管理员身份打开windows PowerShel(A) 4先后执行两个命令cmd        notepad hosts 在记事本中修改hosts文件<br>
-
