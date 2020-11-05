@@ -185,10 +185,39 @@ let p = onWatch(
 p.a = 2; // 控制台输出：监听到属性a改变
 p.a; // 'a' = 2
 ```
-
 自定义 set 和 get 函数的方式，在原本的逻辑中插入了我们的函数逻辑，实现了在对对象任何属性进行读写时发出通知。
 
 当然这是简单版的响应式实现，如果需要实现一个 Vue 中的响应式，需要我们在 get 中收集依赖，在 set 派发更新，之所以 Vue3.0 要使用 Proxy 替换原本的 API 原因在于 Proxy 无需一层层递归为每个属性添加代理，一次即可完成以上操作，性能上更好，并且原本的实现有一些数据更新不能监听到，但是 Proxy 可以完美监听到任何方式的数据改变，唯一缺陷可能就是浏览器的兼容性不好了。
+
+Proxy 支持的拦截操作一览，一共 13 种。
+
+- get(target, propKey, receiver)
+  - 拦截对象属性的读取，比如 proxy.foo 和 proxy['foo']。
+- set(target, propKey, value, receiver)
+  - 拦截对象属性的设置，比如 proxy.foo = v 或 proxy['foo'] = v，返回一个布尔值。
+- has(target, propKey)
+  - 拦截 propKey in proxy 的操作，返回一个布尔值。
+- deleteProperty(target, propKey)
+  - 拦截 delete proxy[propKey]的操作，返回一个布尔值。
+- ownKeys(target)
+  - 拦截 Object.getOwnPropertyNames(proxy)、Object.getOwnPropertySymbols(proxy)、Object.keys(proxy)、for...in 循环，返回一个数组。该方法返回目标对象所有自身的属性的属性名，而 Object.keys()的返回结果仅包括目标对象自身的可遍历属性。
+- getOwnPropertyDescriptor(target, propKey)
+  - 拦截 Object.getOwnPropertyDescriptor(proxy, propKey)，返回属性的描述对象。
+- defineProperty(target, propKey, propDesc)
+  - 拦截 Object.defineProperty(proxy, propKey, propDesc）、Object.defineProperties(proxy, propDescs)，返回一个布尔值。
+- preventExtensions(target)
+  - 拦截 Object.preventExtensions(proxy)，返回一个布尔值。
+- getPrototypeOf(target)
+  - 拦截 Object.getPrototypeOf(proxy)，返回一个对象。
+- isExtensible(target)
+  - 拦截 Object.isExtensible(proxy)，返回一个布尔值。
+- setPrototypeOf(target, proto)
+  - 拦截 Object.setPrototypeOf(proxy, proto)，返回一个布尔值。如果目标对象是函数，那么还有两种额外操作可以拦截。
+- apply(target, object, args)
+  - 拦截 Proxy 实例作为函数调用的操作，比如 proxy(...args)、proxy.call(object, ...args)、proxy.apply(...)。
+- construct(target, args)
+  - 拦截 Proxy 实例作为构造函数调用的操作，比如 new proxy(...args)。
+
 
 ### Reflect
 #### 什么是Reflect
