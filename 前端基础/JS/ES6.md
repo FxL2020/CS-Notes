@@ -149,7 +149,7 @@ ajax(url)
   
 Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。Proxy 这个词的原意是代理 代理器
 
-Proxy 是 ES6 中新增的功能，它可以用来自定义对象中的操作。 Vue3.0 中将会通过 Proxy 来替换原本的 Object.defineProperty 来实现数据响应式。
+Proxy 是 ES6 中新增的功能，它可以用来自定义对象中的操作，操作对象而提供的API。 Vue3.0 中将会通过 Proxy 来替换原本的 Object.defineProperty 来实现数据响应式。
 
 ```js
 let p = new Proxy(target, handler);
@@ -189,6 +189,75 @@ p.a; // 'a' = 2
 自定义 set 和 get 函数的方式，在原本的逻辑中插入了我们的函数逻辑，实现了在对对象任何属性进行读写时发出通知。
 
 当然这是简单版的响应式实现，如果需要实现一个 Vue 中的响应式，需要我们在 get 中收集依赖，在 set 派发更新，之所以 Vue3.0 要使用 Proxy 替换原本的 API 原因在于 Proxy 无需一层层递归为每个属性添加代理，一次即可完成以上操作，性能上更好，并且原本的实现有一些数据更新不能监听到，但是 Proxy 可以完美监听到任何方式的数据改变，唯一缺陷可能就是浏览器的兼容性不好了。
+
+### Reflect
+#### 什么是Reflect
+ES6 为了操作对象而提供的新 API
+#### 为什么要设计Reflect
+1.将Object对象的属于语言内部的方法放到Reflect对象上，即从Reflect对象上拿Object对象内部方法。<br>
+2. 修改某些Object方法的返回结果，让其变得更合理，将用老Object方法 报错的情况，改为返回false <br>
+老写法
+```js
+try {
+  Object.defineProperty(target, property, attributes);
+  // success
+} catch (e) {
+  // failure
+}
+```
+新写法
+```js
+if (Reflect.defineProperty(target, property, attributes)) {
+  // success
+} else {
+  // failure
+}
+```
+3.让Object操作变成函数行为
+老写法（命令式写法）
+```js
+'assign' in Object // true
+```
+新写法
+```js
+Reflect.has(Object, 'assign') // true
+```
+4.Reflect对象的方法与Proxy对象的方法一一对应，只要是Proxy对象的方法，就能在Reflect对象上找到对应的方法。这就让Proxy对象可以方便地调用对应的Reflect方法，完成默认行为，作为修改行为的基础。也就是说，不管Proxy怎么修改默认行为，你总可以在Reflect上获取默认行为。
+```js
+Proxy(target, {
+  set: function(target, name, value, receiver) {
+    var success = Reflect.set(target, name, value, receiver);
+    if (success) {
+      console.log('property ' + name + ' on ' + target + ' set to ' + value);
+    }
+    return success;
+  }
+});
+```
+Proxy方法拦截target对象的属性赋值行为。它采用Reflect.set方法将值赋值给对象的属性，确保完成原有的行为，然后再部署额外的功能。
+#### Reflect静态方法
+和Proxy的API一致<br>
+- Reflect.get(target, name, receiver)
+Reflect.get方法查找并返回target对象的name属性，如果没有该属性，则返回undefined。如果name属性部署了读取函数（getter），则读取函数的this绑定receiver。如果第一个参数不是对象，Reflect.get方法会报错。
+- Reflect.set(target, name, value, receiver) 
+Reflect.set方法设置target对象的name属性等于value。
+- Reflect.has(obj, name)
+Reflect.has方法对应name in obj里面的in运算符。如果Reflect.has()方法的第一个参数不是对象，会报错。
+- Reflect.defineProperty(target, propertyKey, attributes)
+Reflect.defineProperty方法基本等同于Object.defineProperty，用来为对象定义属性。未来，后者会被逐渐废除，请从现在开始就使用Reflect.defineProperty代替它。<br>
+这个方法可以与Proxy.defineProperty配合使用。<br>
+```js
+const p = new Proxy({}, {
+  defineProperty(target, prop, descriptor) {
+    console.log(descriptor);
+    return Reflect.defineProperty(target, prop, descriptor);
+  }
+});
+p.foo = 'bar';
+// {value: "bar", writable: true, enumerable: true, configurable: true}
+p.foo // "
+```
+Proxy.defineProperty对属性赋值设置了拦截，然后使用Reflect.defineProperty完成了赋值。
 
 ### map
 https://www.jianshu.com/p/53032fc0909a
