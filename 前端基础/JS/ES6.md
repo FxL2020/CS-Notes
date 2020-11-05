@@ -1,4 +1,4 @@
-
+更详细的点击ECMAScript 6 入门 https://es6.ruanyifeng.com/#docs/reflect
 # ES6
 
 ### ES6和JS关系
