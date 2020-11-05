@@ -234,6 +234,7 @@ margin合并问题<br>
  - html结构清晰，代码可读性好，易于团队维护和开发
  - 更有利于搜索引擎或辅助设备理解html页面内容
  #### H5常用的语义化标签
+ ```html
  - <section>用于对网站和页面内容分块，划分单独的模块区域
  - <article>独立的文章展示
  - <aside>页面中的附属侧边信息
@@ -249,5 +250,6 @@ margin合并问题<br>
  - <dialog>类似于微信对化框（默认display：none 加open才显示 ，有默认定位和默认边框）
  - <embed>标记定义外部的可交互的内容和插件
  - <progress></progress>代表一个任务完成的进度
+  ```
  参考：https://www.cnblogs.com/dzh-123/p/12388430.html
  
