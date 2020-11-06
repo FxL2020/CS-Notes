@@ -227,7 +227,8 @@ Proxy 支持的拦截操作一览，一共 13 种。
 
 ### Reflect
 #### 什么是Reflect
-ES6 为了操作对象而提供的新 API
+ES6 为了操作对象而提供的新 API<br>
+Reflect 是一个内置的对象，它提供拦截 JavaScript 操作的方法。这些方法与proxy handlers的方法相同。Reflect不是一个函数对象，因此它是不可构造的。
 #### 为什么要设计Reflect
 1.将Object对象的属于语言内部的方法放到Reflect对象上，即从Reflect对象上拿Object对象内部方法。<br>
 2. 修改某些Object方法的返回结果，让其变得更合理，将用老Object方法 报错的情况，改为返回false <br>
