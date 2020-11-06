@@ -304,7 +304,11 @@ let s = Symbol();
 typeof s
 // "symbol"
 ```
-
+Symbol函数可以接受一个字符串作为参数，表示对 Symbol 实例的描述，主要是为了在控制台显示，或者转为字符串时，比较容易区分。
+```js
+let  s1=Symbol('student');
+//Symbol(student)
+```
 
 ### map
 https://www.jianshu.com/p/53032fc0909a
