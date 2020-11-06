@@ -310,7 +310,7 @@ let  s1=Symbol('student');
 //Symbol(student)
 ```
 
-### map
+### js的map方法
 https://www.jianshu.com/p/53032fc0909a
 ```js
 定义在JavaScript的Array中，它返回一个新的数组，数组中的元素为原始数组调用函数处理后的值。
