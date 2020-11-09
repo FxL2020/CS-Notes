@@ -206,25 +206,25 @@ for(;;){}//此时会是一个死循环一直执行下去
  ```
 双重循环<br>
 ```js
-var str=' ';<br>
-for(var i=1;i<=10;i++){<br>
-for(var j=i;j<=10;j++){<br>
-str=str+ '*";<br>
-}<br>
-str+='\n';<br>
-}<br>
-console.log(str);<br>
+var str=' ';
+for(var i=1;i<=10;i++){
+for(var j=i;j<=10;j++){
+str=str+ '*";
+}
+str+='\n';
+}
+console.log(str);
 ```
 打印99乘法表<br>
 ```js
-var str=' ';<br>
-for(var i=1;i<=9;i++)//外层循环控制层数{<br>
-for(var j=1;j<=i;i++){//内层循环控制每行的个数<br>
-str+=i+'x'+j+'=' i * j +'\t';<br>
-}<br>
-str+='\n';<br>
-}<br>
-console.log(str);<br>
+var str=' ';
+for(var i=1;i<=9;i++)//外层循环控制层数{
+for(var j=1;j<=i;i++){//内层循环控制每行的个数
+str+=i+'x'+j+'=' i * j +'\t';
+}
+str+='\n';
+}
+console.log(str);
 ```
 continue:立即跳出本次循环，继续下一次循环//计算1-100除了7的倍数的和<br>
 break:用户跳出整个循环<br>
