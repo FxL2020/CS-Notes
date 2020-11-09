@@ -157,6 +157,32 @@ switch分支多效率比if else if高<br>
 
 for(;;){}//此时会是一个死循环一直执行下去
 
+1.1-100,7的倍数和以及个数
+   <script type="text/javascript">
+        var sum=0;
+        var count=0;
+        for (var i=1;i<=100;i++){
+            if (i%7==0){
+                sum=sum+i;
+                count++;
+            }
+        }
+        console.log("个数"+count);
+        console.log("总合:"+sum);
+    </script>
+2.水仙花数 一个三位数，它的每个位上的数字的三次幂次之和是它本身，请打印出所有的水仙花数
+   <script type="text/javascript">
+        for (var i=100;i<1000;i++){
+            var bai=parseInt(i/100);
+            var shi=parseInt((i/10)%10);
+            var ge=i%10;
+            if (bai*bai*bai+shi*shi*shi+ge*ge*ge == i){
+                console.log(i);
+            }
+        }
+    </script>
+  
+  
 双重循环<br>
 var str=' ';<br>
 for(var i=1;i<=10;i++){<br>
