@@ -185,7 +185,24 @@ for(;;){}//此时会是一个死循环一直执行下去
         }
     </script>
   ```
-  
+  3.判断质数，大于1只能被1和本身整除的数
+  ```js
+    var num=prompt("请输入一个大于1的整数");
+      if (num<=1){
+          alert('该参数不合法');
+      }else {
+          var flag= true;
+          for (var i=2;i<num;i++){
+              if(num%i ==0){
+                  flag = false;
+              }
+          }
+          if (flag){
+              alert(num+"是质数");
+          }else {
+              alert("这个不是质数");
+          }
+    ```
 双重循环<br>
 ```js
 var str=' ';<br>
