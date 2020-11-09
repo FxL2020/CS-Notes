@@ -158,6 +158,7 @@ switch分支多效率比if else if高<br>
 for(;;){}//此时会是一个死循环一直执行下去
 
 1.1-100,7的倍数和以及个数
+```js
    <script type="text/javascript">
         var sum=0;
         var count=0;
@@ -170,7 +171,9 @@ for(;;){}//此时会是一个死循环一直执行下去
         console.log("个数"+count);
         console.log("总合:"+sum);
     </script>
+  ```
 2.水仙花数 一个三位数，它的每个位上的数字的三次幂次之和是它本身，请打印出所有的水仙花数
+```js
    <script type="text/javascript">
         for (var i=100;i<1000;i++){
             var bai=parseInt(i/100);
@@ -181,9 +184,10 @@ for(;;){}//此时会是一个死循环一直执行下去
             }
         }
     </script>
-  
+  ```
   
 双重循环<br>
+```js
 var str=' ';<br>
 for(var i=1;i<=10;i++){<br>
 for(var j=i;j<=10;j++){<br>
@@ -192,7 +196,9 @@ str=str+ '*";<br>
 str+='\n';<br>
 }<br>
 console.log(str);<br>
+```
 打印99乘法表<br>
+```js
 var str=' ';<br>
 for(var i=1;i<=9;i++)//外层循环控制层数{<br>
 for(var j=1;j<=i;i++){//内层循环控制每行的个数<br>
@@ -201,7 +207,7 @@ str+=i+'x'+j+'=' i * j +'\t';<br>
 str+='\n';<br>
 }<br>
 console.log(str);<br>
-
+```
 continue:立即跳出本次循环，继续下一次循环//计算1-100除了7的倍数的和<br>
 break:用户跳出整个循环<br>
 
