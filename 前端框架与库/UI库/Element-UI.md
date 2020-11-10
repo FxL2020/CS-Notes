@@ -4,3 +4,8 @@
 - ui库
     - Element-UI https://element.eleme.cn/#/zh-CN
     - iview
+
+#### 安装
+npm i element-ui -S
+
+
