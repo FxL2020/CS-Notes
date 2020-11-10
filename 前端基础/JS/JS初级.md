@@ -188,6 +188,7 @@ for(;;){}//此时会是一个死循环一直执行下去
  
   3.判断质数，大于1只能被1和本身整除的数
   ```js
+  1
     var num=prompt("请输入一个大于1的整数");
       if (num<=1){
           alert('该参数不合法');
@@ -203,6 +204,22 @@ for(;;){}//此时会是一个死循环一直执行下去
           }else {
               alert("这个不是质数");
           }
+  2
+  //打印1-100的质数
+     for (var i=2;i<=100;i++){
+         var flag=true;//没执行依次flag重新置为true
+         for (var j=2;j<i;j++){
+             if (i%j==0){
+                 flag=false;
+                 break;
+             }
+         }
+         if (flag){
+             console.log(i);
+         }
+      }
+  3 改进：
+  
  ```
 双重循环<br>
 ```js
