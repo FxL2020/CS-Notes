@@ -3,8 +3,9 @@
 ```js
 <div id="#app">//根节点标签<br>
 ```
-  
+```js
 <router-link to="/foo">go</router-link><br>
+```
 使用router-link组件来导航<br>
 通过to属性指定链接  组件path<br>
 默认会被渲染成一个a标签<br>
