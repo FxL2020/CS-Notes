@@ -225,8 +225,8 @@ console.log(str);
 打印99乘法表<br>
 ```js
 var str=' ';
-for(var i=1;i<=9;i++)//外层循环控制层数{
-for(var j=1;j<=i;i++){//内层循环控制每行的个数
+for(var i=1;i<=9;i++){
+for(var j=1;j<=i;i++){
 str+=i+'x'+j+'=' i * j +'\t';
 }
 str+='\n';
