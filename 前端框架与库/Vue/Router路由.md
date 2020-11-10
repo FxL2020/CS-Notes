@@ -1,6 +1,7 @@
 
 ### Router路由
-<div id="#app">//根节点标签<br>
+```js<div id="#app">//根节点标签<br>
+```
   
 <router-link to="/foo">go</router-link><br>
 使用router-link组件来导航<br>
