@@ -27,7 +27,7 @@
 - [JAVA8新特性]()
 - [基础](https://github.com/FxL2020/CS-Notes/labels/%E5%9F%BA%E7%A1%80) -->
 #### 工具
-- [Git](https://github.com/FxL2020/CS-Notes/labels/git)
+- [Git](https://github.com/FxL2020/CS-Notes/blob/master/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/git.md)
 <!--- [Docker]()
 - [性能优化与故障处理](https://github.com/FxL2020/CS-Notes/labels/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B8%8E%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86)-->
 <!-- #### 分布式
