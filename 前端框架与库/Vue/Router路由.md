@@ -27,7 +27,9 @@ const app=new Vue({
 router
 }).$mount('#app')
   
-
+npm install 启动安装
+npm run serve  编译项目
+npm run build 打包项目
 
 
 
