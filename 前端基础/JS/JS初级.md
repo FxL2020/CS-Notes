@@ -212,12 +212,6 @@ for(var j=i;j<=10;j++){
 str=str+ '*";
 }
 str+='\n';
-
-*****
-****
-***
-**
-*
 }
 console.log(str);
 ```
