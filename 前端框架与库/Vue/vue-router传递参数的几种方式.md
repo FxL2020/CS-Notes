@@ -69,32 +69,4 @@ Vue.prototype.btnBack = () => {
         methods:{},
  ```  
  vue-router全局守卫 局部守卫
- #### 全局前置守卫
- ```js
- router.beforeEach((to, from, next) => {
-  /*路由发生改变修改页面的title */
-  if(to.meta.title) {
-    document.title = to.meta.title
-  }
- ```
- 局部组件导航守卫    <br>
- 写在组件内   <br>
-  ```js
- components:{WebSelect,Paginator,Checkbox,Footer},
- router.beforeRouterEnter((to, from, next) => {
- if(false){next()}
-  }
-  methods:{},
- ```
  
-#### 获取数据loading
- 导航获取数据loading功能
-- 导航完成之后获取
-先完成导航，在接下来的组件生命周期钩子函数中获取数据，在数据获取期间显示"加载中"之类的提示
-- 导航完成之前获取
- 导航完成前，在路由进入守卫中获取数据，获取成功之后导航
- router.js
-  {path: "/loading",
-  component: Loading,}
-  
-  
