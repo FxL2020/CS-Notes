@@ -35,3 +35,20 @@ this.$router.go()    <br>
 router.go(1)在history记录中向前进一步    <br>
 router.go(-1)在history记录中向后退一步    <br>
 
+路由重定向
+```js
+ {
+        path: "*",
+        name: "any",
+        redirect: '/login'
+      //输入不存在的路由会跳转到登录页面
+      },
+ ```  
+ 组件传值
+ ```js
+   path: "/ActivityPaymentDetail/:id",
+   name: "ActivityPaymentDetail",
+   component: ActivityPaymentDetail,
+   props: {new: 'Nwes'},
+ ```  
+ 
