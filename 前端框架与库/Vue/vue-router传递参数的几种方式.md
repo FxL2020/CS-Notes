@@ -68,3 +68,12 @@ router.go(-1)在history记录中向后退一步    <br>
     document.title = to.meta.title
   }
  ```
+ 局部组件导航守卫    <br>
+ 写在组件内   <br>
+  ```js
+ components:{WebSelect,Paginator,Checkbox,Footer},
+ router.beforeRouterEnter((to, from, next) => {
+ if(false){next()}
+  }
+  methods:{},
+ ```
