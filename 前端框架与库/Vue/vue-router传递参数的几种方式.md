@@ -18,16 +18,14 @@ this.$router.push(name:'h-json')
 //会在地址栏暴露参数
 this.$router.push(path:'h-json',query:{age:24})
 $router.push({name:'damage-query-detail', query: {id:item.id}})
-//
 获取参数
 this.$route.query.id
-
 //不会在地址栏暴露参数
 router.js
   router
   path: "/ConsumptionActivityInquiry/:name/:id/:deadline",
   this.$router.push({name: 'ConsumptionActivityInquiry', params: {name: item.name,id: item.id,deadline: item.deadline}})">
 this.$router.push(name:'h-json',params:{name:name,id:this.id,deadline:time})
-//获取传递参数
+获取传递参数
 this.$route.params.id,
 ```
