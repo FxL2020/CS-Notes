@@ -88,4 +88,13 @@ Vue.prototype.btnBack = () => {
  ```
  
 #### 获取数据loading
- 
+ 导航获取数据loading功能
+- 导航完成之后获取
+先完成导航，在接下来的组件生命周期钩子函数中获取数据，在数据获取期间显示"加载中"之类的提示
+- 导航完成之前获取
+ 导航完成前，在路由进入守卫中获取数据，获取成功之后导航
+ router.js
+  {path: "/loading",
+  component: Loading,}
+  
+  
