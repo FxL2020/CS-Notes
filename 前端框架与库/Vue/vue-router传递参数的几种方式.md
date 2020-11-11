@@ -68,5 +68,4 @@ Vue.prototype.btnBack = () => {
         props:['news'],
         methods:{},
  ```  
- vue-router全局守卫 局部守卫
  
