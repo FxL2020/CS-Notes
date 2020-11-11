@@ -1,5 +1,6 @@
 
 ### Router路由
+#### 单html路由
 ```js
 <div id="#app">//根节点标签<br>
 ```
@@ -34,6 +35,25 @@ npm install 启动安装<br>
 npm run serve  编译项目<br>
 npm run build 打包项目<br>
 
+#### 脚手架路由
+index.js/router.js文件中引入element-ui
+
+import Vue from 'vue';  <br>
+import Router from 'vue-router';  <br>
+import ElementUI from 'element-ui';  <br>
+
+Vue.use(Router)  <br>
+Vue.use(ElementUI)  <br>
+外面的插件包都需要使用Vue.use()  <br>
+```js
+new Vue
+(
+{
+router,   //es6语法相当于router：router；
+render: h->h<APP>
+}
+).$mount('#app');
+```
 
 
 
@@ -43,4 +63,4 @@ npm run build 打包项目<br>
 
 
 
-</div>
+
