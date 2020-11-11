@@ -3,4 +3,24 @@
 ```js
    声明式		                 编程式
 <router-link :to="...">   	router.push(...)
-  ```js
+  ```
+注意：在 Vue 实例内部，你可以通过 $router 访问路由实例。因此你可以调用 this.$router.push。
+
+想要导航到不同的 URL，则使用 router.push 方法。这个方法会向 history 栈添加一个新的记录，所以，当用户点击浏览器后退按钮时，则回到之前的 URL。
+
+```js
+//字符串
+this.$router.push('h-json')
+//对象
+this.$router.push(path:'h-json')
+//命名路由 
+this.$router.push(name:'h-json')
+//会在地址栏暴露参数
+this.$router.push(path:'h-json',query:{age:24})
+//不会在地址栏暴露参数
+router.js
+  router
+  path: "/ConsumptionActivityInquiry/:name/:id/:deadline",
+  
+this.$router.push(name:'h-json',params:{name:name,id:this.id,deadline:time})
+```
