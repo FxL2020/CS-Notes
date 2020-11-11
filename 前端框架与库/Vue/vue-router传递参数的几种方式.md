@@ -46,9 +46,17 @@ router.go(-1)在history记录中向后退一步    <br>
  ```  
  组件传值
  ```js
+ router.js
    path: "/ActivityPaymentDetail/:id",
    name: "ActivityPaymentDetail",
    component: ActivityPaymentDetail,
    props: {new: 'Nwes'},
+ 
+ {{news}}
+  export default {
+        name: "ActivityPaymentDetail",
+        components:{WebSelect,Paginator,Checkbox,Footer},
+        props:['news'],
+        methods:{},
  ```  
  
