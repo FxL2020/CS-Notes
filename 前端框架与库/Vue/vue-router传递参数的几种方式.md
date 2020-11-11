@@ -34,7 +34,16 @@ this.$router.go()    <br>
 在history记录中向前，向后退多少步,相当于window.history.go(n)    <br>
 router.go(1)在history记录中向前进一步    <br>
 router.go(-1)在history记录中向后退一步    <br>
-
+```js
+Vue.prototype.btnBack = () => {
+  if (window.history.length <= 1) {
+    router.push({path:'/'});
+    return false
+  } else {
+    router.go(-1)
+  }
+};
+```
 路由重定向
 ```js
  {
