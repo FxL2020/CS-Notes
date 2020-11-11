@@ -50,7 +50,7 @@ router.go(-1)在history记录中向后退一步    <br>
    path: "/ActivityPaymentDetail/:id",
    name: "ActivityPaymentDetail",
    component: ActivityPaymentDetail,
-   props: {new: 'Nwes'},
+   props: {news: 'Nwes'},
  
  {{news}}
   export default {
