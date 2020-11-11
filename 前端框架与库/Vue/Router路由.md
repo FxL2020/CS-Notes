@@ -10,8 +10,9 @@
 使用router-link组件来导航<br>
 通过to属性指定链接  组件path<br>
 默认会被渲染成一个a标签<br>
-
+```js
 <router-view></router-view><br>
+```
 路由出口，路由匹配到的组件将渲染在这里<br>
 
 如果要使用模块化编程，导入Vue和VueRouter,要调用Vue.use(VueRouter)<br>
