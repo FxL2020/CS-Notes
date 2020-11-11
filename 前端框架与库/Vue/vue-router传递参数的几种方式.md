@@ -59,4 +59,12 @@ router.go(-1)在history记录中向后退一步    <br>
         props:['news'],
         methods:{},
  ```  
- 
+ vue-router全局守卫 局部守卫
+ 全局前置守卫
+ ```js
+ router.beforeEach((to, from, next) => {
+  /*路由发生改变修改页面的title */
+  if(to.meta.title) {
+    document.title = to.meta.title
+  }
+ ```
