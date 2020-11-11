@@ -69,7 +69,7 @@ Vue.prototype.btnBack = () => {
         methods:{},
  ```  
  vue-router全局守卫 局部守卫
- 全局前置守卫
+ #### 全局前置守卫
  ```js
  router.beforeEach((to, from, next) => {
   /*路由发生改变修改页面的title */
@@ -86,3 +86,6 @@ Vue.prototype.btnBack = () => {
   }
   methods:{},
  ```
+ 
+#### 获取数据loading
+ 
