@@ -30,3 +30,8 @@ this.$router.push(name:'h-json',params:{name:name,id:this.id,deadline:time})
 获取传递参数
 this.$route.params.id,
 ```
+this.$router.go()
+在history记录中向前，向后退多少步,相当于window.history.go(n)
+router.go(1)在history记录中向前进一步
+router.go(-1)在history记录中向后退一步
+
