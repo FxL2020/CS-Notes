@@ -21,10 +21,13 @@ remote模块    <br>
 require('electron').remote.BrowserWindow //通过remote使用主进程BrowserWindow方法  渲染进程可以使用主进程的对象，方法    <br>
 
 菜单：
+```js
 const {Menu}=require('electron')
 var template =[{}]
 Menu.buildFormTemplate(template)  //构建模板
+```
 绑定事件：
+```js
 { label: ' 书'，
 click:()=>{
 var win =new BrowserWindow({
@@ -36,17 +39,17 @@ win.loadFile('er.html')  //新窗口载入页面
 win.on('closed',()=>{win=null})  //监听关闭事件
 }
 }
-
+```
 
 嵌入网页和打开子窗口
 
 子窗口向父窗口传递信息
 window.opener.postMessage('传递的信息'，传递给那个父窗口)  //两个参数，一个参数默认传递所有的
-
+```js
 接受消息：window.addEventListener('message',(msg)=>{})
 let mytext = document.querySelector(''#mytext')
 mytext.innerHTML =JSON.stringify(msg.data)
-
+```
 electron-vue的原理    <br>
 Electron桌面应用中有两个进程，分别是Main主进程和Renderer渲染进程。    <br>
 主进程 Main Process 处理原生应用逻辑    <br>
