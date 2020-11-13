@@ -617,6 +617,13 @@ var html=document.documentElement;
 ```
 document.all：代表页面中所有元素
 
+document.getElementsByClassName() //根据class属性值查询一组元素节点对象
+
+document.querySelect()
+//需要一个选择器的字符串作为参数，可以根据一个CSS选择器来查询一个元素节点对象
+
+
+
 ##### 文档的加载
 浏览器在加载一个网页时，是按照自上而下的顺序加载的，读取到一行就运行一行<br>
 将js代码放在页面下面就是为了页面加载完毕后在执行js代码<br>
