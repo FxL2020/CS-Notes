@@ -617,11 +617,15 @@ var html=document.documentElement;
 ```
 document.all：代表页面中所有元素
 
-document.getElementsByClassName() //根据class属性值查询一组元素节点对象
+document.getElementsByClassName() //根据class属性值查询一组元素节点对象 IE8以及一下不支持
 
 document.querySelect()
 //需要一个选择器的字符串作为参数，可以根据一个CSS选择器来查询一个元素节点对象
-
+document.querySelect('.box1' 'div')
+document.querySelect('.box1')
+document.querySelect('div')
+IE8中可以替代document.getElementsByClassName()
+使用该方法总会返回一个唯一的值，如果满足条件的有多个只会返回第一个
 
 
 ##### 文档的加载
