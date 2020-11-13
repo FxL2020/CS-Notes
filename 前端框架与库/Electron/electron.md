@@ -66,24 +66,24 @@ node -v
 #下面这行的命令会打印出npm的版本信息    <br>
 npm -v
 
-进程通信
-1，ipc模块
-1.1、ipcMain
-ipcMain.on(channel, listener)
-监听 channel，当接收到新的消息时 listener 会以 listener(event, args...) 的形式被调用。
-1.2、ipcRenderer
-ipcRenderer.on(channel, listener)
-监听 channel, 当新消息到达，将通过 listener(event, args...) 调用 listener
-ipcRenderer.send(channel[, arg1][, arg2][, ...])
-通过 channel 发送异步消息到主进程，可以携带任意参数。 在内部，参数会被序列化为 JSON，因此参数对象上的函数和原型链不会被发送。
-主进程可以使用 ipcMain 监听channel来接收这些消息。
-2、webContents.send方法（Main进程主动向Renderer进程发送消息）
-webContents.send是BrowserWindow类的一个方法，BrowserWindow类用于创建一个程序窗口，实例化之后，设置窗口宽高，并设置其loadURL(加载的页面)，一个窗口就创建成功并开始显示。
-主进程：mainWindow.webContents.send('list', res.data);
-渲染进程中，依旧是使用ipcRenderer对消息进行接收：
+进程通信    <br>
+1，ipc模块    <br>
+1.1、ipcMain    <br>
+ipcMain.on(channel, listener)    <br>
+监听 channel，当接收到新的消息时 listener 会以 listener(event, args...) 的形式被调用。    <br>
+1.2、ipcRenderer    <br>
+ipcRenderer.on(channel, listener)    <br>
+监听 channel, 当新消息到达，将通过 listener(event, args...) 调用 listener    <br>
+ipcRenderer.send(channel[, arg1][, arg2][, ...])    <br>
+通过 channel 发送异步消息到主进程，可以携带任意参数。 在内部，参数会被序列化为 JSON，因此参数对象上的函数和原型链不会被发送。    <br>
+主进程可以使用 ipcMain 监听channel来接收这些消息。    <br>
+2、webContents.send方法（Main进程主动向Renderer进程发送消息）    <br>
+webContents.send是BrowserWindow类的一个方法，BrowserWindow类用于创建一个程序窗口，实例化之后，设置窗口宽高，并设置其loadURL(加载的页面)，一个窗口就创建成功并开始显示。    <br>
+主进程：mainWindow.webContents.send('list', res.data);    <br>
+渲染进程中，依旧是使用ipcRenderer对消息进行接收：    <br>
 ipcRenderer.on('list', (e, msg) => {
   console.log(msg);
   });
 }
-3、remote模块
-emote模块支持RPC风格的通信，在渲染进程中获取主进程创建的一些全局对象和应用信息
+3、remote模块    <br>
+emote模块支持RPC风格的通信，在渲染进程中获取主进程创建的一些全局对象和应用信息    <br>
