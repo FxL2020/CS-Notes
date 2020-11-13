@@ -7,18 +7,18 @@ npx electron -v
 
 Electron
 运行流程：
-先找Package.json文件-->main.js  主进程文件--->mainWindow.loadFile()渲染进程 读取页面布局和演示---》IPC在主进程执行任务和获取信息
+先找Package.json文件-->main.js  主进程文件--->mainWindow.loadFile()渲染进程 读取页面布局和演示---》IPC在主进程执行任务和获取信息    <br>
 
-mainWindow = new BrowserWindow({})  //打开窗口
-webpreferences:{nodeIntegration:true}  //启用node下的所有东西都可以渲染使用
+mainWindow = new BrowserWindow({})  //打开窗口     <br>
+webpreferences:{nodeIntegration:true}  //启用node下的所有东西都可以渲染使用    <br>
 
-render ->index.js //渲染
+render ->index.js //渲染    <br>
 
-调试错误：view -->toggle Developer Tools
+调试错误：view -->toggle Developer Tools    <br>
 n
-remote模块
-实现复用
-require('electron').remote.BrowserWindow //通过remote使用主进程BrowserWindow方法  渲染进程可以使用主进程的对象，方法
+remote模块    <br>
+实现复用    <br>
+require('electron').remote.BrowserWindow //通过remote使用主进程BrowserWindow方法  渲染进程可以使用主进程的对象，方法    <br>
 
 菜单：
 const {Menu}=require('electron')
@@ -47,23 +47,23 @@ window.opener.postMessage('传递的信息'，传递给那个父窗口)  //两�
 let mytext = document.querySelector(''#mytext')
 mytext.innerHTML =JSON.stringify(msg.data)
 
-electron-vue的原理
-Electron桌面应用中有两个进程，分别是Main主进程和Renderer渲染进程。
-主进程 Main Process 处理原生应用逻辑
-渲染进程 Render Process 负责界面渲染
-主进程和渲染进程之间通信
-渲染进程默认创建主窗口，主窗口可以创建子窗口；渲染进程也可以创建主窗口的其他同级窗口
-Electron运行流程：
-先找Package.json文件-->main.js  主进程文件--->mainWindow.loadFile()渲染进程 读取页面布局和演示-->IPC在主进程执行任务和获取信息
+electron-vue的原理    <br>
+Electron桌面应用中有两个进程，分别是Main主进程和Renderer渲染进程。    <br>
+主进程 Main Process 处理原生应用逻辑    <br>
+渲染进程 Render Process 负责界面渲染    <br>
+主进程和渲染进程之间通信    <br>
+渲染进程默认创建主窗口，主窗口可以创建子窗口；渲染进程也可以创建主窗口的其他同级窗口    <br>
+Electron运行流程：    <br>
+先找Package.json文件-->main.js  主进程文件--->mainWindow.loadFile()渲染进程 读取页面布局和演示-->IPC在主进程执行任务和获取信息    <br>
 
-配置
-Winodws开发环境配置
-安装最新版本的Node.js 地址：https://nodejs.org/en/download/
-安装完成后，需要来确认Node.js是否可以正常工作，
-通过以下命令来确认 node 和 npm已经安装成功：
-#下面这行的命令会打印出Node.js的版本信息
+#### 配置
+Winodws开发环境配置    <br>
+安装最新版本的Node.js 地址：https://nodejs.org/en/download/    <br>
+安装完成后，需要来确认Node.js是否可以正常工作，    <br>
+通过以下命令来确认 node 和 npm已经安装成功：    <br>
+#下面这行的命令会打印出Node.js的版本信息    <br>
 node -v
-#下面这行的命令会打印出npm的版本信息
+#下面这行的命令会打印出npm的版本信息    <br>
 npm -v
 
 进程通信
