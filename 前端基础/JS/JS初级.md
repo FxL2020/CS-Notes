@@ -556,6 +556,7 @@ dom树<br>
 网页中的所以内容都可以看做节点，node<br>
 
 获取网页元素<br>
+通过document对象调用
 1 通过id获取一个元素节点对象<br>
 2 通过标签名获取一组<br>
 getElementsByTagName()<br>
@@ -563,6 +564,21 @@ getElementsByTagName()<br>
 getElementsByName()<br>
 3 通过h5新增的方法获取<br>
 4 特殊元素获取<br>
+
+获取元素节点子节点<br>
+通过元素节点调用
+getElementsByTagName() //返回当前节点的指定标签名后代节点<br>
+childNode <br>
+firstChild  <br>
+lastChild  <br>
+
+获取父节点和兄弟节点  <br>
+通过具体的节点调用  <br>
+parentNode  //当前节点的父亲节点  <br>
+previousSibling   //当前节点的前一个兄弟节点  <br>
+nextSibling       //当前节点的后一个兄弟节点  <br>
+
+
 ```html
 <button id="id">按钮<button>
 var but=document.getElementById('id');//得到一个对象<br>
