@@ -71,7 +71,7 @@ important > 内嵌样式 > ID > 类 > 标签 | 伪类 | 属性选择 > 伪对象
 第三等：代表类，伪类和属性选择器，如.content，权值为10。
 第四等：代表类型选择器和伪元素选择器，如div p，权值为1。
 参考 https://www.cnblogs.com/damingge/p/6498813.html
-### 2.<a></a>标签全部作用
+### 2.a标签全部作用
 - 超链接
 <a>标签的target属性大致有这几种：_self _blank _parent _top
 <a href="https://www.baidu.com/" target="_blank">超链接</a>在一个新的窗口打开连接相应的网页。
