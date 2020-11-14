@@ -58,6 +58,11 @@ Electron桌面应用中有两个进程，分别是Main主进程和Renderer渲染
 渲染进程默认创建主窗口，主窗口可以创建子窗口；渲染进程也可以创建主窗口的其他同级窗口    <br>
 Electron运行流程：    <br>
 先找Package.json文件-->main.js  主进程文件--->mainWindow.loadFile()渲染进程 读取页面布局和演示-->IPC在主进程执行任务和获取信息    <br>
+#### 主进程和渲染进程
+主进程 通过创建 浏览器窗口 实例来创建 个网页。 每一个 浏览窗口 实例在其渲染过程中运行网页. 当一个 BrowserWindow 实例被摧毁时，对应的渲染过程也被终止。    <br>
+主进程 管理所有 个网页及其对应的渲染过程。    <br>
+渲染进程 只能管理 个相应的网页。 在一个渲染过程中崩溃不会影响其他渲染过程。    <br>
+渲染进程 通过IPC 与主进程通信 在网页上执行GUI操作。 由于安全考虑和可能的资源泄漏，直接从渲染器过程中调用与本地GUI有关的API受到限制。    <br>
 
 #### 配置
 Winodws开发环境配置    <br>
@@ -68,25 +73,3 @@ Winodws开发环境配置    <br>
 node -v
 #下面这行的命令会打印出npm的版本信息    <br>
 npm -v
-
-进程通信    <br>
-1，ipc模块    <br>
-1.1、ipcMain    <br>
-ipcMain.on(channel, listener)    <br>
-监听 channel，当接收到新的消息时 listener 会以 listener(event, args...) 的形式被调用。    <br>
-1.2、ipcRenderer    <br>
-ipcRenderer.on(channel, listener)    <br>
-监听 channel, 当新消息到达，将通过 listener(event, args...) 调用 listener    <br>
-ipcRenderer.send(channel[, arg1][, arg2][, ...])    <br>
-通过 channel 发送异步消息到主进程，可以携带任意参数。 在内部，参数会被序列化为 JSON，因此参数对象上的函数和原型链不会被发送。    <br>
-主进程可以使用 ipcMain 监听channel来接收这些消息。    <br>
-2、webContents.send方法（Main进程主动向Renderer进程发送消息）    <br>
-webContents.send是BrowserWindow类的一个方法，BrowserWindow类用于创建一个程序窗口，实例化之后，设置窗口宽高，并设置其loadURL(加载的页面)，一个窗口就创建成功并开始显示。    <br>
-主进程：mainWindow.webContents.send('list', res.data);    <br>
-渲染进程中，依旧是使用ipcRenderer对消息进行接收：    <br>
-ipcRenderer.on('list', (e, msg) => {
-  console.log(msg);
-  });
-}
-3、remote模块    <br>
-emote模块支持RPC风格的通信，在渲染进程中获取主进程创建的一些全局对象和应用信息    <br>
