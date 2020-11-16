@@ -136,7 +136,7 @@ let iterable = new Map([["a", 1], ["b", 2], ["c", 3]]);
 for (let [key, value] of iterable) {
   console.log(value);
 }
- ```js
+ ```
  for of博客：<br>
  https://blog.csdn.net/one_girl/article/details/80192899
  
