@@ -142,7 +142,9 @@ for (let [key, value] of iterable) {
  
 ### 几种异步方式的比较（回调、setTimeout、Promise、Generator、async）
 - setTimeout
- https://blog.csdn.net/qq_28256783/article/details/80097092
+ https://blog.csdn.net/qq_28256783/article/details/80097092  <br>
+ setTimeout( ) 是属于 window 的 method, 设定一个时间, 时间到了, 就会执行一个指定的 method
+ 
  
  
 ### Promise
