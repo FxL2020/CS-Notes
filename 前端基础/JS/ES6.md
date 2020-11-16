@@ -123,6 +123,20 @@ for (let o in obj) {
  for in也可以循环数组但是特别适合遍历对象
  - for of
  ES6中新增加的语法，用来循环获取一对键值对中的值
+ 遍历字符串
+ ```js
+ let str = 'love'
+for (let o of str) {
+    console.log(o) // l,o,v,e
+}
+```
+遍历map
+ ```js
+let iterable = new Map([["a", 1], ["b", 2], ["c", 3]]);
+for (let [key, value] of iterable) {
+  console.log(value);
+}
+ ```js
  for of博客：<br>
  https://blog.csdn.net/one_girl/article/details/80192899
  
