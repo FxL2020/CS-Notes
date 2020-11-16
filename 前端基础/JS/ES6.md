@@ -140,6 +140,10 @@ for (let [key, value] of iterable) {
  for of博客：<br>
  https://blog.csdn.net/one_girl/article/details/80192899
  
+### 几种异步方式的比较（回调、setTimeout、Promise、Generator、async）
+- setTimeout
+ https://blog.csdn.net/qq_28256783/article/details/80097092
+ 
  
 ### Promise
 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。
