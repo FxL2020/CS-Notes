@@ -90,7 +90,44 @@ for(let [k,value] of m2)
 {
 }
 ```
- ### Promise
+### 循环语法比较及使用场景（for、forEach、for...in、for...of）
+- for
+原始的，
+for循环中可以使用return、break等来中断循环
+- foreach
+对数组的每一个元素执行一次提供的函数（不能使用return、break等中断循环），不改变原数组，无返回值undefined。
+```js
+let arr = ['a', 'b', 'c', 'd']
+arr.forEach(function (val, idx, arr) {
+    console.log(val + ', index = ' + idx) // val是当前元素，index当前元素索引，arr数组
+    console.log(arr)
+})
+a, index = 0
+(4) ["a", "b", "c", "d"]
+b, index = 1
+(4) ["a", "b", "c", "d"]
+c, index = 2
+(4) ["a", "b", "c", "d"]
+d, index = 3
+(4) ["a", "b", "c", "d"]
+```
+- for ..in ..
+循环遍历的值都是数据结构的键值
+```js
+let obj = {a: '1', b: '2', c: '3', d: '4'}
+for (let o in obj) {
+    console.log(o)    //遍历的实际上是对象的属性名称 a,b,c,d
+    console.log(obj[o])  //这个才是属性对应的值1，2，3，4
+}
+```
+ for in也可以循环数组但是特别适合遍历对象
+ - for of
+ ES6中新增加的语法，用来循环获取一对键值对中的值
+ for of博客：<br>
+ https://blog.csdn.net/one_girl/article/details/80192899
+ 
+ 
+### Promise
 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。
 
 所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。Promise 提供统一的 API，各种异步操作都可以用同样的方法进行处理。
