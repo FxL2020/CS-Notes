@@ -150,9 +150,7 @@ for (let [key, value] of iterable) {
  setTimeout(function (res) {
     console.log(res)
 },3000,"我是3秒钟之后打印")
- ```js
- 
- 
+ ```
  
 ### Promise
 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。
