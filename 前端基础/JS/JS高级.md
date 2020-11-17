@@ -51,6 +51,7 @@ null：定义并赋值了，只是值为空<br>
 
 #### js中数据类型判断typeof、instanceof、Object.prototype.toString.call()、constructor
 https://blog.csdn.net/zjy_android_blog/article/details/81023177
+- typeof
 ```html
 console.log(typeof 2);               // number
 console.log(typeof true);            // boolean
@@ -61,8 +62,30 @@ console.log(typeof {});              // object
 console.log(typeof undefined);       // undefined
 console.log(typeof null);            // object
 ```
+数组 和 null 的判断不准确  <br>
+- instanceof: 运算符用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。其意思就是判断对象是否是某一数据类型（如Array）的实例
+```html
+console.log([] instanceof Array);   //true
+console.log(2 instanceof Number);    //false
+console.log(new Number(2) instanceof Number);    //true
+```
+不能判断undefined,null  <br>
+- constructor
+```html
+console.log((2).constructor === Number);
+console.log((true).constructor === Boolean);
+```
+如果我创建一个对象，更改它的原型，这种方式也变得不可靠了
+```html
+function Fn(){};
+Fn.prototype=new Array();
+var f=new Fn();
+console.log(f.constructor===Fn);    // false
+console.log(f.constructor===Array); // true
+```
 
-#### 闭包
+
+#### 闭包 
 
 
 
