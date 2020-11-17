@@ -49,6 +49,19 @@ null：定义并赋值了，只是值为空<br>
 ```
 #### 函数高级
 
+#### js中数据类型判断typeof、instanceof、Object.prototype.toString.call()、constructor
+https://blog.csdn.net/zjy_android_blog/article/details/81023177
+```html
+console.log(typeof 2);               // number
+console.log(typeof true);            // boolean
+console.log(typeof 'str');           // string
+console.log(typeof []);              // object     []数组的数据类型在 typeof 中被解释为 object
+console.log(typeof function(){});    // function
+console.log(typeof {});              // object
+console.log(typeof undefined);       // undefined
+console.log(typeof null);            // object
+```
+
 #### 闭包
 
 
