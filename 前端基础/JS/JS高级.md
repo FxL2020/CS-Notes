@@ -95,6 +95,8 @@ Object.prototype.toString.call(fn); // "[object Function]"
 Object.prototype.toString.call(arr); // "[object Array]"
 Object.prototype.toString.call(arr); // "[object Object]"
 ```
+#### new的原理
+
 #### 闭包 
 
 
