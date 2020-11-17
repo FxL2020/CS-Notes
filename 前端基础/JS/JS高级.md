@@ -97,6 +97,9 @@ Object.prototype.toString.call(arr); // "[object Object]"
 ```
 #### new的原理
 
+#### 浏览器从输入URL到页面渲染的整个流程（涉及到计算机网络数据传输过程、浏览器解析渲染过程）
+https://www.jianshu.com/p/d616d887953a
+
 #### 闭包 
 
 
