@@ -83,8 +83,18 @@ var f=new Fn();
 console.log(f.constructor===Fn);    // false
 console.log(f.constructor===Array); // true
 ```
-
-
+- Object.prototype.toString.call()
+在JS中，可以通过Object.prototype.toString方法，判断某个对象之属于哪种内置类型。
+```html
+Object.prototype.toString.call(null); // "[object Null]"
+Object.prototype.toString.call(undefined); // "[object Undefined]"
+Object.prototype.toString.call(“abc”);// "[object String]"
+Object.prototype.toString.call(123);// "[object Number]"
+Object.prototype.toString.call(true);// "[object Boolean]"
+Object.prototype.toString.call(fn); // "[object Function]"
+Object.prototype.toString.call(arr); // "[object Array]"
+Object.prototype.toString.call(arr); // "[object Object]"
+```
 #### 闭包 
 
 
