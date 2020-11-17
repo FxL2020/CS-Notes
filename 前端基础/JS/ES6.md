@@ -151,7 +151,7 @@ for (let [key, value] of iterable) {
     console.log(res)
 },3000,"我是3秒钟之后打印")
  ```
- 
+ https://blog.csdn.net/weixin_44135121/article/details/97622391
 ### Promise
 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。
 
