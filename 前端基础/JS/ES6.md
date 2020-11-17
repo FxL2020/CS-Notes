@@ -145,8 +145,12 @@ for (let [key, value] of iterable) {
  https://blog.csdn.net/qq_28256783/article/details/80097092  <br>
  setTimeout( ) 是属于 window 的 method, 设定一个时间, 时间到了, 就会执行一个指定的 method  <br>
  setTimeout 是异步函数，异步函数的特点之一就是什么时候到点了，就什么时候执行  <br>
- 
- 
+ ```js
+ setTimeout(function/code, milliseconds, param1, param2, ...)
+ setTimeout(function (res) {
+    console.log(res)
+},3000,"我是3秒钟之后打印")
+ ```js
  
  
  
