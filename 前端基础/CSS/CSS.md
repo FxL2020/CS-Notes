@@ -79,7 +79,8 @@ important > 内嵌样式 > ID > 类 > 标签 | 伪类 | 属性选择 > 伪对象
 <a href="https://www.baidu.com/" target="_blank">超链接</a>在一个新的窗口打开连接相应的网页。
 
 - 锚点
-  ```html
+
+  ```js
 <div id="runtop"></div>
 通过<a href="#runtop">返回顶部</a>能够实现一个常见的返回顶部的功能。<br>
 - 打电话或者发邮件
