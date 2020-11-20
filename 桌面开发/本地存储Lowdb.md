@@ -4,9 +4,12 @@ electron应用是桌面级应用，lowdb是用JSON为基本存储结构基于lod
 
 #### 使用Lowdb
 运行
+```js
 npm install lowdb
+```
 
 datastore.js
+```js
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync'); // 同步模块
 const Memory = require('lowdb/adapters/Memory'); // 存入内存
@@ -44,3 +47,4 @@ console.log('db', appInfo);
 console.log('db', appInfo2);
 
 module.exports = db; //模块导出，可在其它js文件中引用
+```
