@@ -48,5 +48,20 @@ console.log('db', appInfo2);
 
 module.exports = db; //模块导出，可在其它js文件中引用
 ```
+#### 操作
+创建：主要通过set()或者defaults()方法。其中defaults()专门针对空JSON文件进行初始化。
+```js
+db.defaults({ posts: [], user: {}, count: 0 })
+  .write() // 一定要显式调用write方法将数据存入JSON
+```
+读取：
+```js
+db.get('posts').value() // []
+```
+在main进程拿到的内存里的db，和renderer拿到的内存里的db不是同一个db，也就是所谓的不是一个db的两份引用，而是一个db的两份拷贝。main进程对其进行的操作，renderer进程是不知道的。换句话说，main进程对db进行了任何读写操作，renderer拿到的db依然是当初应用打开时所读取的db。所以就会遇到main进程更新了数据，而renderer进程依然无法拿到新的数据。
+```js
+
+```
+
 #### 更详细的资料
 https://molunerfinn.com/electron-vue-3/
