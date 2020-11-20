@@ -62,6 +62,16 @@ db.get('posts').value() // []
 ```js
 
 ```
+#### Vue里使用lowdb的便捷方法
+打开Vue项目的入口文件，通常是main.js
+```js
+...
+import db from '../datastore'
+import Vue from 'vue'
+ ...
 
+Vue.prototype.$db = db
+```
+在项目里，用this.$db的方法来使用lowdb
 #### 更详细的资料
 https://molunerfinn.com/electron-vue-3/
