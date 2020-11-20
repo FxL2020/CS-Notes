@@ -49,4 +49,4 @@ console.log('db', appInfo2);
 module.exports = db; //模块导出，可在其它js文件中引用
 ```
 #### 更详细的资料
-https://molunerfinn.com/electron-vue-3/#%E7%BA%AFJavaScript%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%80%89%E6%8B%A9
+https://molunerfinn.com/electron-vue-3/
