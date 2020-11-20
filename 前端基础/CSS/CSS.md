@@ -73,9 +73,13 @@ important > 内嵌样式 > ID > 类 > 标签 | 伪类 | 属性选择 > 伪对象
 参考 https://www.cnblogs.com/damingge/p/6498813.html
 ### 2.a标签全部作用
 - 超链接
-<a>标签的target属性大致有这几种：_self _blank _parent _top
+<a>标签的target属性大致有这几种：
+  ```html
+ _self _blank _parent _top
 <a href="https://www.baidu.com/" target="_blank">超链接</a>在一个新的窗口打开连接相应的网页。
+  ```
 - 锚点
+  ```html
 <div id="runtop"></div>
 通过<a href="#runtop">返回顶部</a>能够实现一个常见的返回顶部的功能。<br>
 - 打电话或者发邮件
@@ -83,7 +87,7 @@ important > 内嵌样式 > ID > 类 > 标签 | 伪类 | 属性选择 > 伪对象
 <a href="mailto:123456@789.com">发邮件给给号码为123456@789.com的人</a><br>
 - 协议限定符
  <a href="javascript:alert("强制运行的javascript代码")">这样就能够在<a>标签被点击的时候强制运行href属性里面的代码</a>
-  
+   ```
  ### 3.用CSS画三角形
 - 利用元素的border是由三角形组合而成
  ```html
