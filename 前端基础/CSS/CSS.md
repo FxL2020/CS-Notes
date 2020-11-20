@@ -74,10 +74,10 @@ important > 内嵌样式 > ID > 类 > 标签 | 伪类 | 属性选择 > 伪对象
 ### 2.a标签全部作用
 - 超链接
 <a>标签的target属性大致有这几种：
-  ```html
+
  _self _blank _parent _top
 <a href="https://www.baidu.com/" target="_blank">超链接</a>在一个新的窗口打开连接相应的网页。
-  ```
+
 - 锚点
   ```html
 <div id="runtop"></div>
