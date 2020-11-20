@@ -74,4 +74,5 @@ Vue.prototype.$db = db
 ```
 在项目里，用this.$db的方法来使用lowdb
 #### 更详细的资料
-https://molunerfinn.com/electron-vue-3/
+https://molunerfinn.com/electron-vue-3/    <br>
+https://blog.csdn.net/qq_15987295/article/details/79489036
