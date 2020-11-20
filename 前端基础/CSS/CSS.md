@@ -163,7 +163,7 @@ important > 内嵌样式 > ID > 类 > 标签 | 伪类 | 属性选择 > 伪对象
  2.浮动（float）
   有一个元素A（图片中黑色背景元素），利用float脱离文档流的时候，其他的盒子元素会无视元素A所占空间，但是其他元素中的文字却不  <br>
 会无视元素A，依然会为A让出位置，环绕在其周围。这时候就说元素A脱离了文档流，但是没有脱离文本流。  <br>
- 3.绝对定位absolute,fixed
+ 3.绝对定位absolute,fixed   <br>
 浮动（float）布局会使元素脱离文档流，不脱离文本流。元素无视它的存在，而元素其中的文本会围绕在它周围，但是它不会脱离DOM树，用浏览器的审查元素可以看到脱离文档流的它。  <br>
 绝对定位position: absolute;和position: fixed;布局会使元素既脱离文档流，又脱离文本流。（元素和文本都定位不到它的存在）。<br>
 参考: https://blog.csdn.net/thisequalthis/article/details/96020597
