@@ -374,6 +374,7 @@ Symbol函数可以接受一个字符串作为参数，表示对 Symbol 实例的
 let  s1=Symbol('student');
 //Symbol(student)
 ```
+Symbol 作为对象属性名时不能用.运算符，要用方括号。因为.运算符后面是字符串，所以取到的是字符串 sy 属性，而不是 Symbol 值 sy 属性。
 
 ### js的map方法
 https://www.jianshu.com/p/53032fc0909a
