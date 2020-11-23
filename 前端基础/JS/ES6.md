@@ -400,6 +400,7 @@ filter 的作用也是生成一个新数组，在遍历数组的时候将返回�
 
 filter 的回调函数接受三个参数，分别是当前索引元素，索引，原数组
 
+https://blog.csdn.net/u011769234/article/details/88089115
 
   
  
