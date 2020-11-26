@@ -9,8 +9,27 @@ babel转码器：把ES6转为浏览器识别的ES5
 
 ### var、let 及 const 区别？
 定义变量
+变量作用域：变量在什么范围内是可用
+没有块级作用域会引起的问题：
+if的块级
+for的块级
+闭包可以解决：函数是一个作用域（函数作用域）
+ES6引入块级作用域
+```js
+var func;
+if(true){
+var name='xiao';
+func=function(){
+console.log(name);
+}
+}
+name='123'
+func()
+```
+在ES6中，优先使用const,只有需要改变标志符时使用let
 变量提升：
 JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。
+用let声明的变量，不存在变量提升。而且要求必须 等let声明语句执行完之后，变量才能使用，不然会报Uncaught ReferenceError错误。
 - 全局申明的 var 变量会挂载在 window 上，而 let 和 const 不会
 - <b>var 声明变量存在变量提升，let 和 const 不会</b>
 - let、const 的作用范围是块级作用域，而 var 的作用范围是函数作用域
@@ -28,6 +47,27 @@ ES6 明确规定，如果区块中存在let和const命令，这个区块对这�
  全局作用域   局部作用域
  ES6新增块级作用域
  
+ ### 对象增强写法
+ 1.属性的增强写法
+ const name='12'
+ const age=12
+ const obj={
+ name,
+ age
+ }
+ 2.函数的增强写法
+ ES5
+ const obj={
+ name:name,
+ func:function(){
+ }
+ es6
+ const obj={
+ name:name,
+ func(){
+ }
+ }
+ editConfig
  ### Es6 新增箭头函数与普通函数的区别？
 语法糖 简化了函数的定义<br>
 - 普通 function 的声明在变量提升中是最高的，箭头函数没有函数提升
