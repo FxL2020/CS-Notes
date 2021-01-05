@@ -32,10 +32,9 @@ A入栈B入栈C入栈，C执行完出栈，B出栈
 4.isEmpty() :如果栈里没有任何元素就返回true,否则返回false
 5.size() :返回栈里元素个数
 6.toString() :将栈内容以字符串形式返回
-```js
+
 
   //封装栈类
-  ```js
     function Stack() {
         this.items =[];
         //将元素压入栈,prototype在类中添加方法
@@ -83,7 +82,7 @@ A入栈B入栈C入栈，C执行完出栈，B出栈
         return binString;
   }
   alert(dec2bin(100));
-
+```
 
 ### 队列Queue
 特点：先进先出，一端删除元素，一端添加元素
@@ -98,7 +97,6 @@ A入栈B入栈C入栈，C执行完出栈，B出栈
 4.isEmpty()
 5.size()
 6.toString()
-```js
 <script>
     function Queue() {
         this.items=[];
@@ -133,5 +131,5 @@ A入栈B入栈C入栈，C执行完出栈，B出栈
     alert(queue);
     alert(queue.front());
 </script>
-```js
+```
 P15
