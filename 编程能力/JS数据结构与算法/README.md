@@ -83,12 +83,14 @@ A入栈B入栈C入栈，C执行完出栈，B出栈
         return binString;
   }
   alert(dec2bin(100));
-```js
+
 
 ### 队列Queue
 特点：先进先出，一端删除元素，一端添加元素
 - 基于数组实现
 - 基于链表实现
+
+```js
 常见的操作：
 1.enqueue(element) :向队列尾部添加一个或多个新元素
 2.dequeue() :移除对了头部第一个元素，同事返回元素
