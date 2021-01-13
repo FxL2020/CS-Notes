@@ -135,13 +135,14 @@ js中分支<br>
 if<br>
 switch<br>
 var num=12;<br>
-switch(表达式num）<br>
+switch(表达式）<br>
 {<br>
 case value1:<br>
 执行语句1；<br>
 break;<br>
 default:<br>
 执行最后的语句；<br>
+计算表达式的结果跟case后面的值比对，配对则执行后面的语句<br>
 注意:1必须是全等才能匹配 2如果没有break，则会继续执行下一个case<br>
 switch分支多效率比if else if高<br>
 
