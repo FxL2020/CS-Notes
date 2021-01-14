@@ -195,6 +195,162 @@ for (let [key, value] of iterable) {
 },3000,"我是3秒钟之后打印")
  ```
  https://blog.csdn.net/weixin_44135121/article/details/97622391
+### js的map方法
+https://www.jianshu.com/p/53032fc0909a
+
+定义在JavaScript的Array中，它返回一个新的数组，数组中的元素为原始数组调用函数处理后的值。  <br>
+array.map(function(currentValue, index, arr), thisIndex)  <br>
+function(currentValue, index, arr)：必须。为一个函数，数组中的每个元素都会执行这个函数。其中函数参数：  <br>
+currentValue：必须。当前元素的的值。  <br>
+index：可选。当前元素的索引。  <br>
+arr：可选。当前元素属于的数组对象。  <br>
+遍历对象数组  <br>
+```js
+let newArray2 = data.departments.map(v=>{
+                  return {
+                      key: v.id,
+                      value: v.departmentName
+                  }
+          });
+```
+
+### 高阶函数
+filter/map/reduce  <br>
+- filter
+```js
+var array=[1,2,3,4,5,6];
+let newArray =array.filter(function(){
+return item<3
+})//每遍历一个数就会执行一次回调函数
+```
+filter中的回调函数必须返回一个布尔值  <br>
+返回为true时，函数内部会自动将这次回调的item加入到新的数组中  <br>
+false:函数会自动过滤掉这次item
+- map同上
+
+- reduce
+作用：对数组中所有内容进行汇总
+
+
+  
+ 
+
+### 变量的解构赋值
+#### 数组的解构赋值
+ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构
+```js
+let a = 1;
+let b = 2;
+let c = 3;
+```
+ES6
+```js
+ let [a,b,c,d]=[1,2,3,4];
+ //本质上模式匹配”，只要等号两边的模式相同，左边的变量就会被赋予对应的值
+```
+解构不成功，变量的值就等于undefined
+ Set 结构，也可以使用数组的解构赋值。
+```js 
+ let [x, y, z] = new Set(['a', 'b', 'c']);
+x // "a"
+```
+#### 对象的解构赋值
+```js
+let { foo, bar } = { foo: 'aaa', bar: 'bbb' };
+```
+数组的元素是按次序排列的，变量的取值由它的位置决定；而对象的属性没有次序，变量必须与属性同名，才能取到正确的值。
+#### 对象的解构赋值
+```js
+const [a, b, c, d, e] = 'hello';
+a // "h"
+b // "e"
+c // "l"
+d // "l"
+e // "o"
+```
+### async 和 await
+
+一个函数如果加上 async ，那么该函数就会返回一个 Promise
+
+```js
+async function test() {
+  return '1';
+}
+console.log(test());
+// -> Promise {<resolved>: "1"}
+```
+
+async 就是将函数返回值使用 Promise.resolve() 包裹了下，和 then 中处理返回值一样，并且 await 只能配套 async 使用。
+
+```js
+async function test() {
+  let value = await sleep();
+}
+```
+### Generator 函数的语法
+Generator 函数是 ES6 提供的一种异步编程解决方案
+
+语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。
+
+执行 Generator 函数会返回一个遍历器对象
+
+形式上，Generator 函数是一个普通函数，但是有两个特征。一是，function关键字与函数名之间有一个星号；二是，函数体内部使用yield表达式，定义不同的内部状态
+```js
+function* helloWorldGenerator() {
+  yield 'hello';
+  yield 'world';
+  return 'ending';
+}
+```
+var hw = helloWorldGenerator();
+调用 Generator 函数，返回一个遍历器对象，代表 Generator 函数的内部指针。以后，每次调用遍历器对象的next方法，就会返回一个有着value和done两个属性的对象。value属性表示当前的内部状态的值，是yield表达式后面那个表达式的值；done属性是一个布尔值，表示是否遍历结束。
+```js
+hw.next()
+// { value: 'world', done: false }
+```
+```js
+function* foo(x) {
+  let y = 2 * (yield x + 1);
+  let z = yield y / 3;
+  return x + y + z;
+}
+let it = foo(5);
+console.log(it.next()); // => {value: 6, done: false}
+console.log(it.next(12)); // => {value: 8, done: false}
+console.log(it.next(13)); // => {value: 42, done: true}
+```
+
+- 首先 Generator 函数调用和普通函数不同，它会返回一个迭代器
+
+- 当执行第一次 next 时，传参会被忽略，并且函数暂停在 yield (x + 1) 处，所以返回 5 + 1 = 6
+
+- 当执行第二次 next 时，传入的参数等于上一个 yield 的返回值，如果你不传参，yield 永远返回 undefined。此时 let y = 2 _ 12，所以第二个 yield 等于 2 _ 12 / 3 = 8
+
+- 当执行第三次 next 时，传入的参数会传递给 z，所以 z = 13, x = 5, y = 24，相加等于 42
+
+#### 生成器原理
+
+当 yeild 产生一个值后，生成器的执行上下文就会从栈中弹出。但由于迭代器一直保持着队执行上下文的引用，上下文不会丢失，不会像普通函数一样执行完后上下文就被销毁
+
+
+### ES Module
+
+ES Module 是原生实现的模块化方案，与 CommonJS 有以下几个区别
+
+- CommonJS 支持动态导入，也就是 require(\${path}/xx.js)，后者目前不支持，但是已有提案
+- CommonJS 是同步导入，因为用于服务端，文件都在本地，同步导入即使卡住主线程影响也不大。而后者是异步导入，因为用于浏览器，需要下载文件，如果也采用同步导入会对渲染有很大影响
+- CommonJS 在导出时都是值拷贝，就算导出的值变了，导入的值也不会改变，所以如果想更新值，必须重新导入一次。但是 ES Module 采用实时绑定的方式，导入导出的值都指向同一个内存地址，所以导入值会跟随导出值变化
+- ES Module 会编译成 require/exports 来执行的
+
+```js
+// 引入模块 API
+import XXX from './a.js';
+import { XXX } from './a.js';
+// 导出模块 API
+export function a() {}
+export default function () {}
+```
+
 ### Promise
 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。
 
@@ -416,161 +572,6 @@ let  s1=Symbol('student');
 ```
 Symbol 作为对象属性名时不能用.运算符，要用方括号。因为.运算符后面是字符串，所以取到的是字符串 sy 属性，而不是 Symbol 值 sy 属性。
 
-### js的map方法
-https://www.jianshu.com/p/53032fc0909a
-
-定义在JavaScript的Array中，它返回一个新的数组，数组中的元素为原始数组调用函数处理后的值。  <br>
-array.map(function(currentValue, index, arr), thisIndex)  <br>
-function(currentValue, index, arr)：必须。为一个函数，数组中的每个元素都会执行这个函数。其中函数参数：  <br>
-currentValue：必须。当前元素的的值。  <br>
-index：可选。当前元素的索引。  <br>
-arr：可选。当前元素属于的数组对象。  <br>
-遍历对象数组  <br>
-```js
-let newArray2 = data.departments.map(v=>{
-                  return {
-                      key: v.id,
-                      value: v.departmentName
-                  }
-          });
-```
-
-### 高阶函数
-filter/map/reduce  <br>
-- filter
-```js
-var array=[1,2,3,4,5,6];
-let newArray =array.filter(function(){
-return item<3
-})//每遍历一个数就会执行一次回调函数
-```
-filter中的回调函数必须返回一个布尔值  <br>
-返回为true时，函数内部会自动将这次回调的item加入到新的数组中  <br>
-false:函数会自动过滤掉这次item
-- map同上
-
-- reduce
-作用：对数组中所有内容进行汇总
-
-
-  
- 
-
-### 变量的解构赋值
-#### 数组的解构赋值
-ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构
-```js
-let a = 1;
-let b = 2;
-let c = 3;
-```
-ES6
-```js
- let [a,b,c,d]=[1,2,3,4];
- //本质上模式匹配”，只要等号两边的模式相同，左边的变量就会被赋予对应的值
-```
-解构不成功，变量的值就等于undefined
- Set 结构，也可以使用数组的解构赋值。
-```js 
- let [x, y, z] = new Set(['a', 'b', 'c']);
-x // "a"
-```
-#### 对象的解构赋值
-```js
-let { foo, bar } = { foo: 'aaa', bar: 'bbb' };
-```
-数组的元素是按次序排列的，变量的取值由它的位置决定；而对象的属性没有次序，变量必须与属性同名，才能取到正确的值。
-#### 对象的解构赋值
-```js
-const [a, b, c, d, e] = 'hello';
-a // "h"
-b // "e"
-c // "l"
-d // "l"
-e // "o"
-```
-### async 和 await
-
-一个函数如果加上 async ，那么该函数就会返回一个 Promise
-
-```js
-async function test() {
-  return '1';
-}
-console.log(test());
-// -> Promise {<resolved>: "1"}
-```
-
-async 就是将函数返回值使用 Promise.resolve() 包裹了下，和 then 中处理返回值一样，并且 await 只能配套 async 使用。
-
-```js
-async function test() {
-  let value = await sleep();
-}
-```
-### Generator 函数的语法
-Generator 函数是 ES6 提供的一种异步编程解决方案
-
-语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。
-
-执行 Generator 函数会返回一个遍历器对象
-
-形式上，Generator 函数是一个普通函数，但是有两个特征。一是，function关键字与函数名之间有一个星号；二是，函数体内部使用yield表达式，定义不同的内部状态
-```js
-function* helloWorldGenerator() {
-  yield 'hello';
-  yield 'world';
-  return 'ending';
-}
-```
-var hw = helloWorldGenerator();
-调用 Generator 函数，返回一个遍历器对象，代表 Generator 函数的内部指针。以后，每次调用遍历器对象的next方法，就会返回一个有着value和done两个属性的对象。value属性表示当前的内部状态的值，是yield表达式后面那个表达式的值；done属性是一个布尔值，表示是否遍历结束。
-```js
-hw.next()
-// { value: 'world', done: false }
-```
-```js
-function* foo(x) {
-  let y = 2 * (yield x + 1);
-  let z = yield y / 3;
-  return x + y + z;
-}
-let it = foo(5);
-console.log(it.next()); // => {value: 6, done: false}
-console.log(it.next(12)); // => {value: 8, done: false}
-console.log(it.next(13)); // => {value: 42, done: true}
-```
-
-- 首先 Generator 函数调用和普通函数不同，它会返回一个迭代器
-
-- 当执行第一次 next 时，传参会被忽略，并且函数暂停在 yield (x + 1) 处，所以返回 5 + 1 = 6
-
-- 当执行第二次 next 时，传入的参数等于上一个 yield 的返回值，如果你不传参，yield 永远返回 undefined。此时 let y = 2 _ 12，所以第二个 yield 等于 2 _ 12 / 3 = 8
-
-- 当执行第三次 next 时，传入的参数会传递给 z，所以 z = 13, x = 5, y = 24，相加等于 42
-
-#### 生成器原理
-
-当 yeild 产生一个值后，生成器的执行上下文就会从栈中弹出。但由于迭代器一直保持着队执行上下文的引用，上下文不会丢失，不会像普通函数一样执行完后上下文就被销毁
-
-
-### ES Module
-
-ES Module 是原生实现的模块化方案，与 CommonJS 有以下几个区别
-
-- CommonJS 支持动态导入，也就是 require(\${path}/xx.js)，后者目前不支持，但是已有提案
-- CommonJS 是同步导入，因为用于服务端，文件都在本地，同步导入即使卡住主线程影响也不大。而后者是异步导入，因为用于浏览器，需要下载文件，如果也采用同步导入会对渲染有很大影响
-- CommonJS 在导出时都是值拷贝，就算导出的值变了，导入的值也不会改变，所以如果想更新值，必须重新导入一次。但是 ES Module 采用实时绑定的方式，导入导出的值都指向同一个内存地址，所以导入值会跟随导出值变化
-- ES Module 会编译成 require/exports 来执行的
-
-```js
-// 引入模块 API
-import XXX from './a.js';
-import { XXX } from './a.js';
-// 导出模块 API
-export function a() {}
-export default function () {}
-```
 
 ### 为什么 ES 模块比 CommonJS 更好?
 
