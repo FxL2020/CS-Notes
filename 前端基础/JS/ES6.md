@@ -230,6 +230,11 @@ false:函数会自动过滤掉这次item
 
 - reduce
 作用：对数组中所有内容进行汇总
+```js
+let toatl = array.reduce(function(preVal,item){return preVal+item},initalVal)
+preVal: 上一次回调函数返回的结果
+initalVal： 初始值一般为0
+```
 
 
   
