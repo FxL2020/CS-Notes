@@ -173,9 +173,9 @@ Git 不再重新存储该文件，而是只保留一个链接指向之前存储�
 git remote -v   //查看当前所有远程地址别名
 git remote add 别名  远程地址
 ```
-https://blog.csdn.net/xqhys/article/details/98113227
-git add . 添加全部已经修改的文件，准备commit 提交 
-该命令效果等同于 git add -A
+https://blog.csdn.net/xqhys/article/details/98113227      <br>
+git add . 添加全部已经修改的文件，准备commit 提交   <br>
+该命令效果等同于 git add -A   <br>
 #### 推送
 ```shell
 git push 别名 分支名
