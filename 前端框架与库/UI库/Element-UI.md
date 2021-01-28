@@ -27,7 +27,7 @@ npm i element-ui -S
 
 ```
 
-P11
+P13
 
 文档
 
