@@ -1,4 +1,5 @@
-### 数据结构
+### 数据结构 
+参考  https://www.jianshu.com/p/38853c044156
 计算机中，存储和组织数据的方式
 ### 算法
 解决问题的方法/步骤逻辑
@@ -34,7 +35,7 @@ A入栈B入栈C入栈，C执行完出栈，B出栈
 6.toString() :将栈内容以字符串形式返回
 
 
-  //封装栈类
+  //封装栈类   创建了一个Stack构造函数, 用户创建栈的类.
     function Stack() {
         this.items =[];
         //将元素压入栈,prototype在类中添加方法
@@ -96,40 +97,95 @@ A入栈B入栈C入栈，C执行完出栈，B出栈
 3.front() :返回队列中第一个元素，不会对队列做任何修改
 4.isEmpty()
 5.size()
-6.toString()
-<script>
+6.toString()<script>
+    // 基于数组封装队列类
     function Queue() {
-        this.items=[];
-        //往队列添加元素
-        Queue.prototype.enqueue=function (element) {
-            this.items.push(element);
+        // 属性
+        this.items = []
+
+        // 方法
+        // 1.enqueue():将元素加入到队列中
+        Queue.prototype.enqueue = element => {
+            this.items.push(element)
         }
-        Queue.prototype.dequeue=function () {
-            return this.items.shift();
+
+        // 2.dequeue():从队列中删除前端元素
+        Queue.prototype.dequeue = () => {
+            return this.items.shift()
         }
-        //查看队列头元素
-        Queue.prototype.front=function () {
+
+        // 3.front():查看前端的元素
+        Queue.prototype.front = () => {
             return this.items[0]
         }
-        Queue.prototype.size=function () {
-            return this.items.length;
+
+        // 4.isEmpty:查看队列是否为空
+        Queue.prototype.isEmpty = () => {
+            return this.items.length == 0;
         }
-        Queue.prototype.toString=function () {
-            var string='';
-            for (var i=0;i<this.items.length;i++){
-                string +=this.items[i]+ '';
+
+        // 5.size():查看队列中元素的个数
+        Queue.prototype.size = () => {
+            return this.items.length
+        }
+
+        // 6.toString():将队列中元素以字符串形式输出
+        Queue.prototype.toString = () => {
+            let resultString = ''
+            for (let i of this.items){
+                resultString += i + ' '
             }
-            return string;
+            return resultString
         }
     }
-    var queue=new Queue();
-    queue.enqueue("a");
-    queue.enqueue("b");
-    queue.enqueue("c");
-    alert(queue);
-    queue.dequeue();
-    alert(queue);
-    alert(queue.front());
+
+     var queue=new Queue();
+     queue.enqueue("a");
+     queue.enqueue("b");
+     queue.enqueue("c");
+     alert(queue);
+     queue.dequeue();
+     alert(queue);
+     alert(queue.front());
+    // 队列应用：面试题：击鼓传花
+    let passGame = (nameList, num) => {
+        //1.创建队列结构
+        let queue = new Queue()
+
+        //2.将所有人依次加入队列
+        // 这是ES6的for循环写法，i相当于nameList[i]
+        for(let i of nameList){
+            queue.enqueue(i)
+        }
+
+
+        // 3.开始数数
+        while(queue.size() > 1){//队列中只剩1个人就停止数数
+            // 不是num的时候，重新加入队列末尾
+            // 是num的时候，将其从队列中删除
+            // 3.1.num数字之前的人重新放入队列的末尾(把队列前面删除的加到队列最后)
+            for(let i = 0; i< num-1; i++ ){
+                queue.enqueue(queue.dequeue())
+            }
+            // 3.2.num对应这个人，直接从队列中删除
+            /*
+              思路是这样的，由于队列没有像数组一样的下标值不能直接取到某一元素，所以采用，把num前面的num-1个元素先删除后添加到队列末尾，这样第num个元素就排到了队列的最前面，可以直接使用dequeue方法进行删除
+            */
+            queue.dequeue()
+        }
+
+        //4.获取剩下的那个人
+        console.log(queue.size());									//104
+        let endName = queue.front()
+        console.log('最终剩下的人：' + endName);						   //106
+
+        return nameList.indexOf(endName);
+    }
+
+    //5.测试击鼓传花
+    let names = ['lily', 'lucy', 'Tom', 'Lilei', 'Tony']
+    console.log(passGame(names, 3));
+</script>
 </script>
 ```
 P15
