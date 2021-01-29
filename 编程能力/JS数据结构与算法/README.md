@@ -198,5 +198,69 @@ A入栈B入栈C入栈，C执行完出栈，B出栈     <br>
 每个元素不再只是一个数据，还包含数据的优先级     <br>
 在添加数据过程中，根据优先级放入到正确位置     <br>
 
+```js
+function PriorityQueue() {
+       // 1.1.创建QueueElement对象
+       function QueueElement(element,priority) {
+           this.element=element;
+           this.priority=priority;
+       }
+       this.items=[]
+
+       PriorityQueue.prototype.enqueue=(element,priority)=>{
+           let queueElement= new QueueElement(element,priority)
+
+           // 1.2.判断队列是否为空
+           if (this.items.length===0){
+               this.items.push(queueElement)
+           }else {
+               let add=false
+               // 定义一个变量记录是否成功添加了新元素
+              for (let i=0;i<this.items.length;i++){
+                  // 让新插入的元素与原有元素进行优先级比较(priority越小，优先级越大)
+                  if (queueElement.priority<this.items[i].priority){
+                      this.items.splice(i,0,queueElement)
+                      add=true
+                      return
+                      // 新元素已经找到插入位置了可以使用break停止循环
+                  }
+               }
+               // 新元素没有成功插入，就把它放在队列的最前面
+              if (!add){
+                  this.items.push(queueElement)
+              }
+
+           }
+       }
+       // 2.dequeue():从队列中删除前端元素
+       PriorityQueue.prototype.dequeue=()=>{
+           return this.items.shift()
+       }
+       // 3.front():查看前端的元素
+       PriorityQueue.prototype.front=()=>{
+           return this.items[0]
+       }
+       // 4.isEmpty():查看队列是否为空
+       PriorityQueue.prototype.isEmpty=()=>{
+           return this.items.length ===0
+       }
+       // 5.size():查看队列中元素的个数
+       PriorityQueue.prototype.size=()=>{
+           return this.items.length
+       }
+
+   }
+   let priorityQueue=new PriorityQueue()
+    priorityQueue.enqueue('we',1)
+    priorityQueue.enqueue('er',3)
+    priorityQueue.enqueue(89,2)
+    console.log(priorityQueue)
+    //结果
+    items: Array(3)
+0: QueueElement {element: "we", priority: 1}
+1: QueueElement {element: 89, priority: 2}
+2: QueueElement {element: "er", priority: 3}
+length: 3
+```
 
 P15
