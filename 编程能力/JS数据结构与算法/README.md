@@ -476,6 +476,8 @@ previous指向current前一个node
 
 </script>
 
+```
+
 #### 双向链表
 双向链表：既可以从头遍历到尾，又可以从尾遍历到头。也就是说链表连接的过程是双向的，它的实现原理是：一个节点既有向前连接的引用，也有一个向后连接的引用。
 
@@ -489,6 +491,109 @@ previous指向current前一个node
 每一个节点由三部分组成：item储存数据、prev指向前一个节点、next指向后一个节点；     <br>
 双向链表的第一个节点的prev指向null；     <br>
 双向链表的最后一个节点的next指向null；     <br>
+
+append（element）：向链表尾部添加一个新的项；     <br>
+insert（position，element）：向链表的特定位置插入一个新的项；     <br>
+get（position）：获取对应位置的元素；     <br>
+indexOf（element）：返回元素在链表中的索引。如果链表中没有该元素就返回-1；     <br>
+update（position，element）：修改某个位置的元素；     <br>
+removeAt（position）：从链表的特定位置移除一项；根据位置     <br>
+remove（element）：从链表中移除一项；根据元素删除     <br>
+isEmpty（）：如果链表中不包含任何元素，返回trun，如果链表长度大于0则返回false；     <br>
+size（）：返回链表包含的元素个数，与数组的length属性类似；     <br>
+toString（）：由于链表项使用了Node类，就需要重写继承自JavaScript对象默认的toString方法，让其只输出元素的值；     <br>
+forwardString: 正向遍历转成字符串的方法     <br>
+reverseString: 反向遍历转成字符串的方法     <br>
+toString: 正向遍历转成字符串的方法     <br>
+
+```js
+
+ function DoubleLinkedList(){
+        function Node(data) {
+            this.data=data
+            this.next=null
+            this.prev=null
+        }
+        this.head=null
+        this.tail=null
+        this.length=0
+
+        DoubleLinkedList.prototype.append=function (data) {
+            let newNode=new Node(data)
+            //添加的是第一个节点
+            if (this.length===0){
+                this.head=newNode
+                this.tail =newNode
+            }else{
+                //添加不是第一个节点
+                newNode.prev=this.tail;
+                this.tail.next=newNode
+                this.tail=newNode
+            }
+            this.length+=1
+        }
+
+        DoubleLinkedList.prototype.forwardString=function () {
+            let current=this.head
+            let string=""
+            while (current){
+                string+=current.data+ " "
+                current=current.next
+            }
+            return string
+        }
+        DoubleLinkedList.prototype.backString=function () {
+            let current =this.tail
+            let string=""
+            while (current){
+                string+=current.data+ " "
+                current=current.prev
+            }
+            return string
+        }
+        DoubleLinkedList.prototype.toString=function () {
+            return this.forwardString()
+        }
+
+        DoubleLinkedList.prototype.insert=function (position,element) {
+            if (position<0||position>this.length){return false}
+            let newNode= new Node(element)
+            if (this.length==0){
+                this.head=newNode
+                this.tail=newNode
+            }else if(position===0){
+                this.head.prev=newNode
+                newNode.next=this.head
+                this.head=newNode
+            }else if(position==this.length){
+                this.tail.next=newNode
+                newNode.prev=this.tail
+                this.tail=newNode
+            }else{
+                let index=0
+                let current=this.head
+                while(index++<position){
+                    current=current.next
+                }
+                newNode.next=current
+                newNode.prev =current.prev
+                current.prev.next=newNode
+                current.prev=newNode
+            }
+            this.length+=1
+            return true
+        }
+    }
+    var list=new DoubleLinkedList()
+    list.append('abc')
+    list.append('bcd')
+    list.append('gth')
+    console.log(list)
+    console.log(list.forwardString())
+    console.log(list.backString())
+    console.log(list.forwardString())
+    list.insert(1,'a')
+    console.log(list.toString())
 
 
 
