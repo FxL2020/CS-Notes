@@ -381,6 +381,84 @@ previous指向current前一个node
             this.length+=1
             return true
         }
+        //get(position)
+        LinkedList.prototype.get=function (position) {
+            if (position<0||position>this.length){
+                return false
+            }
+            var current =this.head
+            var index =0
+            while (index++<position){
+                current=current.next
+            }
+            return current.data
+
+        }
+
+        //indexOf(element)
+        LinkedList.prototype.indexOf=function (element) {
+            var current =this.head
+            var index=0
+            while (current){
+                if (current.data===element){
+                    return index
+                }
+                current=current.next
+                index+=1
+            }
+            return  -1
+        }
+
+        //update
+        LinkedList.prototype.update=function (position,element) {
+            if (position<0||position>this.length){
+                return false
+            }
+            var current =this.head
+            let index =0
+            while(index++<position){
+                current=current.next
+            }
+            current.data=element
+            return true
+        }
+
+        //removeAt(position)
+        LinkedList.prototype.removeAt=function (position) {
+            if (position<0||position>this.length){
+                return false
+            }
+            let current =this.head
+            let index=0
+            let previous=null
+            if (position===0){
+                this.head=this.head.next
+            }else {
+                while (index++<position){
+                    previous=current
+                    current=current.next
+                }
+                previous.next =current.next
+            }
+            this.length-=1
+            return current.data
+        }
+
+        //remove
+        LinkedList.prototype.remove=function (element) {
+            let position=this.indexOf(element)
+            return this.removeAt(position)
+        }
+
+        //isEmpty
+        LinkedList.prototype.isEmpty=function () {
+            return this.length===0
+        }
+
+        //size
+        LinkedList.prototype.size=function () {
+            return this.length
+        }
     }
     let list=new LinkedList()
     list.append('a')
@@ -390,9 +468,33 @@ previous指向current前一个node
     list.insert(0, '在链表最前面插入节点');
     list.insert(2, '在链表中第二个节点后插入节点');
     console.log(list.toString())//a b c
+    console.log(list.get(0))
+    console.log(list.indexOf('b'))
+    console.log(list.update(0,'abc'))
+    console.log(list)
 
 
 </script>
+
+#### 双向链表
+双向链表：既可以从头遍历到尾，又可以从尾遍历到头。也就是说链表连接的过程是双向的，它的实现原理是：一个节点既有向前连接的引用，也有一个向后连接的引用。
+
+双向链表的缺点：
+
+每次在插入或删除某个节点时，都需要处理四个引用，而不是两个，实现起来会困难些；     <br>
+相对于单向链表，所占内存空间更大一些；     <br>
+但是，相对于双向链表的便利性而言，这些缺点微不足道。     <br>
+
+双向链表不仅有head指针指向第一个节点，而且有tail指针指向最后一个节点；     <br>
+每一个节点由三部分组成：item储存数据、prev指向前一个节点、next指向后一个节点；     <br>
+双向链表的第一个节点的prev指向null；     <br>
+双向链表的最后一个节点的next指向null；     <br>
+
+
+
+
+
+
 
 
 
