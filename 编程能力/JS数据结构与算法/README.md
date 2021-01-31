@@ -507,8 +507,8 @@ reverseString: 反向遍历转成字符串的方法     <br>
 toString: 正向遍历转成字符串的方法     <br>
 
 ```js
-
- function DoubleLinkedList(){
+<script>
+    function DoubleLinkedList(){
         function Node(data) {
             this.data=data
             this.next=null
@@ -583,6 +583,71 @@ toString: 正向遍历转成字符串的方法     <br>
             this.length+=1
             return true
         }
+        DoubleLinkedList.prototype.get=function (position) {
+            if (position<0||position>=this.length){return false}
+            let current=null
+            let index=0
+            if (this.length/2>position){
+                current=this.head
+                while(index++<position){
+                    current=current.next
+                }
+                return current.data
+            }else {
+                let current =this.tail
+                let index=this.length-1
+                while (index-->position){
+                    current=current.prev
+                }
+                return current.data
+            }
+        }
+        DoubleLinkedList.prototype.indexOf=function (element) {
+            let current=this.head
+            let index=0
+           while(current){
+                if (current.data===element){
+                    return index
+                }
+               index+=1
+               current=current.next
+           }
+           return -1
+        }
+        DoubleLinkedList.prototype.removeAt=function (position) {
+            if(position<0||position>=this.length){return null}
+            let current=this.head
+            if (this.length==1){
+                this.head=null
+                this.tail=null
+            }else if(position==0){
+                this.head.next.prev=null
+                this.head=this.head.next
+            }else if (position==this.length-1){
+                this.tail.prev.next=null
+                this.tail=this.tail.prev
+            }else{
+                let index=0
+                while(index++<position){
+                    current=current.next
+                    index+=1
+                }
+                current.next.prev=current.prev
+                current.prev.next=current.next
+            }
+            this.length-=1
+            return current.data
+        }
+        DoubleLinkedList.prototype.remove=function (element) {
+            let index =this.indexOf(element)
+            return this.removeAt(index)
+        }
+        DoubleLinkedList.prototype.getHead=function () {
+            return this.head.data
+        }
+        DoubleLinkedList.prototype.getTail=function () {
+            return this.tail.data
+        }
     }
     var list=new DoubleLinkedList()
     list.append('abc')
@@ -593,14 +658,14 @@ toString: 正向遍历转成字符串的方法     <br>
     console.log(list.backString())
     console.log(list.forwardString())
     list.insert(1,'a')
+    console.log(list.get(3))
+    console.log(list.indexOf('gth'))
+    console.log(list.removeAt(3))
+    console.log(list.remove('abc'))
+    console.log(list.getHead())
+    console.log(list.getTail())
     console.log(list.toString())
-
-
-
-
-
-
-
+</script>
 
 
 ```
