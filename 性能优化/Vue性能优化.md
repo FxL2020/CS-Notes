@@ -39,3 +39,78 @@ export default {
   }
 };
 ```
+
+#### 1.5 图片资源懒加载
+对于图片过多的页面，为了加速页面加载速度，所以很多时候我们需要将页面内未出现在可视区域内的图片先不做加载， 等到滚动到可视区域后再去加载。这样对于页面加载性能上会有很大的提升，也提高了用户体验。我们在项目中使用 Vue 的 vue-lazyload 插件：
+
+（1）安装插件
+```js
+npm install vue-lazyload --save-dev
+```
+2）在入口文件 man.js 中引入并使用
+```js
+import VueLazyload from 'vue-lazyload'
+```
+然后再 vue 中直接使用
+```js
+Vue.use(VueLazyload)
+```
+或者添加自定义选项
+```js
+Vue.use(VueLazyload, {
+preLoad: 1.3,
+error: 'dist/error.png',
+loading: 'dist/loading.gif',
+attempt: 1
+})
+```
+（3）在 vue 文件中将 img 标签的 src 属性直接改为 v-lazy ，从而将图片显示方式更改为懒加载显示：
+```js
+<img v-lazy="/static/img/1.png">
+```
+
+#### 1.6 路由懒加载
+Vue  是单页面应用，可能会有很多的路由引入 ，这样使用 webpcak 打包后的文件很大，当进入首页时，加载的资源过多，页面会出现白屏的情况，不利于用户体验。如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应的组件，这样就更加高效了。这样会大大提高首屏显示的速度，但是可能其他的页面的速度就会降下来。
+
+路由懒加载：
+
+```js
+const Foo = () => import('./Foo.vue')
+const router = new VueRouter({
+  routes: [
+    { path: '/foo', component: Foo }
+  ]
+})
+```
+
+#### 1.7 第三方插件的按需引入
+我们在项目中经常会需要引入第三方插件，如果我们直接引入整个插件，会导致项目的体积太大，我们可以借助 babel-plugin-component ，然后可以只引入需要的组件，以达到减小项目体积的目的。以下为项目中引入 element-ui 组件库为例：
+
+（1）首先，安装 babel-plugin-component ：
+```js
+npm install babel-plugin-component -D
+```
+然后，将 .babelrc 修改为：
+```js
+{
+  "presets": [["es2015", { "modules": false }]],
+  "plugins": [
+    [
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
+  ]
+}
+```
+（3）在 main.js 中引入部分组件：
+```js
+import Vue from 'vue';
+import { Button, Select } from 'element-ui';
+
+ Vue.use(Button)
+ Vue.use(Select)
+```
+
