@@ -29,3 +29,32 @@
     say.defineCall(obj,2) //obj 2
     say(2) //window 2
 ```
+
+### apply
+
+改变this指向，唯一区别就是跟call传递参数不同
+
+```js
+  Function.prototype.defineApply=function (context,arr) {
+        context =context || window
+        context.fn=this
+        let result;
+        if (!arr){
+            result=context.fn()
+        }else {
+            let args=[]
+            for(let i=1;i<arguments.length;i++){
+                args.push(arguments[i])
+            }
+            result=context.fn(args.join(','))
+        }
+        return result
+    }
+    let obj=['we','er']
+    let say=function (age) {
+        console.log(age)
+        console.log(this)
+    }
+    say.defineApply(obj,[1,3])
+    
+  ```
