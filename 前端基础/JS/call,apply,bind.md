@@ -26,8 +26,8 @@
     let obj={
         name: 'liming'
     }
-    say.defineCall(obj,2) //obj 2
-    say(2) //window 2
+    say.defineCall(obj,2,3,4) //obj 2
+    say(2) 
 ```
 
 ### apply
@@ -58,3 +58,28 @@
     say.defineApply(obj,[1,3])
     
   ```
+  
+  ### bind
+ 
+  可以指定函数的this，不可以执行函数，但可以传参  <br>
+  返回值：返回一个新的指定了this的函数，也可以叫绑定函数  <br>
+    
+  ```js
+  Function.prototype.bind=function (context) {
+        let self = this     // 保存函数的引用
+        return function () { // 返回一个新的函数
+            console.log(arguments)
+           // return self.apply(context, arguments);
+            return self.call(context, arguments);
+        }
+    }
+    let obj={
+        name: 'liming'
+    }
+    let func =function () {
+        console.log(this.name)
+    }.bind(obj)
+
+    func('li',20)
+    
+    ```
