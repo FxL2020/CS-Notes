@@ -57,7 +57,21 @@
     
    ```js
     let arr=[ '1', ['2', ['3', '4',], '5'] ,'6' ]
-    console.log(arr.join())
+    console.log(arr.join())                //1,2,3,4,5,6
     console.log(arr.join().split(','))
    
    ```
+   
+   方法四： reduce
+    
+   ```js
+     let flattenMd=function (arr) {
+        return arr.reduce((prev,item)=>
+            prev.concat(Array.isArray(item)?flattenMd(item):item),[])
+    }
+    var ary = [1, [2, [3, [4, 5]]], 6]
+    console.log(flattenMd(ary))
+   
+   ```
+   
+   
