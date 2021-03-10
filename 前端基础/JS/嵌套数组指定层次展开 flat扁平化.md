@@ -65,6 +65,7 @@
    方法四： reduce
     
    ```js
+   
      let flattenMd=function (arr) {
         return arr.reduce((prev,item)=>
             prev.concat(Array.isArray(item)?flattenMd(item):item),[])
@@ -74,4 +75,14 @@
    
    ```
    
+   ```js
+    //能够遍历到数组的每一个元素，并且次遍历都可以使用上次遍历结果
+    var arr = [3,9,4,3,6,0,9];
+    let lastArr=arr.reduce((prev,item)=>{
+        return prev+item
+    },0)
+    console.log(lastArr)
+   ```
+   1.累加  <br>
+   2.数组扁平化
    
