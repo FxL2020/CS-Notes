@@ -23,3 +23,41 @@
     var ary = [1, [2, [3, [4, 5]]], 6]
     console.log(flattenMd(ary))
 ```
+
+
+  方法一：递归使用闭包
+  ```js
+   function flattenMd() {
+        let result=[]
+        return  function flatten(arr) {//闭包
+            arr.forEach(item=>{
+                if(Array.isArray(item)){
+                    flatten(item)
+                }else{
+                    result.push(item)
+                }
+            })
+            return result
+        }
+    }
+
+     var ary = [1, [2, [3, [4, 5]]], 6]
+    console.log(ary)
+    let m=flattenMd()
+    console.log(m(ary)) 
+```
+
+方法三： join和split组合（ 只适用字符串数组， 最简单粗暴）
+
+   join和split组合（ 只适用字符串数组， 最简单粗暴）<br>
+   join() 方法用于把数组中的所有元素放入一个字符串 默认用,隔开<br>
+   split() 方法用于把一个字符串分割成字符串数组。<br>
+    
+    
+    
+   ```js
+    let arr=[ '1', ['2', ['3', '4',], '5'] ,'6' ]
+    console.log(arr.join())
+    console.log(arr.join().split(','))
+   
+   ```
