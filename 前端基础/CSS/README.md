@@ -10,3 +10,6 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_C
 
 ### css优先级
 https://zhuanlan.zhihu.com/p/41604775
+
+### css选择器
+https://segmentfault.com/a/1190000013424772
