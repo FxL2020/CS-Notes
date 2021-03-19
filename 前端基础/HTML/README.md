@@ -7,3 +7,8 @@ https://juejin.cn/post/6844903811232825357
 
 ### hash和 history两种路由
 https://blog.csdn.net/Charissa2017/article/details/104779412
+
+### DOM树
+https://blog.poetries.top/browser-working-principle/guide/part5/lesson22.html#%E4%BB%80%E4%B9%88%E6%98%AF-dom
+
+### 
