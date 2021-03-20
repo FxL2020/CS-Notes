@@ -19,3 +19,6 @@ https://juejin.cn/post/6844903593275817998
 
 ### 浏览器架构
 https://xie.infoq.cn/article/5d36d123bfd1c56688e125ad3
+
+### 内存泄漏
+https://segmentfault.com/a/1190000020231307
