@@ -13,3 +13,6 @@ https://blog.poetries.top/browser-working-principle/guide/part5/lesson22.html#%E
 
 ### 事件模型
 https://javascript.ruanyifeng.com/dom/event.html
+
+### 缓存策略
+https://juejin.cn/post/6844903593275817998
