@@ -16,3 +16,6 @@ https://javascript.ruanyifeng.com/dom/event.html
 
 ### 缓存策略
 https://juejin.cn/post/6844903593275817998
+
+### 浏览器架构
+https://xie.infoq.cn/article/5d36d123bfd1c56688e125ad3
