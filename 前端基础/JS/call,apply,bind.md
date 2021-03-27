@@ -8,16 +8,13 @@
     在函数调用的时候，浏览器每次都会传递进两个隐式参数：
     1. 函数的上下文对象this
     2. 封装实参的对象arguments
-    Function.prototype.defineCall=function (context) {
-        context =context || window
-        context.fn=this  //将需要执行的方法(调用call的对象) 作为 context 的一个属性方法fn
-        let args =[]
-        for (let i=1;i<arguments[i];i++){
-            args.push(arguments[i])
-        }
-        let result=context.fn( args.join(','))
-        delete context.fn
-        return result
+    Function.prototype.defineCall = function(){
+        let context = arguments[0] || window; //context上下文
+        context.fn = this;  //context上下文定义一个属性fn
+        let args = [...arguments].slice(1);
+        let result = context.fn(...args);
+        delete context.fn;
+        return result;
     }
     let say=function (age) {
         console.log(age)
@@ -26,8 +23,8 @@
     let obj={
         name: 'liming'
     }
-    say.defineCall(obj,2,3,4) //obj 2
-    say(2) 
+    say.defineCall(obj,2) //obj 2
+    say(2) //window 2
 ```
 
 ### apply
