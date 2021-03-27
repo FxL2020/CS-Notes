@@ -8,7 +8,7 @@
     在函数调用的时候，浏览器每次都会传递进两个隐式参数：
     1. 函数的上下文对象this
     2. 封装实参的对象arguments
-    Function.prototype.defineCall = function(){
+    Function.prototype.mycall = function(){
         let context = arguments[0] || window; //context上下文
         context.fn = this;  //context上下文定义一个属性fn
         let args = [...arguments].slice(1);
@@ -23,7 +23,7 @@
     let obj={
         name: 'liming'
     }
-    say.defineCall(obj,2) //obj 2
+    say.mycall(obj,2) //obj 2
     say(2) //window 2
 ```
 
@@ -32,27 +32,31 @@
 改变this指向，唯一区别就是跟call传递参数不同
 
 ```js
-  Function.prototype.defineApply=function (context,arr) {
-        context =context || window
-        context.fn=this
+   Function.prototype.myapply = function () {
+        let context = arguments[0] || window;
+        context.fn = this;
         let result;
-        if (!arr){
-            result=context.fn()
-        }else {
-            let args=[]
-            for(let i=1;i<arguments.length;i++){
-                args.push(arguments[i])
-            }
-            result=context.fn(args.join(','))
+        //判断是否有第二个参数
+        if(arguments[1]){
+            result = context.fn(...arguments[1]);
+        }else{
+            result = context.fn();
         }
-        return result
+        delete context.fn;
+        return result;
     }
-    let obj=['we','er']
-    let say=function (age) {
-        console.log(age)
-        console.log(this)
+
+    //测试用例
+    let cc = {
+        a: 1
     }
-    say.defineApply(obj,[1,3])
+
+    function demo(x1, x2) {
+        console.log(typeof this, this.a, this)
+        console.log(x1, x2)
+    }
+    demo.apply(cc, [2, 3])
+    demo.myapply(cc, [2, 3])
     
   ```
   
@@ -79,4 +83,4 @@
 
     func('li',20)
     
-    ```
+ ```
