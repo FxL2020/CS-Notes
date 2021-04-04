@@ -1,3 +1,14 @@
 日期和时间组件layDate：https://www.layui.com/doc/modules/laydate.html
 超级详细的Vue-cli3使用教程：https://copyfuture.com/blogs-details/20200519144521753sqo6c6n1o1lx3jb
 vue.js: https://cn.vuejs.org/v2/guide/installation.html
+
+
+###
+模块化： https://segmentfault.com/a/1190000017466120
+tree-shaking: https://juejin.cn/post/6844903544756109319
+uglify原理: https://www.h5w3.com/19480.html
+babel原理: https://my.oschina.net/u/4088983/blog/4545928
+wepback工作流程: https://developer.aliyun.com/article/61047
+wepback插件机制: https://juejin.cn/post/6844903789804126222
+webpackg loader机制: https://github.com/youngwind/blog/issues/101
+前端微服务: https://tech.antfin.com/community/articles/536
