@@ -17,4 +17,8 @@ webpackg loader机制: https://github.com/youngwind/blog/issues/101
 白屏: https://cloud.tencent.com/developer/article/1508941
 前端性能优化 - 用RAIL模型分析性能: https://juejin.cn/post/6850037273312886797
 重排(reflow)和重绘(repaint): https://juejin.cn/post/6844904083212468238
+大量图片加载优化: https://zhuanlan.zhihu.com/p/33370207
+浏览器工作原理：从 URL 输入到页面展现到底发生了什么？: https://www.jianshu.com/p/d616d887953a
+动画性能: https://www.jianshu.com/p/d24a891d4de6
+渲染合成层: https://segmentfault.com/a/1190000014520786
 
