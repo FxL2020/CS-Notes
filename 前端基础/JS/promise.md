@@ -1,6 +1,6 @@
 
 ### promise
-Promise 是异步编程的一种解决方案
+Promise 是异步编程的一种解决方案  <br>
 promise 是⼀个有then⽅法的对象或者是函数
 
 Promise应该有三种状态
@@ -9,17 +9,18 @@ Promise应该有三种状态
 - rejected(最终态, 不可变)
 
 状态流转
-pending resolve(value) fulfilled
+pending resolve(value) fulfilled<br>
 pending reject(reason) rejected
 
-Promise应该提供⼀个then⽅法, ⽤来访问最终的结果, ⽆论是value还是reason
+Promise应该提供⼀个then⽅法, ⽤来访问最终的结果, ⽆论是value还是reason<br>
 promise.then(onFulfilled, onRejected)
 
 then的返回值也是一个promise
 
 Promise构造函数接受一个函数作为参数,该函数的两个参数分别是resolve和reject。它们是两个函数
 
-resolve,reject函数的作用是，将Promise对象的状态从“未完成”变为“成功/失败”（即从 pending 变为 resolved/rejected），在(异步操作成功时调用，并将异步操作的结果)/(在异步操作失败时调用，并将异步操作报出的错误)，作为参数传递出去
+resolve,reject函数的作用是，将Promise对象的状态从“未完成”变为“成功/失败”（即从 pending 变为 resolved/rejected）<br>
+在(异步操作成功时调用，并将异步操作的结果)/(在异步操作失败时调用，并将异步操作报出的错误)，作为参数传递出去
 
 ```js
  let promise =new Promise((resolve,reject)=>{
