@@ -98,8 +98,10 @@ Formatting context(格式化上下文) <br>
 <img src="https://user-images.githubusercontent.com/45973908/113965727-81fc2580-9860-11eb-9eda-4b9bd6b44591.png" width="200"  alt="bfc"/>
 
 设置bfc效果
+
 <img src="https://user-images.githubusercontent.com/45973908/113965602-3f3a4d80-9860-11eb-97cf-89565380ad33.png" width="200"  alt="bfc"/>
-触发容器的 BFC，那么容器将会包裹着浮动元素,被浮动元素称开。
+
+触发容器的 BFC，那么容器将会包裹着浮动元素,被浮动元素撑开。
 
 ##### 三、BFC 可以阻止元素被浮动元素覆盖
 
@@ -115,7 +117,7 @@ Formatting context(格式化上下文) <br>
             background-color: #0099ff;
         }
         .bg{
-            overflow: hidden;
+            overflow: hidden; //设置overflow: hidden;前后的效果
             width: 200px;
             height: 200px;
             background-color: #aaaaaa;
@@ -129,8 +131,13 @@ Formatting context(格式化上下文) <br>
 </body>
 
 ```
+设置bfc前的效果
 
 <img src="https://user-images.githubusercontent.com/45973908/113965986-ed45f780-9860-11eb-9d56-a102e2ce213c.png" width="200"  alt="bfc"/>
+
+第二个div有部分被浮动元素所覆盖，(但是文本信息不会被浮动元素所覆盖) 如果想避免元素被覆盖，可触第二个div的 BFC 特性，在第二个元素中加入 overflow: hidden，就会变成：
+
+设置bfc效果
 
 <img src="https://user-images.githubusercontent.com/45973908/113966084-0babf300-9861-11eb-8dd9-3b2b63753675.png" width="200"  alt="bfc"/>
 
