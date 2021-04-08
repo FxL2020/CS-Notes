@@ -69,7 +69,30 @@ Formatting context(格式化上下文) <br>
 
 <img src="https://user-images.githubusercontent.com/45973908/113960657-5e80ad00-9857-11eb-8ef9-907054570b15.png" width="200"  alt="bfc"/>
 
+##### 二、BFC 可以包含浮动的元素（清除浮动）
 
+浮动的元素会脱离普通文档流
 
+```js
+<head>
+    <style>
+        .content{
+            overflow: hidden;  //设置overflow: hidden;前后的效果
+            border: solid 1px #0099ff;
+        }
+        .fl{
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: #42b983;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+   <div class="fl"></div>
+</div>
+</body>
+```
 
 
