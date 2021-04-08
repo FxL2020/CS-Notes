@@ -40,6 +40,36 @@ Formatting context(格式化上下文) <br>
 想要避免外边距的重叠，可以将其放在不同的BFC下
 
 
+```js
+<head>
+    <style>
+        p{
+            width: 100px;
+            height: 100px;
+            margin: 100px;
+            background-color: #0099ff;
+        }
+        .bfc{
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+<body>
+<div class="bfc">
+    <p></p>
+</div>
+<div class="bfc">
+    <p></p>
+</div>
+</body>
+```
+
+效果
+
+<img src="https://user-images.githubusercontent.com/45973908/113960657-5e80ad00-9857-11eb-8ef9-907054570b15.png" width="200"  alt="bfc"/>
+
+
 
 
 
