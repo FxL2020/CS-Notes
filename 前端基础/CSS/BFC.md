@@ -12,3 +12,7 @@ Formatting context(格式化上下文) <br>
 - 绝对定位元素：position (absolute、fixed)
 - display 为 inline-block、table-cells、flex
 - overflow 除了 visible 以外的值 (hidden、auto、scroll)
+
+#### BFC特性
+##### 一、同一个BFC下外边距会发生重叠
+
