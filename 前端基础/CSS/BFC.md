@@ -16,3 +16,20 @@ Formatting context(格式化上下文) <br>
 #### BFC特性
 ##### 一、同一个BFC下外边距会发生重叠
 
+```js
+<head>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            margin: 100px;
+            background-color: #0099ff;
+        }
+
+    </style>
+</head>
+<body>
+<div></div>
+<div></div>
+</body>
+```
