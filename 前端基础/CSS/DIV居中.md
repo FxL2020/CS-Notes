@@ -1,4 +1,3 @@
-
 ### div居中
 
 ### 一、使用flex
@@ -24,4 +23,93 @@
 <div class="content">
     <div class="cen">100px</div>
 </div>
+```
+效果:
+
+<img src="https://user-images.githubusercontent.com/45973908/113986404-ca770b80-987f-11eb-91e6-b73fc67a25d8.png" width="200"  alt="center"/>
+
+### 二、position(已知宽度)
+距上50%，据左50%，然后减去元素自身宽度的一半距离就可以实现
+```js
+<head>
+    <style>
+        .content{
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: #aaaaaa;
+        }
+        .cen{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            background-color: #0099ff;
+            margin: -50px 0 0 -50px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="cen"></div>
+</div>
+</body>
+```
+
+### 三、position transform （元素未知宽度）
+```js
+<head>
+    <style>
+        .content{
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: #aaaaaa;
+        }
+        .cen{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background-color: #0099ff;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="cen">center</div>
+</div>
+
+```
+
+### 四、position（元素已知宽度）（left，right，top，bottom为0，maigin：auto ）
+```js
+<head>
+    <style>
+        .content{
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: #aaaaaa;
+        }
+        .cen{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #0099ff;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="cen">center</div>
+</div>
+</body>
 ```
