@@ -94,5 +94,41 @@ Formatting context(格式化上下文) <br>
 </div>
 </body>
 ```
+设置bfc前的效果
+<img src="https://user-images.githubusercontent.com/45973908/113965727-81fc2580-9860-11eb-9eda-4b9bd6b44591.png" width="200"  alt="bfc"/>
 
+设置bfc效果
+<img src="https://user-images.githubusercontent.com/45973908/113965602-3f3a4d80-9860-11eb-97cf-89565380ad33.png" width="200"  alt="bfc"/>
+触发容器的 BFC，那么容器将会包裹着浮动元素,被浮动元素称开。
+
+##### 三、BFC 可以阻止元素被浮动元素覆盖
+
+```js
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .bf1{
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: #0099ff;
+        }
+        .bg{
+            overflow: hidden;
+            width: 200px;
+            height: 200px;
+            background-color: #aaaaaa;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="bf1">我是小的div我是小的div我是小的div我是小的div</div>
+<div class="bg">我是大的div我是大的div我是大的div我是大的div</div>
+</body>
+```js
+<img src="https://user-images.githubusercontent.com/45973908/113965986-ed45f780-9860-11eb-9d56-a102e2ce213c.png" width="200"  alt="bfc"/>
+
+<img src="https://user-images.githubusercontent.com/45973908/113966084-0babf300-9861-11eb-8dd9-3b2b63753675.png" width="200"  alt="bfc"/>
 
