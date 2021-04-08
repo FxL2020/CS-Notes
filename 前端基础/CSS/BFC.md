@@ -127,7 +127,9 @@ Formatting context(格式化上下文) <br>
 <div class="bf1">我是小的div我是小的div我是小的div我是小的div</div>
 <div class="bg">我是大的div我是大的div我是大的div我是大的div</div>
 </body>
-```js
+
+```
+
 <img src="https://user-images.githubusercontent.com/45973908/113965986-ed45f780-9860-11eb-9d56-a102e2ce213c.png" width="200"  alt="bfc"/>
 
 <img src="https://user-images.githubusercontent.com/45973908/113966084-0babf300-9861-11eb-8dd9-3b2b63753675.png" width="200"  alt="bfc"/>
