@@ -36,3 +36,10 @@ Formatting context(格式化上下文) <br>
 效果
 
 <img src="https://user-images.githubusercontent.com/45973908/113958569-e5cc2180-9853-11eb-9b76-cf73f34f30ca.png" width="200"  alt="BFC"/>
+
+想要避免外边距的重叠，可以将其放在不同的BFC下
+
+
+
+
+
