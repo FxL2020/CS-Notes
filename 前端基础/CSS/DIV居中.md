@@ -81,10 +81,11 @@
 <div class="content">
     <div class="cen">center</div>
 </div>
+
+```
 效果:
 
 <img src="https://user-images.githubusercontent.com/45973908/113993692-4cb6fe00-9887-11eb-8c87-1153a0cd5ec0.png" width="200"  alt="center"/>
-```
 
 ### 四、position（元素已知宽度）（left，right，top，bottom为0，maigin：auto ）
 ```js
@@ -144,5 +145,5 @@
 
 ```
 
-isplay：table-cell 会使元素表现的类似一个表格中的单元格td，利用这个特性可以实现文字的垂直居中效果。同时它也会破坏一些 CSS 属性，使用 table-cell 时最好不要与 float 以及 position: absolute 一起使用，设置了 table-cell 的元素对高度和宽度高度敏感，对margin值无反应，可以响 padding 的设置，表现几乎类似一个 td 元素。
+isplay：table-cell 会使元素表现的类似一个表格中的单元格td, table-cell 时不要与 float 以及 position: absolute 一起使用，设置了 table-cell 的元素对高度和宽度高度敏感，对margin值无反应，可以响 padding 的设置，表现几乎类似一个 td 元素。
 
