@@ -170,28 +170,9 @@ Promise.race()方法同样是将多个 Promise 实例，包装成一个新的 Pr
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### promise.all
 
- Promise.all可以将多个Promise实例包装成一个新的Promise实例。同时，成功和失败的返回值是不同的，  <br>
- 成功的时候返回的是一个结果数组，而失败的时候则返回最先被reject失败状态的值。  <br>
- 实现Promise.all 以及 race  <br>
+ 实现Promise.all 以及 race
    
  ```js
    let promiseAll=function (arr) {
@@ -224,7 +205,9 @@ Promise.race()方法同样是将多个 Promise 实例，包装成一个新的 Pr
 
         }))
     }
-    // promise.race();这么简单得益于promise的状态只能改变一次，即resolve和reject都只被能执行一次
+ ```
+   promise.race();这么简单得益于promise的状态只能改变一次，即resolve和reject都只被能执行一次
+ ```js
    let myRace = function (arr) {
        return new Promise((resolve, reject) => {
            for (let i = 0; i < arr.length; i++) {
