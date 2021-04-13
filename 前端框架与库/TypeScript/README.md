@@ -161,19 +161,116 @@ m=12;
 m='we'
 ```
 
+#### 泛型
+泛型是指在定义函数，接口或类的时候，不预先指定具体的类型，使用时再去指定类型的一种特性（返回值，参数，属性的类型）<br>
+可以把泛型理解为代表类型的参数<br>
+定义泛型函数
+```ts
+function test<T>(arg: T) {
+    return arg
+}
+```
+###### 使用泛型
+######方式一 直接使用
+```ts
+test(10)
+```
+使用时可以直接传递参数使用，类型会由TS自动推断出来，但有时编译器无法自动推断时还需要使用下面的方式<br>
+######方式二 指定类型
+```ts
+test<number>(10)
+```
 #### typeof
 typeof操作符可以用来获取一个变量声明或对象的类型
 ```ts
-let div = document.createElement('div');
-type B = typeof div
+function toArray(x:number):Array<number> {
+    return [x]
+}
+type f=typeof toArray
 ```
 
 #### keyof
 Keyof 操作符可以⽤来⼀个对象中的所有 key 值：
 ```ts
-interface User {
+interface u {
     name:string;
-    age:number;
+    age:number
 }
-type f=keyof User //"name" | "age"
+type k1=keyof u
+const k2:k1 ="name"
+```
+
+#### extends
+有时候我们定义的泛型不想过于灵活或者说想继承某些类等，可以通过 extends 关键字添加泛
+型约束
+```ts
+interface LengthWise {
+    length: number;
+}
+
+function identify<T extends LengthWise>(arg: T): T {
+    console.log(arg.length);
+    return arg;
+}
+
+identify({length:10,value:3})
+identify({length:4})
+```
+
+#### Paritial
+Partial<T> 的作用就是将某个类型里的属性全部变为可选项 ?
+```ts
+interface u {
+    name:string;
+    age:number
+}
+type p=Partial<u>
+const u1:p={
+    name:'we'
+}
+```
+#### Reuqired
+Required<T> 的作用就是将某个类型里的属性全部变为必选项。
+```ts
+interface u {
+    name?:string;
+    age?:number
+}
+type r=Required<u>
+const u1:r={
+    name:'we',
+    age:23
+}
+```
+#### Readonly 
+Readonly<T> 的作用是将某个类型所有属性变为只读属性，也就意味着这些属性不能被重新赋值。
+
+#### Record 
+Record<K extends keyof any, T> 的作用是将 K 中所有的属性的值转化为 T 类型。
+```ts
+interface PageInfo {
+  title: string;
+}
+type Page = "home" | "about" | "contact";
+
+const x: Record<Page, PageInfo> = {
+  about: { title: "about" },
+  contact: { title: "contact" },
+  home: { title: "home" }
+};
+```
+
+#### Exclude
+Exclude<T, U> 的作用是将某个类型中属于另一个的类型移除掉。
+
+```ts
+type T0 = Exclude<"a" | "b" | "c", "a">; // "b" | "c"
+type T1 = Exclude<"a" | "b" | "c", "a" | "b">; // "c"
+```
+
+#### Extract
+Extract<T, U> 的作用是从 T 中提取出 U。
+```ts
+type T0 = Extract<"a" | "b" | "c", "a" | "f">; // "a"
+type T1 = Extract<string | number | (() => void), Function>; // () => void
 ```
