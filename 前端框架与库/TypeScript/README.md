@@ -63,12 +63,12 @@ function error(message: string) {
     throw new Error(message)
 }
 ```
-- tuple
+- tuple 元组 固定长度数组 ts新增类型
 ```ts
 let n:[string,number]
 n=['12',3]
 ```
-- enum
+- enum枚举 ts新增类型
 ```ts
 enum Gender {
     Male ,
