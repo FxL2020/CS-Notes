@@ -21,15 +21,15 @@ let arr:Array<number> =[1,2,3]
 ```
 - object
 - any
-任意类型，会关闭ts类型检测
-声明变量如果不指定类型，则Ts解析器会自动判断变量类型为any(隐式)
-any类型的变量可以赋值给任意类型变量
+任意类型，会关闭ts类型检测    <br>
+声明变量如果不指定类型，则Ts解析器会自动判断变量类型为any(隐式)    <br>
+any类型的变量可以赋值给任意类型变量    <br>
 ```ts
 let d: any=4
 d='hello'
 ```
 - unknown
-类型安全的any
+类型安全的any    <br>
 unknown 表示未知类型的值,不能直接赋值给别人，需要先判断或断言
 ```ts
 let c;
