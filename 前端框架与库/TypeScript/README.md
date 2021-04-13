@@ -49,7 +49,7 @@ f=e as string
 f=<string>e
 ```
 - void 
-void 类型表示没有任何类型。 一般用于一个方法没有返回值的情况，方法没有返回值将得到 undefined
+void 类型表示没有任何类型。 一般用于一个方法没有返回值的情况，方法没有返回值将得到 undefined   <br>
 声明void的变量，只能赋值null,undefined
 ```ts
 //对函数参数，返回值进行类型限制
