@@ -86,4 +86,33 @@ i={
 let n: 1|2|3|4
 ```
 #### 定义类型
-interface type
+interface和type的异同 <br>
+重点：用interface描述数据结构，用type描述类型 <br>
+1.都可以描述一个对象或者一个函数 <br>
+```ts
+interface User1 {
+    name:string
+    age:number
+}
+interface setUser1 {
+    (name:string,age:number): void
+}
+type User2={
+    name:string
+    age:number
+}
+type setUser2 ={
+    (name:string,age:number):void
+}
+```
+2.都允许扩展(extends)
+interface和type都可以扩展，并且两者并不是相互独立的
+
+
+#### 联合类型 |
+取值可以是多种类型中的一种
+```ts
+let m: string | number
+m=12;
+m='we'
+```
