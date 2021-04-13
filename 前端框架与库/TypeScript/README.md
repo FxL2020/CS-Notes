@@ -160,3 +160,20 @@ let m: string | number
 m=12;
 m='we'
 ```
+
+#### typeof
+typeof操作符可以用来获取一个变量声明或对象的类型
+```ts
+let div = document.createElement('div');
+type B = typeof div
+```
+
+#### keyof
+Keyof 操作符可以⽤来⼀个对象中的所有 key 值：
+```ts
+interface User {
+    name:string;
+    age:number;
+}
+type f=keyof User //"name" | "age"
+```
