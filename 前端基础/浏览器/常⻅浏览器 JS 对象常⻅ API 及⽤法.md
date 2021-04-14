@@ -43,9 +43,6 @@ window.addEventListener("click",()=>{},false)
 false: 在冒泡阶段进行    <br>
 true: 在捕获阶段执行    <br>
 
-
-
-
 实例：<br>
 <img src="https://user-images.githubusercontent.com/45973908/114686270-34425a00-9d45-11eb-95eb-769737207b23.png" width="225"  alt="知识"/>
 
@@ -110,6 +107,17 @@ true: 在捕获阶段执行    <br>
         console.log('son冒泡'+e.target.nodeName+e.currentTarget.nodeName)
     },false)
 </script>
+
+控制台打印结果：
+
+      window捕获 SPA Nundefined
+      parent捕获 SPAN DIV
+      child捕获 SPAN P
+      son捕获 SPAN SPAN
+      son冒泡 SPAN SPAN
+      child冒泡 SPAN P
+      parent冒泡 SPAN DIV
+      window冒泡 SPAN undefined
 ```
 
 #### 三、 阻止事件传播
