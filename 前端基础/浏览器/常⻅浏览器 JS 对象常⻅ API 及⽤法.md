@@ -48,8 +48,9 @@ true: 在捕获阶段执行    <br>
 
 实例：<br>
 <img src="https://user-images.githubusercontent.com/45973908/114686270-34425a00-9d45-11eb-95eb-769737207b23.png" width="225"  alt="知识"/>
+
 点击页面中son模块经历过程：
-从顶层window开始捕获，->parent->child->到达son也即目标（目标阶段）开始向上冒泡
+从顶层window开始捕获，->parent->child->到达son也即目标（目标阶段）开始向上冒泡->child->parent->window
 ```ts
 <body>
 <div id="parent">
