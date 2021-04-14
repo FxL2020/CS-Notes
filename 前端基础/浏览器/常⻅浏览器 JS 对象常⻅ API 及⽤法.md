@@ -48,6 +48,9 @@ true: 在捕获阶段执行    <br>
 
 点击页面中son模块经历过程：
 从顶层window开始捕获，->parent->child->到达son也即目标（目标阶段）开始向上冒泡->child->parent->window
+
+代码实现如下：
+
 ```ts
 <body>
 <div id="parent">
