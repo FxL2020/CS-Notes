@@ -27,3 +27,88 @@ setInterval(()=>{
      
 4. screen 对象：⽤来表⽰浏览器窗⼝外部的显⽰器的信息等    <br>
 5. history 对象：保存⽤⼾上⽹的历史信息
+
+
+
+
+#### ⼆、详解浏览器事件捕获，冒泡
+浏览器事件模型中的过程主要分为三个阶段：捕获阶段、⽬标阶段、冒泡阶段。
+<img src="https://user-images.githubusercontent.com/45973908/114682642-db24f700-9d41-11eb-94ce-f66c2ac9553f.jpg" width="300"  alt="知识"/>
+```ts
+window.addEventListener("click",()=>{},false)
+```
+第三个参数：    <br>
+false: 在冒泡阶段进行    <br>
+true: 在捕获阶段执行    <br>
+
+```ts
+<body>
+<div id="parent">
+    <p id="child">
+        <span id="son">
+            点我<a></a>
+        </span>
+    </p>
+</div>
+<script>
+    const parent=document.getElementById('parent');
+    const child=document.getElementById('child');
+    const son=document.getElementById('son');
+     /*
+     * 场景：
+     * 如果现在有一个历史页面，页面上有巨多的按钮，其他元素，都绑定了自己的click事件
+     * user banned->true alert("你被封禁"),阻止原有的click事件触发
+     * false 不做任何处理
+     *
+     * 方案
+     * 1，进入页面的时候,banned,写一个全屏的透明元素，z-index:10000
+     * 2，最外层的元素 或者window上，绑定事件，做事件流的拦截
+     * */
+     const banned=true
+    window.addEventListener("click",function (e) {
+        console.log('window捕获'+e.target.nodeName+e.currentTarget.nodeName)
+    },true)
+    parent.addEventListener("click",function (e) {
+        if (banned){
+            e.stopPropagation();
+            window.alert("你被封禁了")
+            return;
+        }
+        console.log('parent捕获'+e.target.nodeName+e.currentTarget.nodeName)
+    },true)
+    child.addEventListener("click",function (e) {
+        console.log('child捕获'+e.target.nodeName+e.currentTarget.nodeName)
+    },true)
+    son.addEventListener("click",function (e) {
+        console.log('son捕获'+e.target.nodeName+e.currentTarget.nodeName)
+    },true)
+
+    //e.target: 指当前点击的元素
+    //e.currentTarget: 指绑定监听事件的元素
+
+    window.addEventListener("click",function (e) {
+        e.stopPropagation()
+        console.log('window冒泡'+e.target.nodeName+e.currentTarget.nodeName)
+    },false)
+    parent.addEventListener("click",function (e) {
+        console.log('parent冒泡'+e.target.nodeName+e.currentTarget.nodeName)
+    },false)
+    child.addEventListener("click",function (e) {
+        console.log('child冒泡'+e.target.nodeName+e.currentTarget.nodeName)
+    },false)
+    son.addEventListener("click",function (e) {
+        console.log('son冒泡'+e.target.nodeName+e.currentTarget.nodeName)
+    },false)
+</script>
+```
+
+#### 三、 阻止事件传播
+stopPropagation：阻止事件的传播  <br>
+终止事件在传播过程的捕获、目标处理或起泡阶段进一步传播
+
+#### 阻止默认行为
+preventDefault  <br>
+比如a标签跳转 <br>
+点击表单的提交按钮
+
+#### 兼容性
