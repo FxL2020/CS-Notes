@@ -1,7 +1,5 @@
 ### 常⻅浏览器 JS 对象常⻅ API 及⽤法
 
-### 常见浏览器 JS对象 常见API以及用法
-
 #### 什么是浏览器对象模型
 DOM: Document   <br>
 BOM: Browser Object Model（浏览器对象模型）,浏览器模型提供了独⽴于内容的、可以与浏览器
