@@ -32,8 +32,10 @@ setInterval(()=>{
 
 
 #### ⼆、详解浏览器事件捕获，冒泡
-浏览器事件模型中的过程主要分为三个阶段：捕获阶段、⽬标阶段、冒泡阶段。
+浏览器事件模型中的过程主要分为三个阶段：捕获阶段、⽬标阶段、冒泡阶段。<br>
+如图<br>
 <img src="https://user-images.githubusercontent.com/45973908/114682642-db24f700-9d41-11eb-94ce-f66c2ac9553f.jpg" width="300"  alt="知识"/>
+
 ```ts
 window.addEventListener("click",()=>{},false)
 ```
