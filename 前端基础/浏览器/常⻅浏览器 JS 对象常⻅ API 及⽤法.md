@@ -71,7 +71,7 @@ true: 在捕获阶段执行    <br>
      * 1，进入页面的时候,banned,写一个全屏的透明元素，z-index:10000
      * 2，最外层的元素 或者window上，绑定事件，做事件流的拦截
      * */
-     const banned=true
+     const banned=false
     window.addEventListener("click",function (e) {
         console.log('window捕获'+e.target.nodeName+e.currentTarget.nodeName)
     },true)
