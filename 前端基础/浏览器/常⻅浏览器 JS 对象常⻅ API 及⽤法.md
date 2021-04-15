@@ -123,7 +123,7 @@ true: 在捕获阶段执行    <br>
       window冒泡 SPAN undefined
 ```
 
-#### 三、 阻止事件传播
+#### 阻止事件传播
 stopPropagation：阻止事件的传播  <br>
 终止事件在传播过程的捕获、目标处理或起泡阶段进一步传播
 
@@ -170,13 +170,13 @@ xhr.send();
 ```
 
 ##### fetch
-node-fetch
-fetch特点：
-1.默认不带cookie，要想自动发送cookie，加上credentials   <br>
+常用： node-fetch   <br>
+fetch特点：   <br>
+##### 1.默认不带cookie，要想自动发送cookie，加上credentials   <br>
 同域：                credentials: "same-origin"   <br>
 对于CORS请求：credentials: "include"   <br>
 
-2.错误不会reject，HTTP错误比如404，500不会导致fetch返回的promise标记为reject.catch()也不会被执行<br>
+##### 2.错误不会reject，HTTP错误比如404，500不会导致fetch返回的promise标记为reject.catch()也不会被执行<br>
 想要精确的判断 fetch是否成功，需要包含 promise resolved 的情况，此时再判断 response.ok是不是为 true
 
 ```ts
@@ -195,9 +195,10 @@ fetch(
     .then(json => console.log(json))
     .catch(error => console.error('error:', error));
 ```
-3.不支持超时
- 不支持直接设置超时, 可以用promise
+##### 3.不支持超时
+ 不支持直接设置超时, 可以用promise<br>
 promise中fetch()和setTimeout同时执行，谁先执行完就用谁的状态
+```ts
 function fetchTimeout(url, init, timeout = 3000) {
     return new Promise((resolve, reject) => {
       //1s 不超时的情况，fetch ->resolve/reject
@@ -208,6 +209,7 @@ function fetchTimeout(url, init, timeout = 3000) {
         setTimeout(reject, timeout);
     })
 }
+```
 4.中止 fetch
 ```ts
 const controller = new AbortController();
