@@ -134,7 +134,7 @@ preventDefault  <br>
 
 #### 兼容性
 
-### 三、ajax 及 fetch API 详解
+### 三、浏览器请求有关 ajax 及 fetch API 详解
 ##### ajax
 1.new一个XMLHttpRequest对象    <br>
 2.使用open方法创建一个新的http请求，并指定此请求的方法，url    <br>
