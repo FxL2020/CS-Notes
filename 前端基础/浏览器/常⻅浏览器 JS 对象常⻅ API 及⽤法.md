@@ -210,7 +210,7 @@ function fetchTimeout(url, init, timeout = 3000) {
     })
 }
 ```
-4.中止 fetch
+##### 4.中止 fetch
 ```ts
 const controller = new AbortController();
 
