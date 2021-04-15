@@ -133,3 +133,94 @@ preventDefault  <br>
 点击表单的提交按钮
 
 #### 兼容性
+
+#### ajax 及 fetch API 详解
+##### ajax
+1.new一个XMLHttpRequest对象    <br>
+2.使用open方法创建一个新的http请求，并指定此请求的方法，url    <br>
+3.给onreadystatechange属性设置一个回调函数,当readyState==4时(代表完成请求)    <br>
+status等于200,请求成功，得到返回值内容    <br>
+status不等于200，得到返回状态以及状态信息    <br>
+4使用send方法发送请求    <br>
+
+代码:
+
+```ts
+let xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://domain/service');
+
+// request state change event
+xhr.onreadystatechange = function () {
+   
+    if (xhr.readyState !== 4) return;//4代表完成了
+
+    if (xhr.status === 200) {
+        // request successful - show response
+        console.log(xhr.responseText);
+    } else {
+        // request error
+        console.log('HTTP error', xhr.status, xhr.statusText);
+    }
+};
+
+// xhr.timeout = 3000; // 3 seconds
+// xhr.ontimeout = () => console.log('timeout', xhr.responseURL);
+
+xhr.send();
+```
+
+##### fetch
+node-fetch
+fetch特点：
+1.默认不带cookie，要想自动发送cookie，加上credentials   <br>
+同域：                credentials: "same-origin"   <br>
+对于CORS请求：credentials: "include"   <br>
+
+2.错误不会reject，HTTP错误比如404，500不会导致fetch返回的promise标记为reject.catch()也不会被执行<br>
+想要精确的判断 fetch是否成功，需要包含 promise resolved 的情况，此时再判断 response.ok是不是为 true
+
+```ts
+fetch(
+        'http://domain/service', {
+            method: 'GET',
+           credentials: "same-origin"
+        }
+    )
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+        throw new Error('Network response was not ok.');
+    })
+    .then(json => console.log(json))
+    .catch(error => console.error('error:', error));
+```
+3.不支持超时
+ 不支持直接设置超时, 可以用promise
+promise中fetch()和setTimeout同时执行，谁先执行完就用谁的状态
+function fetchTimeout(url, init, timeout = 3000) {
+    return new Promise((resolve, reject) => {
+      //1s 不超时的情况，fetch ->resolve/reject
+      //3s 超时reject
+        fetch(url, init)
+            .then(resolve)
+            .catch(reject);
+        setTimeout(reject, timeout);
+    })
+}
+4.中止 fetch
+```ts
+const controller = new AbortController();
+
+fetch(
+        'http://domain/service', {
+            method: 'GET',
+            signal: controller.signal
+        })
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(error => console.error('Error:', error));
+
+controller.abort();
+
+```
