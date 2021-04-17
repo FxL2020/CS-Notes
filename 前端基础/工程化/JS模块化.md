@@ -28,8 +28,8 @@
 #### 模块化规范
 
 ##### 重点--模块化AMD/CMD/CommonJS之间的区别
-CommonJs: 运行时同步加载
-AMD: 异步加载，预先加载
+CommonJs: 运行时同步加载    <br>
+AMD: 异步加载，预先加载    <br>
 CMD: 异步加载，延迟加载(按需加载)
 
 #### AMD和RequireJS
@@ -50,9 +50,9 @@ require('moduleA', (moduleA) => {
 ```
 AMD会在初始化的时候就定义好他需要的规范dep1与dep2，并且进行依赖加载。它的执行顺序是：
 
-dep1和dep2加载
-moduleA加载
-console.log(moduleA.dep1)
+dep1和dep2加载    <br>
+moduleA加载    <br>
+console.log(moduleA.dep1)    <br>
 
 但是AMD这种方式会有一个弊端：虽然当模块声明了两个依赖（dep1和dep2），但是只使用了其中一个（dep1）时，另一个模块dep2也会加载。于是，一种按需加载的方式出现了，它就是CMD
 
@@ -89,8 +89,8 @@ node.js采用了此规范。一个文件便是一个模块。使用全局方法r
    console.log(horzon.a)
    console.log(horzon.mul)
 ```
-之前在对比三者的区别时有提到过，CommonJS是同步加载的，所以需要加载完成后才能执行后续操作，
-所以比较适合服务器端。对于浏览器端而言，如果同步加载，
+之前在对比三者的区别时有提到过，CommonJS是同步加载的，所以需要加载完成后才能执行后续操作，    <br>
+所以比较适合服务器端。对于浏览器端而言，如果同步加载，    <br>
 网络太差的情况下会产生页面“假死”现象。因此，只能选用异步加载。
 
 
