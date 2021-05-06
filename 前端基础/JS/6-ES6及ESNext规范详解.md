@@ -480,6 +480,11 @@ console.log(object1.p1);
 
 讲到了defineProperty, 那么肯定离不开Proxy.
 
+
+#### Proxy
+
+Proxy 是 ES6 中新增的功能，它可以用来自定义对象中的操作。 Vue3.0 中将会通过 Proxy 来替换原本的 Object.defineProperty 来实现数据响应式。
+
 ```js
 // const obj = {};
 // let val = undefined;
@@ -513,7 +518,13 @@ obj.something = 1;
 console.log(obj.something);
 ```
 
-Reflect又是个什么东西?
+自定义 set 和 get 函数的方式，在原本的逻辑中插入了我们的函数逻辑，实现了在对对象任何属性进行读写时发出通知。
+
+当然这是简单版的响应式实现，如果需要实现一个 Vue 中的响应式，需要我们在 get 中收集依赖，在 set 派发更新，
+之所以 Vue3.0 要使用 Proxy 替换原本的 API 原因在于 Proxy 无需一层层递归为每个属性添加代理，一次即可完成以上操作，性能上更好，并且原本的实现有一些数据更新不能监听到，
+但是 Proxy 可以完美监听到任何方式的数据改变，唯一缺陷可能就是浏览器的兼容性不好了。
+
+#### Reflect又是个什么东西?
 
 * 将Object对象的一些明显属于语言内部的方法（比如Object.defineProperty），放到Reflect对象上。现阶段，某些方法同时在Object和Reflect对象上部署，未来的新方法将只部署在Reflect对象上。也就是说，从Reflect对象上可以拿到语言内部的方法
 * 让Object操作都变成函数行为。某些Object操作是命令式，比如name in obj和delete obj[name]（将命令式转为函数行为），
