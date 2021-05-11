@@ -87,10 +87,14 @@ location.hash = '#bbb';
 
 2. html 标签的方式
 
+
+```js
 <a href="#user"> 点击跳转到 user </a>
 
 location.hash = '#user';
 
+
+```
 ## History
 
 hash 有个#符号，不美观，服务端无法接受到 hash 路径和参数
@@ -98,23 +102,23 @@ hash 有个#符号，不美观，服务端无法接受到 hash 路径和参数
 html5 history
 
 ```js
-window.history.back(); // 后退
-window.history.forward(); // 前进
-window.history.go(-3); // 接收number参数，后退三个页面
-window.history.pushState(null, null, path); //push一个记录  页面的浏览记录里面会添加一个历史记录
-window.history.replaceState(null, null, path); //替换掉当前的历史记录
+window.history.back(); // 后退  <br>
+window.history.forward(); // 前进 <br>
+window.history.go(-3); // 接收number参数，后退三个页面 <br>
+window.history.pushState(null, null, path); //push一个记录  页面的浏览记录里面会添加一个历史记录 <br>
+window.history.replaceState(null, null, path); //替换掉当前的历史记录 <br>
 
 history api不会刷新页面
 ```
 
 ### pushState/replaceState 的参数
 
-1. state, 是一个对象，是一个与指定网址相关的对象，当 popstate 事件触发的时候，该对象会传入回调函数
-2. title, 新页面的标题，浏览器支持不一，null
-3. url, 页面的新地址
+1. state, 是一个对象，是一个与指定网址相关的对象，当 popstate 事件触发的时候，该对象会传入回调函数  <br>
+2. title, 新页面的标题，浏览器支持不一，null  <br>
+3. url, 页面的新地址  <br>
 
-pushState, 页面的浏览记录里添加一个历史记录
-replaceState, 替换当前历史记录
+pushState, 页面的浏览记录里添加一个历史记录  <br>
+replaceState, 替换当前历史记录  <br>
 
 ### History 的特性
 
@@ -122,14 +126,14 @@ replaceState, 替换当前历史记录
 pushState 时，会触发 popstate 吗？
 
 1. 不会#
-2. pushState/replaceState 并不会触发 popstate 事件， 这时我们需要手动触发页面的重新渲染。
-3. 我们可以使用 popstate 来监听 url 的变化
-4. popstate 到底什么时候才能触发。
-   4.1 点击浏览器后退按钮
-   4.2 点击浏览器前进按钮
-   4.3 js 调用 back 方法
-   4.4 js 调用 forward 方法
-   4.5 js 调用 go 方法
+2. pushState/replaceState 并不会触发 popstate 事件， 这时我们需要手动触发页面的重新渲染。  <br>
+3. 我们可以使用 popstate 来监听 url 的变化  <br>
+4. popstate 到底什么时候才能触发。  <br>
+   4.1 点击浏览器后退按钮  <br>
+   4.2 点击浏览器前进按钮  <br>
+   4.3 js 调用 back 方法  <br>
+   4.4 js 调用 forward 方法  <br>
+   4.5 js 调用 go 方法  <br>
 
 
 ### Nginx配置
