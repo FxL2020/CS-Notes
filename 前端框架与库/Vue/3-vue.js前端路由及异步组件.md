@@ -28,7 +28,7 @@
 1. 页面中的交互是不刷新的页面的，比如/home -> /about ,比如点击按钮，比如点击出现一个弹窗
 2.加载过的公共资源，无需再重复加载。除了首页之外的其他页面，都通过异步组件的方式注册
 
-支撑起单页应用这种特性的是什么？
+支撑起单页应用这种特性的是什么？前端路由
 
 
 ### 多页
@@ -54,6 +54,9 @@ Hash 和 History
 2. hash 的#部分内容不会给服务端， history 的所有url内容都会给服务端
 3. history路由，应用在部署的时候，需要注意html文件的访问
 4. hash 通过 hashchange 监听变化，history 通过 popstate 监听变化
+5. 
+⽐如https://www.baidu.com/#/hash1, 改变#后⾯的内容并不会导致⻚⾯刷新，⽽且会触发
+hashchange 事件。
 
 ## Hash
 
@@ -89,7 +92,8 @@ location.hash = '#bbb';
 
 
 ```js
-<a href="#user"> 点击跳转到 user </a>
+<a href="#user"> 点击跳转到 user </a>  当⽤⼾点击 a 标签的时候，Url 中的 hash 就会改变为 href 属性
+值。
 
 location.hash = '#user';
 
@@ -162,4 +166,137 @@ location /main/  {
      rewrite ^ /file/index.html break
      proxy_pass https://www.xiao-cdn.com
 }
+```
+
+## VUE-ROUTER
+
+添加 Vue Router，将组件(components)映射到路由(routes)，,然后告诉VueRouter在哪渲染他们
+
+```js
+//路由匹配到的组件将渲染到这里
+<div id="app">
+<router-view />
+</div>
+
+//如果使用模块化编程，导入Vue和VueRouter，要调用Vue.use(VueRouter)
+
+1.定义(路由)组件
+2.定义路由
+const routes = [
+ {
+        path: '/ReturnManage',
+        name: 'ReturnManage',
+        component: ReturnManage,
+        meta: {
+          title: '退款管理'
+        }
+      },
+]
+
+3.创建router实例，传入'routes'配置
+const router =new VueRouter({
+     routes
+})
+
+4.创建和挂载实例
+new Vue({
+  router,
+  render: h => h(App)
+}).$mount("#app");
+
+
+```
+
+### 动态路由匹配
+
+```js
+const routes = [
+ {
+       //动态路由参数，由冒号开头
+        path: '/ReturnManage/:id',
+        name: 'ReturnManage',
+        component: ReturnManage,
+        meta: {
+          title: '退款管理'
+        }
+      },
+]
+
+const User = {
+template:'<div>{{$route.params.id}}<div>'
+}
+
+```
+
+### 嵌套路由
+
+```js
+const routes = [
+ {
+       //动态路由参数，由冒号开头
+        path: '/ReturnManage/:id',
+        name: 'ReturnManage',
+        component: ReturnManage,
+       children:[
+       {
+       //当/User/id/About匹配成功
+       //About会被渲染再User的<router-view>中
+         path: '/About',
+        name: 'About',
+        component: About,
+       }
+       ，{
+       ...
+       }
+       ]
+      },
+]
+
+const User = {
+template:'<div>{{$route.params.id}}<div>'
+}
+
+```
+
+### 命名路由
+
+通过一个名称来标识一个路由更方便，特别再连接一个路由，或者执行跳转的时候。
+
+```js
+const routes = [
+ {
+       //动态路由参数，由冒号开头
+        path: '/ReturnManage/:id',
+        name: 'ReturnManage',
+        component: ReturnManage,
+     
+      }
+]
+router.push({name: 'ReturnManage',params: {id:1}})
+```
+
+##导航守卫
+
+```js
+// 跳转导航之前处理
+router.beforeEach((to, from, next) => {
+  /*路由发生改变修改页面的title */
+  if(to.meta.title) {
+    document.title = to.meta.title
+  }
+
+  /*localStorage清空配置*/
+  for(let name in routerToClear){
+    if(routerToClear.hasOwnProperty(name) && routerToClear[name] === to.name){
+      for(let key in StorageConst.LOCAL_PAGE_LIST){
+        localStorage.setItem(StorageConst.LOCAL_PAGE_LIST[key], "");
+      }
+      break;
+    }
+  }
+
+  next(); //进入下一个导航
+})
+router.afterEach((to, from, next) => {...}  //// 跳转导航之后处理
+
 ```
