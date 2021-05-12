@@ -275,7 +275,7 @@ const routes = [
 router.push({name: 'ReturnManage',params: {id:1}})
 ```
 
-##导航守卫
+## 导航守卫
 
 vue-router提供的导航守卫主要用来通过跳转或取消的方式守卫导航，有多种机会植入路由导航过程中：全局的，单个路由独享的，或者组件的
 
@@ -317,5 +317,19 @@ const routes = [
      
       }
 ]
+
+
+//组件内
+const Foo={
+template: '...',
+beforeRouterEnter(to,from,next){
+
+
+
+}
+
+}
+
+
 
 ```
