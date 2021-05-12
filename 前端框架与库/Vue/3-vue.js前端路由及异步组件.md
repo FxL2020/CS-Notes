@@ -277,8 +277,12 @@ router.push({name: 'ReturnManage',params: {id:1}})
 
 ##导航守卫
 
+vue-router提供的导航守卫主要用来通过跳转或取消的方式守卫导航，有多种机会植入路由导航过程中：全局的，单个路由独享的，或者组件的
+
 ```js
-// 跳转路由之前处理
+//全局的
+router.afterEach((to, from, next) => {...}  //// 跳转路由之后处理
+// 跳转路由之前处理 
 router.beforeEach((to, from, next) => {
   /*路由发生改变修改页面的title */
   if(to.meta.title) {
@@ -297,6 +301,21 @@ router.beforeEach((to, from, next) => {
 
   next(); //进入下一个导航
 })
-router.afterEach((to, from, next) => {...}  //// 跳转路由之后处理
+
+
+
+//路由独享
+const routes = [
+ {
+       //动态路由参数，由冒号开头
+        path: '/ReturnManage/:id',
+        name: 'ReturnManage',
+        component: ReturnManage,
+        beforeEnter: (to,from,next)=>{
+        ...
+        }
+     
+      }
+]
 
 ```
