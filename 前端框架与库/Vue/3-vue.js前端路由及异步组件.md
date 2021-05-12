@@ -144,9 +144,9 @@ pushState 时，会触发 popstate 吗？
 
 1. index.html存在服务器本地
  访问www.xiao.com/a/
- 访问www.xiao.com/a/
+ 访问www.xiao.com/b/
 
- 访问main会去访问，当前这个目录下index.html文件
+ 访问网址会访问，当前这个目录下index.html文件
 ```nginx
 location / {
      try_files $uri $uri/ /home/dist/index.html
@@ -278,7 +278,7 @@ router.push({name: 'ReturnManage',params: {id:1}})
 ##导航守卫
 
 ```js
-// 跳转导航之前处理
+// 跳转路由之前处理
 router.beforeEach((to, from, next) => {
   /*路由发生改变修改页面的title */
   if(to.meta.title) {
@@ -297,6 +297,6 @@ router.beforeEach((to, from, next) => {
 
   next(); //进入下一个导航
 })
-router.afterEach((to, from, next) => {...}  //// 跳转导航之后处理
+router.afterEach((to, from, next) => {...}  //// 跳转路由之后处理
 
 ```
