@@ -67,6 +67,7 @@ webpack是基于node，他只能识别js, json，less文件不能识别；
 loader执行顺序：
 倒叙执行loader
 
+```js
  rules: [{
       test: /\.less$/,
       use: [
@@ -79,9 +80,13 @@ loader执行顺序：
   resolveLoader: {
     modules: [path.resolve(__dirname, '../loader'), 'node_modules']
   },
+```
+
 
 less-loader
 
+
+```js
 const less = require('less');
 
 // instance -> bind(webpackResource)
@@ -95,7 +100,7 @@ module.exports = function loader(source) {
     callback(null, css, map);
   })
 }
-
+```
 
 插件
 
@@ -123,6 +128,8 @@ compiler.hooks -> 一个对象，上边挂载了一堆钩子
 .tap 同步执行
 .tapAsync  异步执行
 .tapPromise Promise方式执行
+
+```js
 
  plugins: [
     new UnusedWebpackPlugin({
@@ -177,7 +184,7 @@ module.exports = class GzipPlugin {
     })
   }
 }
-
+```
 Tree shaking
 sideEffects
 
@@ -195,23 +202,29 @@ webpack打包结果
 
 chunk
 
+```js
+
 require.ensure(['./modile'],function(require){
      const result = require('./module');
      console.log(resule);
 })
+
+```
 
 import('/module') impore函数 懒加载
 
 异步加载会被分割打包，由主bundle获取的分包叫chunk
 
 分割公用的
+
+```js
 optimization: {
     splitChunks: {
        chunks: 'asyc'/'all'
        minSize: 0
 }
 }
-
+```
 
 
 
