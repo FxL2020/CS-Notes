@@ -215,7 +215,7 @@ import('/module') impore函数 懒加载
 
 异步加载会被分割打包，由主bundle获取的分包叫chunk
 
-分割公用的
+你设置 mode 是 production，那么 webpack 4 就会自动开启 Code Splitting，可以完成将某些公共模块去重，打包成一个单独的chunk。
 
 ```js
 optimization: {
