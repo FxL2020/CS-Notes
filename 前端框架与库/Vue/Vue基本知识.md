@@ -922,6 +922,13 @@ Vuex的store中的state是响应式的, 当state中的数据发生改变时, Vue
 方式一: 使用Vue.set(obj, 'newProp', 123)           <br>
 方式二: 用心对象给旧对象重新赋值           <br>
 
+	
+ ```js
+state.info['name']='xiaom'  //不是响应式
+
+
+ ```
+
 mutation类型常量
 
 Vuex要求我们Mutation中的方法必须是同步方法.          <br>
