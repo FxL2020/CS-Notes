@@ -922,10 +922,14 @@ Vuex的store中的state是响应式的, 当state中的数据发生改变时, Vue
 方式一: 使用Vue.set(obj, 'newProp', 123)           <br>
 方式二: 用心对象给旧对象重新赋值           <br>
 
+通过索引值修改数组值不是响应式
 	
- ```js
-state.info['name']='xiaom'  //不是响应式
+pop push splice是响应式
 
+
+ ```js
+state.arr[0]=12
+state.info['name']='xiaom'  //不是响应式
 
  ```
 
