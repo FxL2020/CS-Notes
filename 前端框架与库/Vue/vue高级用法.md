@@ -148,7 +148,10 @@ mixins: [myMixin]
 ```
 
 ## 2.4 插槽作用域
+
 * 组件内部将数据传给插槽(比如，el-table组件中的自定义模板，https://element.eleme.cn/#/zh-CN/component/table#zi-ding-yi-lie-mo-ban)
+
+通过v-bind
 
 ### 2.4.2 具名插槽作用域
 ```
