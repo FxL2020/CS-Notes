@@ -977,7 +977,7 @@ this.$store.dispatch('update')
   ```js
   
 modules: {
-modules1:{
+a:{
 state
 getters
 ..
