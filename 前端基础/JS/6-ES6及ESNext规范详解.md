@@ -758,6 +758,14 @@ function PromiseAllSettled(promiseArray) {
 
 ```
 
+1、Promise.allSettled() 方法接受一组 Promise 实例作为参数，返回一个新的 Promise 实例   <br>
+2、只有等到所有这些参数实例都返回结果，不管是 fulfilled 状态 还是 rejected 状态，包装实例才会结束   <br>
+3、返回的新 Promise 实例，一旦结束，状态总是 fulfilled，不会变成 rejected   <br>
+4、新的 Promise 实例给监听函数传递一个数组 results 。该数组的每个成员都是一个对象，对应传入 Promise.allSettled 的 Promise 实例。   <br>
+每个对象都有 status 属性，对应着 fulfilled 和 rejected 。fulfilled 时，对象有 value 属性，rejected 时，有 reason 属性，对应着两种状态的返回值。   <br>
+5、有时候我们不关心异步操作的结果，只关心这些操作有没有结束时，这个方法会比较有用。   <br>
+
+
 #### 数组
 
 1. Array.flat
