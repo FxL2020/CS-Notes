@@ -1,4 +1,10 @@
 ### Flex
+
+学习地址：
+
+https://www.cnblogs.com/echolun/p/11299460.html
+
+
 移动端使用广泛，pc端浏览器端支持较差<br>
 flexible弹性布局：用来为盒状模型提供最大的灵活性，任何一个容器都能指定为flex布局<br>
 为父盒子模型设置为flex布局后，子元素的float,clear和vertical-align属性都将失效<br>
@@ -29,6 +35,7 @@ justify-content: 设置主轴上的子元素排列方式<br>
 flex-start：默认从左到右排序，左对齐<br>
 flex-end：右对齐<br>
 center：居中对齐<br>
+
 space-around：平分剩余空间<br>
 space-between：先两边贴边，然后平分剩余空间<br>
 <br>
